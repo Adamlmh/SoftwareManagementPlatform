@@ -11,6 +11,7 @@
     background-size: cover;
     background-position: center;
 }
+/* 第一页头部 */
 .firstpage_head{
     width: 80%;
     height: 20%;
@@ -21,6 +22,7 @@
     justify-content: end;
     letter-spacing: 2px;
 }
+/* 第一页中间 */
 .firstpage_middle{
     width: 80%;
     /* height: 40%; */
@@ -32,6 +34,7 @@
         letter-spacing: 2px;
     /* background-color: #000; */
 }
+/* 第一页底部 */
 .firstpage_bottom {
     width: 80%;
     /* height: 20%; */
@@ -41,18 +44,23 @@
     align-items: start;
     letter-spacing: 2px;
 }
+
+
+/* 第一页头部文字 */
 .firstpage_head h3{
 /* font-size: 36px; */
     font-size: 2.25vw;
     color: #fff;
     margin-top: 10px;
 }
+/* 第一页中间文字 */
 .firstpage_middle h3 {
     /* font-size: 36px; */
     font-size: 2.25vw;
     color: #fff;
     margin-top: 20px;
 }
+/* 第一页底部三盒子 */
 .firstpage_bottom_left{
     flex-grow: 1;
     display: flex;
