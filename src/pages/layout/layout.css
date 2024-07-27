@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+/* 头部 */
 .top_head{
     position: fixed;
     width: 100%;
@@ -11,7 +12,7 @@
     align-items: center;
     justify-content: center;
     min-width: 830px;
-
+z-index: 100;
 }
 /* 顶部四个大盒子 */
 .top_title{
@@ -31,6 +32,7 @@
     height: 100%;
     flex-grow: 2;
     display: flex;
+    border: 0;
 }
 .top_search{
     /* background-color: #fff; */
@@ -45,6 +47,7 @@
     height: 100%;
     flex-grow: 2;
     display: flex;
+    margin-left: 20px;
     align-items: center;
 }
 /* 顶部第一部分 */
@@ -61,8 +64,9 @@
     align-items: center;
     justify-content: start;
     min-width: 0;
+    padding: 0 !important;
     flex:1;
-    
+    border:0 !important;
 }
 .top_menu_item{
     width: 80px !important;
@@ -160,4 +164,11 @@ border: 2px solid #786192 !important;
         border: 2px solid #25dac4 !important;
     color: #fff !important;
     /* 扩散效果为 2px，红色的阴影 */
+}
+
+/* 主要内容 */
+.main_content{
+    width: calc(100vw - 16px);
+    margin-top: 64px;
+    min-width: 830px;
 }
