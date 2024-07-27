@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 760px;
+    min-width: 830px;
 
 }
 /* 顶部四个大盒子 */
@@ -18,10 +18,10 @@
     /* background-color: #000; */
     color: #fff;
     height: 100%;
-    flex-grow: 2;
-    min-width: 135px;
+    width: 20vw;
+    min-width: 180px;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -46,15 +46,16 @@
     flex-grow: 2;
     display: flex;
     align-items: center;
-    justify-content: end;
 }
 /* 顶部第一部分 */
-
+.top_title h3{
+    font-size: 20px;
+}
 /* 顶部第二部分菜单 */
 .top_menu{
     background-color: transparent;
     color: #fff;
-    width: 300px;
+    width: 320px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -68,7 +69,7 @@
     background-color: transparent;
     color: #fff !important;
    text-align: center;
-   font-size: 14px;
+   font-size: 16px;
    padding: 0 !important;
    margin: 0 !important;
 }
@@ -80,8 +81,6 @@
 .top_menu .ant-menu-item-selected {
     background-color: transparent !important;
     /* 点击选中后的背景颜色 */
-    color: #1890ff;
-    /* 点击选中后的文本颜色 */
 }
 /* 搜索宽框 */
 .top_input{
@@ -97,21 +96,21 @@
     color: #fff !important;
     /* 按钮字体颜色 */
     border: 1px solid #786192;
-    border-left: 0;
+    border-left: 0 !important;
     /* 去除默认边框 */
 }
 /* 自定义搜索按钮的样式 */
 .top_input .ant-input-search-button:hover{
     background-color: transparent !important;
     border: 1px solid #786192 !important;
-    border-left: 0 ;
+    border-left: 0 !important;
     color: #FFF !important;
 }
 .top_input .ant-input {
     height: 30px;
     background-color: transparent;
     border: 1px solid #786192;
-    border-right: 0;
+    border-right: 0 !important;
     color: #72688d !important;
 }
 .top_input .ant-input::placeholder{
@@ -120,13 +119,13 @@
 /* 鼠标悬停和聚焦状态的样式 */
 .top_input .ant-input:hover {
     border: 1px solid #786192 !important;
-    border-right: 0;
+    border-right: 0 !important;
     /* 悬停时边框颜色 */
 }
 
 .top_input .ant-input:focus-within {
     border: 1px solid #786192 !important;
-    border-right: 0;
+    border-right: 0 !important;
     /* 聚焦时边框颜色 */
 }
 
