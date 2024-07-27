@@ -20,13 +20,14 @@ const routes = [
         </Suspense>,
       },
       {
-        path: "", element: <Suspense fallback={<div>Loading...</div>}>
+        path: "shop", element: <Suspense fallback={<div>Loading...</div>}>
           <Home />
-        </Suspense> },
+        </Suspense>
+      },
     ],
   },
   {
-  path: '/login',
+    path: '/login',
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Login />
