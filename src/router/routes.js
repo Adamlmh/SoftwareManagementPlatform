@@ -24,6 +24,11 @@ const routes = [
           <Home />
         </Suspense>
       },
+      {
+        path: "", element: <Suspense fallback={<div>Loading...</div>}>
+          <Home />
+        </Suspense>
+      },
     ],
   },
   {
