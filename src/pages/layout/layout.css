@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     min-width: 830px;
-
+z-index: 100;
 }
 /* 顶部四个大盒子 */
 .top_title{
@@ -160,4 +160,11 @@ border: 2px solid #786192 !important;
         border: 2px solid #25dac4 !important;
     color: #fff !important;
     /* 扩散效果为 2px，红色的阴影 */
+}
+
+/* 主要内容 */
+.main_content{
+    width: calc(100vw - 16px);
+    margin-top: 64px;
+    min-width: 830px;
 }

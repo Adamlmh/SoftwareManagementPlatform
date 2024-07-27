@@ -1,5 +1,6 @@
 import "./layout.css"
 import { Layout, Menu,Input,Button } from 'antd';
+import { Outlet } from 'react-router-dom';
 const { Header } = Layout;
 const TopMenu=()=>{
     return(
@@ -27,6 +28,9 @@ const TopMenu=()=>{
                 </div>
                 
             </Header>
+            <div className="main_content">
+                <Outlet></Outlet>
+            </div>
         </Layout>
     )
 
