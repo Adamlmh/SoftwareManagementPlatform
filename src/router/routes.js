@@ -2,7 +2,7 @@ import { Children, lazy } from "react";
 import { Suspense } from "react";
 const TopMenu = lazy(() => import("../pages/layout"));
 const Home = lazy(() => import("../pages/home"));
-
+const Shop = lazy(() => import("../pages/shop/shop"))
 const Login = lazy(() => import("../pages/login"))
 const routes = [
   {
@@ -21,7 +21,7 @@ const routes = [
       },
       {
         path: "shop", element: <Suspense fallback={<div>Loading...</div>}>
-          <Home />
+          <Shop />
         </Suspense>
       },
       {

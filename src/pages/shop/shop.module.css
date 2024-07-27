@@ -1,0 +1,123 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.scroll-container {
+  overflow: auto; /* 显示滚动条 */
+  scrollbar-width: none; /* 隐藏滚动条 Firefox */
+  -ms-overflow-style: none; /* 隐藏滚动条 IE 10+ */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* 隐藏滚动条 WebKit */
+}
+
+
+
+li{
+    list-style: none;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.shop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(234, 240, 255);
+}
+.todayfind{
+    margin-top: 48px;
+    font-size: 1.9vw;
+    margin-bottom: 50px;
+   color: rgb(30, 14, 98);
+}
+.bigImage {
+ background-image: url('../../assest/images/bigImage.png');
+  width: 77vw;
+  height: 65vh;
+  background-size: cover; /* 按比例缩放以完全覆盖盒子 */
+  background-position: center; /* 图片在盒子内部居中显示 */
+  background-repeat: no-repeat; /* 禁止背景图片重复 */
+  background-color: firebrick;
+  margin-bottom: 50px;
+}
+.smallImages{
+    width: 77vw;
+height: 35vh;
+display: flex;
+justify-content: space-between;
+}
+.smallImages li{
+    width: 24%;
+}
+.smallImages_li{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.smallImages_li div:nth-of-type(1){
+    height: 65%;
+}
+.smallImages_li div:nth-of-type(2){
+      height: 35%;
+    display: flex;
+    flex-direction: column;
+}
+.smallImages_li div:nth-of-type(2) h2{
+    font-size: 1.25vw;;
+    height: 25%;
+}
+.smallImages_li div:nth-of-type(2) div{
+
+width: 100%;
+height: 35%;
+}
+.smallImages_li div:nth-of-type(2) p{
+    width: 100%;
+    height: 40%;
+    font-size: 0.9vw;
+    overflow: auto;
+      scrollbar-width: none; /* 隐藏滚动条 Firefox */
+  -ms-overflow-style: none; /* 隐藏滚动条 IE 10+ */
+}
+.tages{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tages ul{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 0.8vw;
+    padding-left: 1%;
+    flex: 3;
+    height: 100%;
+}
+.tages ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(229, 223, 244);
+    margin-right: 10px;
+    border-radius: 20px;
+    height: 70%;
+    width: 20%;
+    color: rgb(99, 61, 177);
+    font-size: 0.8vw;
+}
+.tages div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 1.5vw;
+    color: rgb(255, 206, 79);
+    font-weight: 700;
+
+}

@@ -10,7 +10,7 @@ export default function Register({ alert, setAlert }) {
 
     //定时器提示
     const setAlertTimeout = (setter, alert, duration = 3000, type = 0) => {
-        if (type == 0) {
+        if (type === 0) {
             setter(alert)
             setTimeout(() => {
                 setter({ message: '', type: "" })

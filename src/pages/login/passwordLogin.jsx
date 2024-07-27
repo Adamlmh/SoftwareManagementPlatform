@@ -67,7 +67,6 @@ export default function PasswordLogin({ alert, setAlert }) {
 
 
     useEffect(() => {
-
         if (localStorage.getItem('passwordSF')) {
             passwordRef.current.input.value = localStorage.getItem('password')
         }
