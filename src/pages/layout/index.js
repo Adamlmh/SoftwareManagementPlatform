@@ -1,7 +1,9 @@
 import "./layout.css"
-import { Layout, Menu,Input,Button } from 'antd';
+
+import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import TopHeader from "./topheader";
+import BottomFooter from "./bottomfooter";
 const TopMenu=()=>{
     return(
         <Layout>
@@ -9,7 +11,7 @@ const TopMenu=()=>{
             <div className="main_content">
                 <Outlet></Outlet>
             </div>
-            
+            <BottomFooter></BottomFooter>
         </Layout>
     )
 
