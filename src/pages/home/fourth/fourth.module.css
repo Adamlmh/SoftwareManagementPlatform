@@ -1,0 +1,27 @@
+.home_fourthpage {
+    width: 100%;
+    height: 70vh;
+    min-height: 600px;
+    background-color: #eaf0ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.maintitle {
+    margin-top: 60px;
+height: 5%;
+    font-size: 1.75vw;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content{
+    width: 80%;
+    height: 60%;
+    margin-top: 30px;
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

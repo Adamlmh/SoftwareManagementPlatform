@@ -1,0 +1,28 @@
+.home_fifthpage {
+    width: 100%;
+    height: 60vh;
+    min-height: 500px;
+    background-color: #eaf0ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maintitle {
+    height: 5%;
+    font-size: 1.75vw;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    width: 80%;
+    height: 70%;
+    margin-top: 50px;
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
