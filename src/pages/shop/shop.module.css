@@ -28,6 +28,7 @@ img{
     flex-direction: column;
     align-items: center;
     background-color: rgb(234, 240, 255);
+    min-width: 1300px;
 }
 .todayfind{
     margin-top: 48px;
@@ -39,27 +40,36 @@ img{
  background-image: url('../../assest/images/bigImage.png');
   width: 77vw;
   height: 65vh;
+  min-height: 700px;
   background-size: cover; /* 按比例缩放以完全覆盖盒子 */
   background-position: center; /* 图片在盒子内部居中显示 */
   background-repeat: no-repeat; /* 禁止背景图片重复 */
   background-color: firebrick;
   margin-bottom: 50px;
+  border-radius: 10px;
+  min-width: 1300px;
 }
 .smallImages{
     width: 77vw;
 height: 35vh;
 display: flex;
 justify-content: space-between;
+margin-bottom: 20px;
+background-color: pink;
+min-height: 330px;
+min-width: 1300px;
 }
 .smallImages li{
     width: 24%;
+
 }
 .smallImages_li{
     display: flex;
     flex-direction: column;
     background-color: white;
+      border-radius: 10px;
 }
-.smallImages_li div:nth-of-type(1){
+.smallImages_li div:nth-child(1){
     height: 65%;
 }
 .smallImages_li div:nth-of-type(2){
@@ -68,32 +78,33 @@ justify-content: space-between;
     flex-direction: column;
 }
 .smallImages_li div:nth-of-type(2) h2{
-    font-size: 1.25vw;;
+          font-size: clamp(20px, 1.25vw, 100px); /* 设置最小、理想和最大字体大小 */
     height: 25%;
+
 }
 .smallImages_li div:nth-of-type(2) div{
-
 width: 100%;
 height: 35%;
 }
 .smallImages_li div:nth-of-type(2) p{
     width: 100%;
     height: 40%;
-    font-size: 0.9vw;
+     font-size: clamp(15px, 1vw, 60px); /* 设置最小、理想和最大字体大小 */
     overflow: auto;
       scrollbar-width: none; /* 隐藏滚动条 Firefox */
   -ms-overflow-style: none; /* 隐藏滚动条 IE 10+ */
+ 
 }
 .tages{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 .tages ul{
     display: flex;
     justify-content: start;
     align-items: center;
-    font-size: 0.8vw;
     padding-left: 1%;
     flex: 3;
     height: 100%;
@@ -109,15 +120,39 @@ height: 35%;
     height: 70%;
     width: 20%;
     color: rgb(99, 61, 177);
-    font-size: 0.8vw;
+     font-size: clamp(10px, 1vw, 60px); /* 设置最小、理想和最大字体大小 */
 }
 .tages div{
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
-    font-size: 1.5vw;
+     font-size: clamp(30px, 1.5vw, 100px); /* 设置最小、理想和最大字体大小 */
     color: rgb(255, 206, 79);
     font-weight: 700;
 
+}
+.everyoneDownLoad{
+    background-color: red;
+     width: 77vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: space-between;
+}
+.everyoneDownLoad li:nth-of-type(1){
+    background-color: yellow;
+ width: 49%;
+}
+.everyoneDownLoad li:nth-of-type(2){
+    background-color: green;
+     width: 49%;
+}
+.everyoneDownLoad li:nth-of-type(3){
+    background-color: blue;
+    width: 49%;
+}
+.everyoneDownLoad li:nth-of-type(4){
+    background-color: pink;
+      width: 49%;
 }

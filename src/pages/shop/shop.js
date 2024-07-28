@@ -1,10 +1,8 @@
 import React from 'react'
 import styles from './shop.module.css'
-import littleImage1 from '../../assest/images/827e3278ed3118dabc56ae91afec721e.png';
-import littleImage2 from '../../assest/images/827e3278ed3118dabc56ae91afec721e.png';
-import littleImage3 from '../../assest/images/827e3278ed3118dabc56ae91afec721e.png';
-import littleImage4 from '../../assest/images/827e3278ed3118dabc56ae91afec721e.png';
 import BigLittleImage from "./bigLittleImage"
+import EveryoneDownLoad from './everyoneDownLoad'
+
 
 
 export default function index() {
@@ -13,6 +11,8 @@ export default function index() {
             <h3 className={styles.todayfind}>今日发现</h3>
             <div className={styles.bigImage}></div>
             <BigLittleImage />
+            <h3 className={styles.todayfind}>大家都在下载</h3>
+            <EveryoneDownLoad />
         </div>
 
     )
