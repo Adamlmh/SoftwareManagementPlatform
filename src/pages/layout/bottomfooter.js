@@ -1,5 +1,5 @@
 import styles from "./layoutfooter.module.css"
-import { Layout, Menu, Input, Button } from 'antd';
+import { Layout } from 'antd';
 import { DownOutlined } from "@ant-design/icons"
 const { Footer } = Layout;
 const BottomFooter=()=>{

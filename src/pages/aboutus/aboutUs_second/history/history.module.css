@@ -1,0 +1,21 @@
+.history{
+    width: 80%;
+    height: 30vh;
+    min-height: 450px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+.history h3{
+    margin-top: 80px;
+    font-size: 1.75vw;
+    color: #1E0E62;
+}
+.content{
+    margin-top: 20px;
+}
+.content p{
+    font-size: 1.25vw;
+    line-height: 3;
+    letter-spacing: 2px;
+}

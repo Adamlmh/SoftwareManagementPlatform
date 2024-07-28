@@ -1,0 +1,50 @@
+.team {
+    width: 80%;
+    height: 80vh;
+    min-height: 800px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+.team h3 {
+margin-top: 30px;
+    font-size: 1.75vw;
+    color: #1E0E62;
+}
+.content{
+    width: 100%;
+    height: 80%;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* background-color: green; */
+}
+/* 我们的团队个人卡片 */
+.teamcard{
+    /* background-color: #fff; */
+    width: 23%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pic{
+    height: 50%;
+    width: 80%;
+    /* background-color: pink; */
+}
+.images{
+    width: 100%;
+    height: 100%;
+}
+.teamcard h3{
+    font-size: 1.75vw;
+}
+.teamcard h6{
+    margin-top: 20px;
+    font-size: 1vw;
+    font-weight: 400;
+    /* color:#dbdbe1; */
+    color: #CCCCCC;
+}

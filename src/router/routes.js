@@ -4,6 +4,7 @@ const TopMenu = lazy(() => import("../pages/layout"));
 const Home = lazy(() => import("../pages/home"));
 const Shop = lazy(() => import("../pages/shop/shop"))
 const Login = lazy(() => import("../pages/login"))
+const AboutUs = lazy(() =>import("../pages/aboutus"))
 const routes = [
   {
     path: "/header",
@@ -22,6 +23,11 @@ const routes = [
       {
         path: "shop", element: <Suspense fallback={<div>Loading...</div>}>
           <Shop />
+        </Suspense>
+      },
+      {
+        path: "about", element: <Suspense fallback={<div>Loading...</div>}>
+          <AboutUs />
         </Suspense>
       },
       {
