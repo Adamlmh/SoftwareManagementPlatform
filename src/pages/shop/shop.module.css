@@ -28,12 +28,12 @@ img{
     flex-direction: column;
     align-items: center;
     background-color: rgb(234, 240, 255);
-  width: 100%;
+   width: 100%;
 }
 .todayfind{
     margin-top: 48px;
-     font-size: clamp(20px, 1.7vw, 100px); /* 设置最小、理想和最大字体大小 */
-    margin-bottom: 2vh;
+     font-size: clamp(30px, 2vw, 100px); /* 设置最小、理想和最大字体大小 */
+    margin-bottom: 4vh;
    color: rgb(30, 14, 98);
 }
 .bigImage {
@@ -133,36 +133,206 @@ height: 35%;
 
 }
 .everyoneDownLoad{
-    background-color: red;
      width: 77vw;
-  height: 100vh;
+  height: 120vh;
   display: flex;
   flex-wrap: wrap;
  justify-content: space-between;
  align-content: space-between;
-   min-height: 700px;
+   min-height: 1130px;
    min-width: 1300px;
 }
 
 .everyoneDownLoad li{
-      width: 49%;
+      width: 48%;
       height: 48%;
-
+     border-radius: 15px;
+     background-color: white;
 }
 
-.everyoneDownLoad li:nth-of-type(1){
-    background-color: yellow;
+
+.everyoneDownLoad li div:nth-of-type(1){
+    width: 100%;
+    height: 75%;
+        border-radius: 15px;
+}
+.everyoneDownLoad li div:nth-of-type(1) img{
+    border-radius: 15px;
+}
+.everyoneDownLoad li div:nth-of-type(2){
+    width: 100%;
+    height: 25%;
+
+    padding-left: 2%;
+
 
 }
-.everyoneDownLoad li:nth-of-type(2){
-    background-color: green;
+.everyoneDownLoad li div:nth-of-type(2) h3{
+    display: flex;
+    align-items: center;
+   height: 40%;
+
+     font-size: clamp(10px, 1vw, 60px); /* 设置最小、理想和最大字体大小 */
+}
+.everyoneDownLoad li div:nth-of-type(2) p{
+      display: flex;
+    align-items: center;
+   height: 20%;
+      font-size: clamp(10px, 0.8vw, 60px); /* 设置最小、理想和最大字体大小 */
+}
+.everyoneDownLoad li div:nth-of-type(2) ul{
+    display: flex;
+    align-items: center;
+   height: 40%;
 
 }
-.everyoneDownLoad li:nth-of-type(3){
-    background-color: blue;
+.everyoneDownLoad li div:nth-of-type(2) ul li{
+  font-size: clamp(15px, 0.9vw, 60px); /* 设置最小、理想和最大字体大小 */
+  color: rgb(99, 61, 177);
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(229, 223, 244);
+  border-radius: 20px;
+  margin-right: 3%;
+}
+.recommendLi{
+       width: 100%;
+  border-radius: 20px;
+    height: 15vh;
+    border: 1px solid rgb(155, 156, 160);
+    margin-bottom: 2vh;
+    display: flex;
+    min-height: 145px;
+}
+.recommendUl{
+     border-radius: 20px;
+       width: 77vw;
+       min-width: 1300px;
+       display: flex;
+       flex-direction: column;
+margin-bottom: 2vh;
+}
+.recommendLi div:nth-of-type(1){
+    width: 15%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.recommendLi div:nth-of-type(1) img{
+width: 55%;
+height: 70%;
+}
+.recommendLi div:nth-of-type(2){
+padding-left: 2%;
+width: 60%;
+display: flex;
+align-items: center;
+}
+.recommendLi div:nth-of-type(2) div{
+    width: 100%;
+display: flex;
+height: 80%;
+flex-direction: column;
+align-items: start;
+justify-content: start;
+
 
 }
-.everyoneDownLoad li:nth-of-type(4){
-    background-color: pink;
+.recommendLi div:nth-of-type(2) div ul{
+    height: 30%;
+    width: 100%;
+display: flex;
+}
+.recommendLi div:nth-of-type(2) div h3{
+    margin-bottom: 1%;
+     font-size: clamp(25px, 1.5vw,100px); /* 设置最小、理想和最大字体大小 */
+}
+.recommendLi div:nth-of-type(2) div h5{
+        margin-bottom: 1%;
+    font-size: clamp(10px, 1vw,100px); /* 设置最小、理想和最大字体大小 */
+}
+.recommendLi div:nth-of-type(3){
+   width: 25%;
+display: flex;
+}
+.recommendTag li{
+    width: 8%;
+     color: rgb(99, 61, 177);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(229, 223, 244);
+  margin-right: 1%;
+  border-radius: 20px;
+    font-size: clamp(10px, 1vw,100px); /* 设置最小、理想和最大字体大小 */
+}
+.countUl{
+    margin-top: 5vh;
+       width: 77vw;
+       min-width: 1300px;
+       min-height: 380px;
+       height: 40vh;
+       display: flex;
+       justify-content: space-between;
+       margin-bottom: 20vh;
+}
+.countUl li{
+   width: 32%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.countUl li div:nth-of-type(1){
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.countUl li div:nth-of-type(1) img{
+    height: 85%;
+    width: 85%;
+}
+.countUl li div:nth-of-type(2){
+       width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+.countUl li div:nth-of-type(2) div{
+       width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
 
+}
+.countUl li div:nth-of-type(2) div h2{
+    display: flex;
+    align-items: center;
+    flex:1.5;
+    width: 100%;
+    font-weight: 400;
+    font-size: clamp(25px, 1.5vw,100px); /* 设置最小、理想和最大字体大小 */
+
+}
+.countUl li div:nth-of-type(2) div p{
+     display: flex;
+    align-items: flex-start;
+    flex:1;
+    width: 100%;
+       font-size: clamp(20px, 1vw,100px); /* 设置最小、理想和最大字体大小 */
+       color: rgb(78, 78, 78);
+}
+.countUl li div:nth-of-type(2) div p:nth-of-type(2) div{
+    border-radius: 5px;
+    width: 30%;
+    height: 70%;
+    background-color: rgb(216, 209, 255);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
 }
