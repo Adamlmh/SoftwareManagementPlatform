@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 const flexCenterStyle = {
   display: "flex",
   flexDirection: "column",
@@ -74,27 +75,30 @@ const HomeSecondPage = () => {
           我们的目标是提供最优质的产品与服务，以满足不同客户的需求。无论您需要什么，我们都将全力以赴地去实现。
         </p>
       </div>
-      <div
-        style={{
-          height: "44px",
-          width: "126px",
-          borderRadius: "61px",
-          backgroundColor: "#AEACFF",
-        }}
-      >
-        <button
+      <NavLink to="/header/about" style={{ textDecoration: "none" }}>
+        <div
           style={{
-            width: "100%",
-            height: "100%",
-            background: "transparent",
-            border: "none",
-            fontSize: "20px",
-            cursor: "pointer",
+            height: "44px",
+            width: "126px",
+            borderRadius: "61px",
+            backgroundColor: "#AEACFF",
           }}
         >
-          更多➡
-        </button>
-      </div>
+          <button
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "transparent",
+              border: "none",
+              fontSize: "20px",
+              cursor: "pointer",
+              fontFamily: "Microsoft YaHei",
+            }}
+          >
+            更多➡
+          </button>
+        </div>
+      </NavLink>
     </div>
   );
 };
