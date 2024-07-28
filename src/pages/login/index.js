@@ -8,7 +8,35 @@ export default function Index() {
     const [alert, setAlert] = useState({ message: '', type: '' });
     const mainRef = useRef()
 
+    useEffect(() => {
+        // 获取设备信息
+        const getDeviceInfo = async () => {
+            try {
+                const deviceInfo = {
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform,
+                    cookiesEnabled: navigator.cookieEnabled,
+                    language: navigator.language
+                };
+                console.log(deviceInfo)
+                // 使用Fetch API发送设备信息到服务器
+                // const response = await fetch('/api/device-info', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify(deviceInfo),
+                // });
 
+                // const data = await response.json();
+                // console.log('Server response:', data);
+            } catch (error) {
+                console.error('Error sending device info:', error);
+            }
+        };
+
+        getDeviceInfo();
+    }, []); // useEffect依赖项为空数组，表示只在组件挂载时执行一次
 
 
 
