@@ -55,14 +55,22 @@ height: 35vh;
 display: flex;
 justify-content: space-between;
 margin-bottom: 20px;
-background-color: pink;
 min-height: 400px;
 min-width: 1300px;
 }
+.smallImages img{
+      border-radius: 10px;
+}
 .smallImages li{
     width: 24%;
-
+       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+       cursor: pointer;
 }
+.smallImages li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /* 悬浮时的阴影效果 */
+}
+
 .smallImages_li{
     display: flex;
     flex-direction: column;
@@ -148,8 +156,13 @@ height: 35%;
       height: 48%;
      border-radius: 15px;
      background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-
+.everyoneDownLoad li:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /* 悬浮时的阴影效果 */
+}
 
 .everyoneDownLoad li div:nth-of-type(1){
     width: 100%;
@@ -205,7 +218,15 @@ height: 35%;
     margin-bottom: 2vh;
     display: flex;
     min-height: 145px;
+           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+.recommendLi:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /* 悬浮时的阴影效果 */
+}
+
 .recommendUl{
      border-radius: 20px;
        width: 77vw;
@@ -283,7 +304,15 @@ display: flex;
     background-color: white;
     display: flex;
     flex-direction: column;
+           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+.countUl li:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /* 悬浮时的阴影效果 */
+}
+
 .countUl li div:nth-of-type(1){
     height: 50%;
     display: flex;

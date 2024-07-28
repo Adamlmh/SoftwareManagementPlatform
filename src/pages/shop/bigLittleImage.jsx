@@ -4,7 +4,7 @@ import littleImage1 from '../../assest/images/827e3278ed3118dabc56ae91afec721e.p
 import littleImage2 from '../../assest/images/8420455527b2e3dbb19c1e32102a1286.png';
 import littleImage3 from '../../assest/images/bigImage.png';
 import littleImage4 from '../../assest/images/d0e2d20ff686c5d06a5dae3d6149a639.png';
-
+import { Card } from 'antd';
 
 
 
@@ -52,11 +52,13 @@ const BigLittleImage = () => {
     ])
 
     return (
+
         <ul className={styles.smallImages}>
             {
                 data.map((item, index) => {
                     return (
                         <li className={styles.smallImages_li}>
+
                             <div>
                                 <img src={item.image} />
                             </div>
@@ -72,6 +74,7 @@ const BigLittleImage = () => {
                                 </div>
                                 <p>{item.description}</p>
                             </div>
+
                         </li>
                     )
 
