@@ -1,11 +1,16 @@
-import HomeFirstPage from "./first";
-import HomeThirdPage from "./third";
+import HomeFifthPage from "./fifth/fifith";
+import HomeFirstPage from "./first/first";
+import HomeFourthPage from "./fourth/fourth";
+import HomeThirdPage from "./third/third";
 
-const Home=()=>{
-    return(
+
+const Home = () => {
+    return (
         <div className="home">
-<HomeFirstPage></HomeFirstPage>
-<HomeThirdPage></HomeThirdPage>
+            <HomeFirstPage></HomeFirstPage>
+            <HomeThirdPage></HomeThirdPage>
+            <HomeFourthPage></HomeFourthPage>
+            <HomeFifthPage></HomeFifthPage>
         </div>
     )
 }

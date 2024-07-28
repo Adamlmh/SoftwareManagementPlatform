@@ -1,7 +1,7 @@
 import styles from "./third.module.css"
-import ThirdCard from "./thirdcard/thirdcard";
+import ThirdCard from "../thirdcard/thirdcard";
 
-const HomeThirdPage=()=>{
+const HomeThirdPage = () => {
     return (
         <div className={styles.home_thirdpage}>
             <h3 className={styles.title}>

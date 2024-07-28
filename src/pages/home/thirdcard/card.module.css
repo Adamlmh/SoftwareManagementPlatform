@@ -38,10 +38,13 @@ margin-top: -16px;
     width: 100%;
     height: 100px;
     overflow-wrap: break-word;
-    overflow: hidden;
+    overflow: auto;
     text-overflow: ellipsis;
     color: #dbdbe1;
         font-size: 1vw;
+}
+.discription::-webkit-scrollbar {
+    display: none;
 }
 .discription p{
     white-space: normal;

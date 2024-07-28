@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 830px;
+    min-width: 1300px;
 z-index: 100;
 }
 /* 顶部四个大盒子 */
@@ -170,6 +170,6 @@ border: 2px solid #786192 !important;
 .main_content{
     width: calc(100vw - 16px);
     margin-top: 64px;
-    min-width: 830px;
+    min-width: 1300px;
 }
 
