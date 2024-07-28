@@ -37,18 +37,24 @@ img{
    color: rgb(30, 14, 98);
 }
 .bigImage {
- background-image: url('../../assest/images/bigImage.png');
   width: 77vw;
   height: 65vh;
   min-height: 700px;
   background-size: cover; /* 按比例缩放以完全覆盖盒子 */
   background-position: center; /* 图片在盒子内部居中显示 */
   background-repeat: no-repeat; /* 禁止背景图片重复 */
-  background-color: firebrick;
   margin-bottom: 50px;
   border-radius: 10px;
   min-width: 1300px;
+   overflow: hidden; /* 防止内容溢出 */
 }
+
+.carouselImage{
+    width: 100%;
+    height: 100%;
+}
+
+
 .smallImages{
     width: 77vw;
 height: 35vh;

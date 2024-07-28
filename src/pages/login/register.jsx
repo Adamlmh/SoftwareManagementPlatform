@@ -4,6 +4,7 @@ import { Input } from 'antd'
 
 
 export default function Register({ alert, setAlert }) {
+
     const [seconds, setSeconds] = useState(60);
     const [emailStatus, setEmailStatus] = useState('');
     const [disabled, setDisabled] = useState(false);
@@ -136,7 +137,7 @@ export default function Register({ alert, setAlert }) {
                 <div><Input placeholder="输入你的邮箱" ref={emailRef} /></div>
                 <div><Input placeholder="输入你的密码" type="password" ref={firstPasswordRef} /></div>
                 <div><Input placeholder="确认密码" type="password" ref={secondPasswordRef} /></div>
-                <div><Input placeholder="验证码" type="password" /><button className={disabled ? "disabled_send_password" : "send_password"}
+                <div><Input placeholder="验证码" type="text" /><button
                     onClick={startCountdown}
                     disabled={disabled}>  {" "}
                     {disabled ? `重新发送(${seconds}s)` : "发送验证码"}</button></div>
