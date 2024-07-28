@@ -28,7 +28,7 @@ img{
     flex-direction: column;
     align-items: center;
     background-color: rgb(234, 240, 255);
-    min-width: 1300px;
+  width: 100%;
 }
 .todayfind{
     margin-top: 48px;
@@ -56,7 +56,7 @@ display: flex;
 justify-content: space-between;
 margin-bottom: 20px;
 background-color: pink;
-min-height: 330px;
+min-height: 400px;
 min-width: 1300px;
 }
 .smallImages li{
@@ -78,7 +78,7 @@ min-width: 1300px;
     flex-direction: column;
 }
 .smallImages_li div:nth-of-type(2) h2{
-          font-size: clamp(20px, 1.25vw, 100px); /* 设置最小、理想和最大字体大小 */
+          font-size: clamp(15px, 1.25vw, 100px); /* 设置最小、理想和最大字体大小 */
     height: 25%;
 
 }
