@@ -3,7 +3,7 @@ import styles from "./news.module.css"
 import { Card ,Button} from"antd" ;
 const NewsCard = ({ image, name, job }) => {
     return (
-        <Card className={styles.newscard} hoverable style={{ width: '30%' }}>
+        <Card className={styles.newscard} hoverable style={{ width: '372px' }}>
             <h3 className={styles.newstime}>2024-05-18</h3>
             <h3 className={styles.newstitle}>新闻标题</h3>
             <div className={styles.newscontent}>

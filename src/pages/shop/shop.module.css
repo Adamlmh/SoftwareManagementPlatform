@@ -43,7 +43,7 @@ img{
   background-size: cover; /* 按比例缩放以完全覆盖盒子 */
   background-position: center; /* 图片在盒子内部居中显示 */
   background-repeat: no-repeat; /* 禁止背景图片重复 */
-  margin-bottom: 50px;
+  margin-bottom: 5vh;
   border-radius: 10px;
   min-width: 1300px;
    overflow: hidden; /* 防止内容溢出 */
@@ -87,6 +87,8 @@ min-width: 1300px;
     height: 65%;
 }
 .smallImages_li div:nth-of-type(2){
+    padding-left: 25px;
+    padding-right: 5px;
       height: 35%;
     display: flex;
     flex-direction: column;
@@ -94,7 +96,7 @@ min-width: 1300px;
 .smallImages_li div:nth-of-type(2) h2{
     font-size: clamp(15px, 1.25vw, 100px); /* 设置最小、理想和最大字体大小 */
     height: 25%;
-    margin-left: 10px;
+   
 }
 .smallImages_li div:nth-of-type(2) div{
 width: 100%;
@@ -181,10 +183,7 @@ height: 35%;
 .everyoneDownLoad li div:nth-of-type(2){
     width: 100%;
     height: 25%;
-
     padding-left: 2%;
-
-
 }
 .everyoneDownLoad li div:nth-of-type(2) h3{
     display: flex;
@@ -284,6 +283,9 @@ display: flex;
    width: 25%;
 display: flex;
 }
+.recommendLi div:nth-of-type(3) img{
+border-radius: 16px;
+}
 .recommendTag li{
     width: 8%;
      color: rgb(99, 61, 177);
@@ -370,4 +372,29 @@ display: flex;
     justify-content: center;
     align-items:center;
     
+}
+
+.carouselTitle {
+position: relative;
+width: 100%;
+height: 100%;
+}
+.carouselTitle div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    top: 50vh;
+    margin-left: 5%;
+}
+
+
+.carouselTitle h1{
+font-size: clamp(20px, 2.5vw,100px); /* 设置最小、理想和最大字体大小 */
+}
+.carouselTitle h2{
+margin-top: 1vh;
+font-size: clamp(10px, 1vw,100px); /* 设置最小、理想和最大字体大小 */
+font-weight: 400;
 }

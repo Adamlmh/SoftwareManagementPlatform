@@ -13,6 +13,7 @@ export default function Index() {
         <div className={styles.shop}>
             <h3 className={styles.todayfind}>今日发现</h3>
             <div className={styles.bigImage}>
+
                 <Carousel />
             </div>
             <BigLittleImage />

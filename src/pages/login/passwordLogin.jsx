@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { Card, Input } from 'antd'
+import { accountLogin } from "../../api"
+import { NavLink, useNavigate } from 'react-router-dom'
 
 
 export default function PasswordLogin({ alert, setAlert }) {
@@ -7,6 +9,7 @@ export default function PasswordLogin({ alert, setAlert }) {
     const emailRef = useRef()
     const rembermeRef = useRef()
     const agreeRef = useRef()
+    const native = useNavigate()
 
     //定时器提示
     const setAlertTimeout = (setter, alert, duration = 3000, type = 0) => {
@@ -20,7 +23,7 @@ export default function PasswordLogin({ alert, setAlert }) {
             setter(alert)
             setTimeout(() => {
                 setter({ message: '', type: "" })
-                // navigate('/home')
+                native('./header/home')
             }, duration)
 
         }
@@ -43,25 +46,26 @@ export default function PasswordLogin({ alert, setAlert }) {
             setAlertTimeout(setAlert, { message: '请同意相关条款政策', type: 'error' });
             return;
         }
-        // try {
-        //     const response = await accountLogin(email, password);
-        //     console.log(response)
-        //     if (response.code == 1) {
-        //         setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1000, 1);
-        //         localStorage.setItem('token', response.data.token)
-        //         localStorage.setItem('userId', response.data.userId)
-        //         localStorage.setItem('email', email)
-        //         if (rembermeRef.current.checked) {
-        //             localStorage.setItem('password', password)
-        //             localStorage.setItem('email', email)
-        //         }
-        //     }
-        //     else {
-        //         setAlertTimeout(setAlert, { message: response.msg, type: 'error' });
-        //     }
-        // } catch (error) {
-        //     console.error('Error fetching models:', error);
-        // }
+        try {
+            let response;
+            if (rembermeRef.current.checked)
+                response = await accountLogin(email, password, 1);
+            else
+                response = await accountLogin(email, password, 0);
+            console.log(response)
+            if (response.code == 1) {
+                setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1000, 1);
+                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('userId', response.data.userId)
+                localStorage.setItem('email', email)
+
+            }
+            else {
+                setAlertTimeout(setAlert, { message: response.msg, type: 'error' });
+            }
+        } catch (error) {
+            console.error('Error fetching models:', error);
+        }
     }
 
 
@@ -73,7 +77,6 @@ export default function PasswordLogin({ alert, setAlert }) {
         if (localStorage.getItem('emaiSF')) {
             emailRef.current.input.value = localStorage.getItem('email')
         }
-        rembermeRef.current.checked = true
         agreeRef.current.checked = true
     }, [])
 
@@ -84,7 +87,7 @@ export default function PasswordLogin({ alert, setAlert }) {
                 <h3>欢迎使用工软软件管理平台</h3>
                 <div><Input placeholder="输入你的邮箱" ref={emailRef} /></div>
                 <div>  <Input placeholder="输入你的密码" ref={passwordRef} type="password" /></div>
-                <div className="remberMeBigDiv"><div><input type="checkbox" ref={rembermeRef} />记住我</div></div>
+                <div className="remberMeBigDiv"><div><input type="checkbox" ref={rembermeRef} />管理员入口</div></div>
             </div>
             <div className="login_center_card_bottom_bottom">
                 <div><button onClick={login_In} >登录</button></div>

@@ -5,7 +5,7 @@ import { Card,Button } from 'antd';
         <Card 
             cover={<div className={styles.pic}></div>}
         className={styles.card} 
-        hoverable bordered={false} style={{ width: '30%',padding:'0' }}>
+        hoverable bordered={false} style={{ width: '370px',padding:'0' }}>
             <div className={styles.card_bottom}>
                 <h3>软件</h3>
                 <h5>软化描述</h5>
