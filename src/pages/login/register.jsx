@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { sendVerificationCode, accountController } from "../../api"
+import { sendVerificationCode, accountController, register } from "../../api"
 import { Input } from 'antd'
 
 
@@ -14,6 +14,7 @@ export default function Register({ alert, setAlert }) {
     const secondPasswordRef = useRef()
     const emailRef = useRef()
     const agreeRef = useRef()
+    const yemRef = useRef()
 
     const setStatus = (setter, status, duration = 3000) => {
         setter(status);
@@ -81,6 +82,7 @@ export default function Register({ alert, setAlert }) {
         const email = emailRef.current.input.value;
         const firstPassword = firstPasswordRef.current.input.value;
         const secondPassword = secondPasswordRef.current.input.value;
+        const yem = secondPasswordRef.current.input.value;
         const agree = agreeRef.current.checked
 
         if (!email) {
@@ -99,30 +101,25 @@ export default function Register({ alert, setAlert }) {
             setAlertTimeout(setAlert, { message: '密码不匹配', type: 'error' });
             return;
         }
-        // if (!sendyzem) {
-        //     setAlertTimeout(setAlert, { message: '还未发送验证码', type: 'error' });
-        //     return;
-        // }
-        // if (!yzm) {
-        //     setStatus(setYzmStatus, 'warning');
-        //     setAlertTimeout(setAlert, { message: '验证码不正确', type: 'error' });
-        //     return;
-        // }
+        if (!sendyzem) {
+            setAlertTimeout(setAlert, { message: '还未发送验证码', type: 'error' });
+            return;
+        }
         if (!agree) {
             setAlertTimeout(setAlert, { message: '请同意相关条款政策', type: 'error' });
             return;
         }
-        // try {
-        //     const response = await accountController(email, firstPassword, yzm);
-        //     if (response.code == 1) {
-        //         setAlertTimeout(setAlert, { message: '注册成功，将跳转到登录页面', type: 'success' }, 1000, 1);
-        //     }
-        //     else {
-        //         setAlertTimeout(setAlert, { message: response.msg, type: 'error' });
-        //     }
-        // } catch (error) {
-        //     console.error('Error fetching models:', error);
-        // }
+        try {
+            const response = await register(email, yem, firstPassword);
+            if (response.code == 1) {
+                setAlertTimeout(setAlert, { message: '注册成功，将跳转到登录页面', type: 'success' }, 1000, 1);
+            }
+            else {
+                setAlertTimeout(setAlert, { message: response.msg, type: 'error' });
+            }
+        } catch (error) {
+            console.error('Error fetching models:', error);
+        }
     }
 
 
@@ -137,7 +134,7 @@ export default function Register({ alert, setAlert }) {
                 <div><Input placeholder="输入你的邮箱" ref={emailRef} /></div>
                 <div><Input placeholder="输入你的密码" type="password" ref={firstPasswordRef} /></div>
                 <div><Input placeholder="确认密码" type="password" ref={secondPasswordRef} /></div>
-                <div><Input placeholder="验证码" type="text" /><button
+                <div><Input placeholder="验证码" type="text" ref={yemRef} /><button
                     onClick={startCountdown}
                     disabled={disabled}>  {" "}
                     {disabled ? `重新发送(${seconds}s)` : "发送验证码"}</button></div>

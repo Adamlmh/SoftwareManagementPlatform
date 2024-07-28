@@ -1,7 +1,7 @@
 import "./layout.css"
 import { Layout, Menu, Input, Button } from 'antd';
 const { Header } = Layout;
-const TopHeader=()=>{
+const TopHeader = () => {
     return (<Header
         className="top_head"
     >
