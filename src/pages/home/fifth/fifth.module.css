@@ -19,9 +19,9 @@
 
 .content {
     width: 80%;
-    height: 60%;
+    height: 70%;
     margin-top: 50px;
-    background-color: #fff;
+    /* background-color: #fff; */
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
