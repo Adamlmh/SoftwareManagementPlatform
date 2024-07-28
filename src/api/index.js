@@ -8,3 +8,16 @@ export function loginAPI(data) {
     data,
   });
 }
+
+//发送验证码
+export function sendVerificationCode(email) {
+  console.log(`发送验证码`)
+  // const data = {
+  //   email: email,
+  // };
+  // return service({
+  //   url: "/account/register/sendVerificationCode",
+  //   method: "post",
+  //   data,
+  // });
+}

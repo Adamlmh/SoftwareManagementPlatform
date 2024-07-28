@@ -71,6 +71,7 @@
   width: 365px;
   height: 51px;
 border-radius: 20px;
+
 }
 
 .register_center_card_bottom div input{
@@ -102,6 +103,11 @@ border-radius: 20px;
     color: rgb(161, 161, 176);
     cursor: pointer;
 }
+
+
+
+
+
 
 .remberMeBigDiv{
     display: flex;

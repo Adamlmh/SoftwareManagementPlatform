@@ -7,6 +7,8 @@ const Home = lazy(() => import("../pages/home"));
 const Shop = lazy(() => import("../pages/shop/shop"));
 const Login = lazy(() => import("../pages/login"));
 const AboutUs = lazy(() => import("../pages/aboutus"));
+const Shopsoftware = lazy(() => import("../pages/shopsoftware/shopsoftware"));
+
 const routes = [
   {
     path: "/header",

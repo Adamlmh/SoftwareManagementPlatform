@@ -1,0 +1,28 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.scroll-container {
+  overflow: auto; /* 显示滚动条 */
+  scrollbar-width: none; /* 隐藏滚动条 Firefox */
+  -ms-overflow-style: none; /* 隐藏滚动条 IE 10+ */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* 隐藏滚动条 WebKit */
+}
+li{
+    list-style: none;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.shopsoftware{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(234, 240, 255);
+   width: 100%;
+}
