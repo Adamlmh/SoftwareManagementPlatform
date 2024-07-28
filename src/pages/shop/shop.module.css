@@ -32,8 +32,8 @@ img{
 }
 .todayfind{
     margin-top: 48px;
-    font-size: 1.9vw;
-    margin-bottom: 50px;
+     font-size: clamp(20px, 1.7vw, 100px); /* 设置最小、理想和最大字体大小 */
+    margin-bottom: 2vh;
    color: rgb(30, 14, 98);
 }
 .bigImage {
@@ -78,9 +78,9 @@ min-width: 1300px;
     flex-direction: column;
 }
 .smallImages_li div:nth-of-type(2) h2{
-          font-size: clamp(15px, 1.25vw, 100px); /* 设置最小、理想和最大字体大小 */
+    font-size: clamp(15px, 1.25vw, 100px); /* 设置最小、理想和最大字体大小 */
     height: 25%;
-
+    margin-left: 10px;
 }
 .smallImages_li div:nth-of-type(2) div{
 width: 100%;
@@ -89,10 +89,10 @@ height: 35%;
 .smallImages_li div:nth-of-type(2) p{
     width: 100%;
     height: 40%;
-     font-size: clamp(15px, 1vw, 60px); /* 设置最小、理想和最大字体大小 */
+    font-size: clamp(15px, 1vw, 60px); /* 设置最小、理想和最大字体大小 */
     overflow: auto;
-      scrollbar-width: none; /* 隐藏滚动条 Firefox */
-  -ms-overflow-style: none; /* 隐藏滚动条 IE 10+ */
+    scrollbar-width: none; /* 隐藏滚动条 Firefox */
+    -ms-overflow-style: none; /* 隐藏滚动条 IE 10+ */
  
 }
 .tages{
@@ -139,20 +139,30 @@ height: 35%;
   display: flex;
   flex-wrap: wrap;
  justify-content: space-between;
+ align-content: space-between;
+   min-height: 700px;
+   min-width: 1300px;
 }
+
+.everyoneDownLoad li{
+      width: 49%;
+      height: 48%;
+
+}
+
 .everyoneDownLoad li:nth-of-type(1){
     background-color: yellow;
- width: 49%;
+
 }
 .everyoneDownLoad li:nth-of-type(2){
     background-color: green;
-     width: 49%;
+
 }
 .everyoneDownLoad li:nth-of-type(3){
     background-color: blue;
-    width: 49%;
+
 }
 .everyoneDownLoad li:nth-of-type(4){
     background-color: pink;
-      width: 49%;
+
 }
