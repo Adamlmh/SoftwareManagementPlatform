@@ -1,12 +1,25 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+import { sendVerificationCode, accountController } from "../../api"
 import { Input } from 'antd'
 
 
 export default function Register({ alert, setAlert }) {
+    const [seconds, setSeconds] = useState(60);
+    const [emailStatus, setEmailStatus] = useState('');
+    const [disabled, setDisabled] = useState(false);
+    const [yzmStatus, setYzmStatus] = useState('');
+    let [sendyzem, setsendyzem] = useState(0)
     const firstPasswordRef = useRef()
     const secondPasswordRef = useRef()
     const emailRef = useRef()
     const agreeRef = useRef()
+
+    const setStatus = (setter, status, duration = 3000) => {
+        setter(status);
+        setTimeout(() => {
+            setter('');
+        }, duration);
+    };
 
     //定时器提示
     const setAlertTimeout = (setter, alert, duration = 3000, type = 0) => {
@@ -25,6 +38,39 @@ export default function Register({ alert, setAlert }) {
 
         }
     }
+
+    const startCountdown = async () => {
+        setsendyzem(1)
+        const email = emailRef.current.input.value;
+        console.log(email);
+        if (!email) {
+            setStatus(setEmailStatus, 'warning');
+            setAlertTimeout(setAlert, { message: 'Please enter your email.', type: 'error' });
+            return;
+        }
+        setDisabled(true);
+        let interval = setInterval(() => {
+            setSeconds((prevSeconds) => prevSeconds - 1);
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(interval);
+            setSeconds(60);
+            setDisabled(false);
+        }, 60000);
+
+        try {
+            console.log(email);
+            const response = await sendVerificationCode(email);
+            console.log(response);
+            // 根据 `data` 处理返回逻辑  
+        } catch (error) {
+            console.error('Error sending verification code:', error);
+        }
+    };
+
+
+
 
     useEffect(() => {
         agreeRef.current.checked = true
@@ -90,7 +136,10 @@ export default function Register({ alert, setAlert }) {
                 <div><Input placeholder="输入你的邮箱" ref={emailRef} /></div>
                 <div><Input placeholder="输入你的密码" type="password" ref={firstPasswordRef} /></div>
                 <div><Input placeholder="确认密码" type="password" ref={secondPasswordRef} /></div>
-                <div><Input placeholder="验证码" type="password" /><button>验证码图片</button></div>
+                <div><Input placeholder="验证码" type="password" /><button className={disabled ? "disabled_send_password" : "send_password"}
+                    onClick={startCountdown}
+                    disabled={disabled}>  {" "}
+                    {disabled ? `重新发送(${seconds}s)` : "发送验证码"}</button></div>
             </div>
             <div className="login_center_card_bottom_bottom">
                 <div><button onClick={registerClick}>注册</button></div>

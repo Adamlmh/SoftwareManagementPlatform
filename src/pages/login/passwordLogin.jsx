@@ -83,7 +83,7 @@ export default function PasswordLogin({ alert, setAlert }) {
             <div className="login_center_card_bottom">
                 <h3>欢迎使用工软软件管理平台</h3>
                 <div><Input placeholder="输入你的邮箱" ref={emailRef} /></div>
-                <div><Input placeholder="输入你的密码" ref={passwordRef} type="password" /></div>
+                <div>  <Input placeholder="输入你的密码" ref={passwordRef} type="password" /></div>
                 <div className="remberMeBigDiv"><div><input type="checkbox" ref={rembermeRef} />记住我</div></div>
             </div>
             <div className="login_center_card_bottom_bottom">
