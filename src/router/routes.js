@@ -1,15 +1,15 @@
 import { lazy } from "react";
-import { Suspense } from "react";
-const Login = lazy(() => import("../pages/login"));
+// import { Suspense } from "react";
+// const Login = lazy(() => import("../pages/login"));
 
 const routes = [
   {
-    path: "/login",
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Login />
-      </Suspense>
-    ),
+    // path: "/login",
+    // element: (
+    //   <Suspense fallback={<div>Loading...</div>}>
+    //     <Login />
+    //   </Suspense>
+    // ),
   },
 ];
 
