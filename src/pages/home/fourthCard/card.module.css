@@ -1,30 +1,28 @@
 .fourthcard{
     display: flex;
-    justify-content: space-between;
     background-color: #fff;
     /* width: 45%;
     height: 40%; */
-    width: 30vw;
-    min-width: 400px;
-    height: 20vh;
-    min-height: 150px;
+    width: 480px;
+    height: 154px;
  position: relative;
 }
 .pic{
     height: 100%;
-    width: 45%;
+    width:160px;
     background-color: #c4c4c4;
 }
 .card_content{
    
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
     width: 50%;
     height: 100%;
 }
 .card_content h6{
     margin-top: 20px;
-    font-size: 0.8vw;
+    font-size: 14px;
     font-weight: 400;
 }
 .discription {
@@ -35,7 +33,7 @@
     overflow-wrap: break-word;
     overflow: auto;
     text-overflow: ellipsis;
-    font-size: 1vw;
+    font-size: 16px;
 }
 .discription::-webkit-scrollbar{
     display: none;

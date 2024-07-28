@@ -1,7 +1,6 @@
 .home_firstpage{
     width: 100%;
-    height: 100vh;
-    min-height: 800px;
+   height: 860px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,8 +12,9 @@
 }
 /* 第一页头部 */
 .firstpage_head{
-    width: 80%;
-    height: 20%;
+    width: 552px;
+    height: 131px;
+    margin-top: 30px;
     /* background-color: red; */
     display: flex;
     flex-direction: column;
@@ -24,9 +24,9 @@
 }
 /* 第一页中间 */
 .firstpage_middle{
-    width: 80%;
-    /* height: 40%; */
-    flex-grow: 3;
+    width: 938px;
+    height: 246px;
+    margin-top: 75px;
     display: flex;
         flex-direction: column;
         align-items: center;
@@ -36,12 +36,13 @@
 }
 /* 第一页底部 */
 .firstpage_bottom {
-    width: 80%;
-    /* height: 20%; */
-    flex-grow: 2;
+    width: 970px;
+    height: 108px;
+    margin-top: 134px;
     display: flex;
     /* background-color: green; */
     align-items: start;
+    justify-content: space-evenly;
     letter-spacing: 2px;
 }
 
@@ -49,20 +50,21 @@
 /* 第一页头部文字 */
 .firstpage_head h3{
 /* font-size: 36px; */
-    font-size: 2.25vw;
+    font-size:44px;
     color: #fff;
-    margin-top: 10px;
+    line-height: 1.5;
 }
 /* 第一页中间文字 */
 .firstpage_middle h3 {
     /* font-size: 36px; */
-    font-size: 2.25vw;
+    font-size: 44px;
     color: #fff;
-    margin-top: 20px;
+line-height: 1.5;
 }
 /* 第一页底部三盒子 */
 .firstpage_bottom_left{
-    flex-grow: 1;
+    width: 269px;
+    height: 108px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,16 +72,16 @@
     color: #fff;
 }
 .firstpage_bottom_middle {
-    flex-grow: 1;
+   width: 269px;
+   height: 108px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #fff;
-    margin-left: 10px;
-    margin-right: 10px;
 }.firstpage_bottom_right {
-    flex-grow: 1;
+width: 269px;
+    height: 108px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,12 +90,12 @@
 }
 .firstpage_bottom h3{
     /* font-size: 26px; */
-    font-size: 1.8vw;
+    font-size: 30px;
 }
 .firstpage_bottom h6 {
     line-height: 2;
     width: 230px;
-    font-size: 1vw;
+    font-size: 15px;
     /* font-size: 16px; */
     /* font-size: clamp(16px, 1vw ,18px); */
     margin-top: 10px;

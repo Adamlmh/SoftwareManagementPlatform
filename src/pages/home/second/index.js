@@ -11,7 +11,7 @@ const HomeSecondPage = () => {
     <div
       style={{
         backgroundImage,
-        width: "100vw",
+        width: "100%",
         height: "655px",
         backgroundSize: "cover",
         ...flexCenterStyle,

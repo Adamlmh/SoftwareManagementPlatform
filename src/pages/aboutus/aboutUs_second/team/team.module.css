@@ -1,20 +1,20 @@
 .team {
-    width: 80%;
-    height: 80vh;
-    min-height: 800px;
+    width: 1170px;
+    height: 746px;
     /* background-color: red; */
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
 }
 .team h3 {
-margin-top: 30px;
-    font-size: 1.75vw;
+margin-top: 100px;
+    font-size: 32px;
     color: #1E0E62;
 }
 .content{
     width: 100%;
-    height: 80%;
-    margin-top: 50px;
+    height: 554px;
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -23,15 +23,16 @@ margin-top: 30px;
 /* 我们的团队个人卡片 */
 .teamcard{
     /* background-color: #fff; */
-    width: 23%;
-    height: 45%;
+    width: 270px;
+    height: 262px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 .pic{
-    height: 50%;
-    width: 80%;
+    height: 174px;
+    width: 100%;
     /* background-color: pink; */
 }
 .images{
@@ -39,11 +40,12 @@ margin-top: 30px;
     height: 100%;
 }
 .teamcard h3{
-    font-size: 1.75vw;
+    font-size: 24px;
+    margin-top: 20px;
 }
 .teamcard h6{
-    margin-top: 20px;
-    font-size: 1vw;
+    margin-top: 10px;
+    font-size: 16px;
     font-weight: 400;
     /* color:#dbdbe1; */
     color: #CCCCCC;
