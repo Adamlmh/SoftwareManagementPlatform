@@ -82,8 +82,8 @@ export function homePageUserInfo(userId) {
 export function homePageShowSoftware(page, softwareName = '', tages = [], pageSize) {
   const params = {
     page,
-    softwareName,
-    tages,
+    // softwareName,
+    // tages,
     pageSize
   };
   console.log('发送首页分页展示', params)

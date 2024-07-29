@@ -1,7 +1,28 @@
 import styles from "./third.module.css"
 import ThirdCard from "../thirdcard/thirdcard";
+import { useEffect, useState } from 'react'
+import { homePageShowSoftware } from "../../../api"
+import axios from "axios";
+
 
 const HomeThirdPage = () => {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        async function receiveInformation() {
+            try {
+                const response = await homePageShowSoftware(1, '', [], 6)
+                console.log(response);
+            } catch (error) {
+                console.error('Error sending verification code:', error);
+            }
+
+        }
+        receiveInformation()
+    }, [])
+
+
+
     return (
         <div className={styles.home_thirdpage}>
             <h3 className={styles.title}>
