@@ -31,7 +31,7 @@ const TopHeader = () => {
             <StoreDropDown />
           </Menu.Item>
 
-          <NavLink to={"/header/"}>
+          <NavLink to={"/header/person"}>
             <Menu.Item className="top_menu_item">我的</Menu.Item>
           </NavLink>
           <NavLink to={"/header/about"}>
