@@ -25,11 +25,12 @@ const HomeThirdPage = () => {
 
     //跳转到目标页面
     const goToDetails = (data) => {
-        const softwareId = data.softwareId
-        console.log(softwareId)
-        navigate('/header/verifybill', {
-            state: { softwareId }
-        });
+        const softwareId = data.softwareId;
+        console.log(softwareId);
+        const encodedSoftwareId = encodeURIComponent(softwareId); // 编码软件ID
+        const url = `/header/verifybill?softwareId=${encodedSoftwareId}`; // 构建URL
+        navigate(url);
+        window.scrollTo(0, 0);
     };
 
 
