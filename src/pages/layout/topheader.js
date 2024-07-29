@@ -1,8 +1,20 @@
 import "./layout.css";
 import { Layout, Menu, Input, Button } from "antd";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react"
 const { Header } = Layout;
 const TopHeader = () => {
+
+  const [loginState, setLoginStage] = useState(0)
+
+  useEffect(() => {
+    if (localStorage.getItem('token') && localStorage.getItem('userId'))
+      setLoginStage(1)
+    else
+      setLoginStage(0)
+  }, [])
+
+
   return (
     <Header className="top_head">
       <div className="top_title">
@@ -29,8 +41,14 @@ const TopHeader = () => {
       </div>
       <div className="top_btn">
         <NavLink to={"/login"}>
-          <Button className="linkto_register top_link_btn">注册</Button>
-          <Button className="linkto_login top_link_btn">登录</Button>
+          {!loginState ? (
+            <>
+              <Button className="linkto_register top_link_btn">注册</Button>
+              <Button className="linkto_login top_link_btn">登录</Button>
+            </>
+          ) : (
+              <Button className="linkto_login top_link_btn">退出登录</Button>
+            )}
         </NavLink>
       </div>
     </Header>
