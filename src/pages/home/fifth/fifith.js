@@ -1,14 +1,14 @@
 
 import FifthCard from "../fifthcard/fifthcard";
 import styles from "./fifth.module.css"
-import image1 from '../../../assets/images/Starbucks.png';
-import image2 from '../../../assets/images/Pepsi.png';
-import image3 from '../../../assets/images/Walmart.png';
-import image4 from '../../../assets/images/Azendoo.png';
-import image5 from '../../../assets/images/CNN.png';
-import image6 from '../../../assets/images/Philips.png';
-import image7 from '../../../assets/images/Pizza Hut.png';
-import image8 from '../../../assets/images/Beanstalk.png';
+import image1 from '../../../assets/images/Logo 1.png';
+import image2 from '../../../assets/images/Logo 2.png';
+import image3 from '../../../assets/images/Logo 3.png';
+import image4 from '../../../assets/images/Logo 4.png';
+import image5 from '../../../assets/images/Logo 5.png';
+import image6 from '../../../assets/images/Logo 6.png';
+import image7 from '../../../assets/images/Logo 7.png';
+import image8 from '../../../assets/images/Logo 8.png';
 const HomeFifthPage = () => {
     return (
         <div className={styles.home_fifthpage}>

@@ -1,0 +1,23 @@
+.person_page{
+    width: 100%;
+    background-color: #eaf0ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 个人信息部分 */
+.information_part{
+    width: 1200px;
+    height: 500px;
+}
+.title{
+    margin-top: 50px;
+    color: #1E0E62;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+.information_box{
+    width: 100%;
+    height: 340px;
+    margin-top: 40px;
+}

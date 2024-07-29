@@ -2,6 +2,7 @@ import styles from "./card.module.css"
 
 import { Card } from 'antd';
 const FifthCard = ({ image }) => {
+    // console.log(image);
     return (
         <Card
             className={styles.card}
