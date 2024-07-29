@@ -7,12 +7,14 @@ import Count from './count';
 import Carousel from './carousel'
 import { useEffect, useState } from 'react'
 import { softwareRanking } from "../../api"
-
+import { useLocation } from 'react-router-dom';
 
 export default function Index() {
-
+    const location = useLocation();
     const [data, setData] = useState([])
     const [lastData, setLastData] = useState([])
+    const { softwareId } = location.state || {}; // 从 state 中获取参数
+    console.log(softwareId)
 
     useEffect(() => {
         async function receiveInformation() {

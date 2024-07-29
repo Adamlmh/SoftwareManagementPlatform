@@ -1,12 +1,14 @@
 import styles from "./third.module.css"
 import ThirdCard from "../thirdcard/thirdcard";
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import { softwareRanking } from "../../../api"
 import axios from "axios";
 
 
 const HomeThirdPage = () => {
     const [data, setData] = useState([])
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function receiveInformation() {
@@ -21,6 +23,15 @@ const HomeThirdPage = () => {
         receiveInformation()
     }, [])
 
+    //跳转到目标页面
+    const goToDetails = (data) => {
+        const softwareId = data.softwareId
+        console.log(softwareId)
+        navigate('/header/verifybill', {
+            state: { softwareId }
+        });
+    };
+
 
 
     return (
@@ -31,12 +42,12 @@ const HomeThirdPage = () => {
             <div className={styles.maincontent}>
                 <h3>优质的软件</h3>
                 <div className={styles.content}>
-                    <ThirdCard data={data[0]}></ThirdCard>
-                    <ThirdCard data={data[1]}></ThirdCard>
-                    <ThirdCard data={data[2]}></ThirdCard>
-                    <ThirdCard data={data[3]}></ThirdCard>
-                    <ThirdCard data={data[4]}></ThirdCard>
-                    <ThirdCard data={data[5]}></ThirdCard>
+                    <div onClick={() => goToDetails(data[0])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
+                    <div onClick={() => goToDetails(data[1])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
+                    <div onClick={() => goToDetails(data[2])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
+                    <div onClick={() => goToDetails(data[3])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
+                    <div onClick={() => goToDetails(data[4])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
+                    <div onClick={() => goToDetails(data[5])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
                 </div>
             </div>
         </div>
