@@ -7,7 +7,7 @@ const billInformation = () => {
         <Card
             style={{
                 width: '1118px',
-                height: '208px'
+
             }} className={styles.billInformation}
         >
             <div className={styles.billInformationDiv}>
@@ -15,10 +15,12 @@ const billInformation = () => {
                     <li>
                         <div>产品信息</div>
                         <div>产品名字</div>
+
                     </li>
                     <li>
                         <div>时限</div>
                         <div>起始时间-过期时间</div>
+
                     </li>
                     <li>
                         <div>产品信息</div>

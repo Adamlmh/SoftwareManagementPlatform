@@ -12,12 +12,16 @@ import { softwareRanking } from "../../api"
 export default function Index() {
 
     const [data, setData] = useState([])
+    const [lastData, setLastData] = useState([])
 
     useEffect(() => {
         async function receiveInformation() {
             try {
                 const response = await softwareRanking()
-                console.log(response);
+                setData(response)
+                const sortedResponse = response.data.sort((b, a) => new Date(a.createTime) - new Date(b.createTime));
+                console.log(sortedResponse)
+                setLastData(sortedResponse)
             } catch (error) {
                 console.error('Error sending verification code:', error);
             }
@@ -32,9 +36,9 @@ export default function Index() {
             <h3 className={styles.todayfind}>今日发现</h3>
             <div className={styles.bigImage}>
 
-                <Carousel />
+                <Carousel lastData={lastData} />
             </div>
-            <BigLittleImage />
+            <BigLittleImage lastData={lastData} />
             <h3 className={styles.todayfind}>大家都在下载</h3>
             <EveryoneDownLoad />
             <h3 className={styles.todayfind}>推荐</h3>

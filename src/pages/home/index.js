@@ -4,7 +4,12 @@ import HomeFourthPage from "./fourth/fourth";
 import HomeThirdPage from "./third/third";
 import HomeSecondPage from "./second";
 
+
 const Home = () => {
+
+
+
+
   return (
     <div className="home">
       <HomeFirstPage></HomeFirstPage>

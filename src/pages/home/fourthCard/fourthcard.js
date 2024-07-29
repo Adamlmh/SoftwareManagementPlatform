@@ -10,7 +10,7 @@ const FourthCard = () => {
 
                 </div>
                 <div className={styles.score}>
-                    
+
                 </div>
             </div>
         </div>

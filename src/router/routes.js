@@ -2,15 +2,15 @@ import { lazy } from "react";
 
 import { Navigate } from "react-router-dom";
 
-
 const TopMenu = lazy(() => import("../pages/layout"));
 const Home = lazy(() => import("../pages/home"));
 const Shop = lazy(() => import("../pages/shop/shop"));
 const Login = lazy(() => import("../pages/login"));
 const AboutUs = lazy(() => import("../pages/aboutus"));
 const Shopsoftware = lazy(() => import("../pages/shopsoftware/shopsoftware"));
-const Bill = lazy(() => import("../pages/bill/bill"))
-const VerifyBill = lazy(() => import("../pages/verifybill/verifybill"))
+const Bill = lazy(() => import("../pages/bill/bill"));
+const VerifyBill = lazy(() => import("../pages/verifybill/verifybill"));
+const AllSoftware = lazy(() => import("../pages/allSoftware"));
 
 const routes = [
   {
@@ -30,6 +30,10 @@ const routes = [
         element: <AboutUs />,
       },
       {
+        path: "allsoftware",
+        element: <AllSoftware />,
+      },
+      {
         path: "",
         element: <Home />,
       },
@@ -39,7 +43,7 @@ const routes = [
       },
       {
         path: "verifybill",
-        element: <VerifyBill/>,
+        element: <VerifyBill />,
       },
       {
         path: "shopsoftware",

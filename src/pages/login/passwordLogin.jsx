@@ -57,8 +57,8 @@ export default function PasswordLogin({ alert, setAlert }) {
             if (response.code == 1) {
                 setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1000, 1);
                 localStorage.setItem('token', response.data.token)
-                localStorage.setItem('userId', response.data.userId)
-                localStorage.setItem('email', email)
+                localStorage.setItem('userIdSf', response.data.userId)
+                localStorage.setItem('emailSf', email)
 
             }
             else {
