@@ -1,8 +1,8 @@
 import styles from "./verifybill.module.css"
 import React, { useState } from 'react';
-import {Card ,Button,Modal} from "antd"
+import {Card ,Button} from "antd"
 const SoftwareName = () => {
-    const [modal2Open, setModal2Open] = useState(false);
+   
     return (
         <div className={styles.softwarename}>
             <h3 className={styles.title}>软件名</h3>
@@ -17,30 +17,7 @@ const SoftwareName = () => {
 </Card>
     </div>
     <div className={styles.buy_btn}>
-                        <Button className={styles.btn} onClick={() => setModal2Open(true)}>1,400CNY起 购买</Button>
-                        <Modal
-                            title="请选择下载方式"
-                            centered
-                            open={modal2Open}
-                            onOk={() => setModal2Open(false)}
-                            onCancel={() => setModal2Open(false)}
-                        >
-                            <div className={styles.download_choose}>
-                                <div className={styles.common}>
-                                    <h3 className={styles.version_title}>普通版本</h3>
-                                    <div className={styles.version_detail}>普通版本详细信息</div>
-                                    <Button className={styles.mychoose_btn} type="primary">普通版本下载</Button>
-                                    <Button className={styles.mychoose_btn} type="primary">查看历史普通版本</Button>
-                                </div>
-                               <div className={styles.advanced}>
-                                    <h3 className={styles.version_title}>高级版本</h3>
-                                    <div className={styles.version_detail}>高级版本详细信息</div>
-                                    <Button className={styles.mychoose_btn} type="primary">高级版本下载</Button>
-                                    <Button className={styles.mychoose_btn} type="primary">查看历史高级版本</Button>
-                               </div>
-                               
-                            </div>
-                        </Modal>
+                        <Button className={styles.btn}>1,400CNY起 购买</Button>
     </div>
 </div>
             </div>

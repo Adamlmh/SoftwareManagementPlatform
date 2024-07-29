@@ -64,51 +64,17 @@
     color: #fff;
     font-weight: 500;
 }
-/* 下载弹窗 */
-.download_choose{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.mychoose_btn{
-    width: 120px;
-    height: 30px;
-    font-size: 12px;
-}
-.common,.advanced{
-    width: 200px;
-    height: 300px;
-    display: flex;flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    /* background-color: red; */
-}
-.version_title{
-    font-weight: 400;
-}
-.version_detail{
-    /* background-color: green; */
-    width: 150px;
-    height: 80px;
-    overflow: auto;
-    text-align: center;
-}
-.version_detail::-webkit-scrollbar{
-    display: none;
-}
 
 
-/* 第二部分 详细 */
-.detail{
+/* 第二部分 详细版本 */
+.common_version{
     width: 1200px;
-    height: 650px;
+    height: 850px;
 }
 /* 第二部分主要内容 */
 .detail_content{
     width: 100%;
-    height: 542px;
+    height: 690px;
     margin-top: 20px;
 }
 .detailcard{
@@ -118,12 +84,82 @@
 .detailcard::-webkit-scrollbar{
 display: none;
 }
+.detailsbox{
+    width: 100%;
+    height: 500px;
+    /* background-color: red; */
+    overflow: auto;
+    border-bottom: 3px solid #cccccc;
+}
+.detailsbox::-webkit-scrollbar{
+    display: none;
+}
+.history_version{
+    width: 100%;height: 80px;
+    border-bottom: 3px solid #cccccc;
+    overflow: auto;
+}
+.history_version::-webkit-scrollbar{
+    display: none;
+}
+.checkout_btnbox{
+    margin-top: 12px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.checkout_btn{
+    width: 438px;
+    height: 100%;
+    border-radius: 42px;
+    border: 0;
+    background-color: #D8D1FF;
+    color: #6D2AAA;
+    font-size: 16px;
+}
+/* 查看历史版本弹窗 */
+.versionlist{
+    height: 400px;
+    overflow: auto;
+}
+.versionlist::-webkit-scrollbar{
+    display: none;
+}
+.history_version_check {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
+.history_version_check span {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.versiondownload_btn {
+    width: 72px;
+    height: 26px;
+    border-radius: 36px;
+    font-size: 14px;
+    background-color: #816AFF;
+    color: #fff;
+}
+/* 下载系统选择弹出窗 */
+.choose_system{
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
 /* 第三部分 更新 */
 .update{
     width: 1200px;
-    height: 450px;
+    height: 500px;
 }
 .update_content{
     width: 100%;
