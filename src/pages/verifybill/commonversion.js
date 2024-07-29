@@ -45,7 +45,7 @@ const CommonVersion = ({ version,status,description,allversion,time,name}) => {
         };
         fetchHistoryVersionData();
     }, []); 
-    console.log(historyVersion);
+    // console.log(historyVersion);
     const toggleModal = (idx, target) => {
         setIsModalOpen((p) => {
             p[idx] = target;

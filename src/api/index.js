@@ -17,7 +17,7 @@ export function sendVerificationCode(email) {
   };
   console.log(data)
   return service({
-    url: "http://47.113.224.195:31108/account/sendVerificationCode",
+    url: "/account/sendVerificationCode",
     method: "post",
     data,
   });
@@ -31,7 +31,7 @@ export function register(email, verificationCode, password) {
   };
   console.log('发送注册', data)
   return service({
-    url: "http://47.113.224.195:31108/account/register",
+    url: "/account/register",
     method: "post",
     data,
   });
@@ -46,7 +46,7 @@ export function accountLogin(account, password, role = 1) {
   };
   console.log('发送登录', data)
   return service({
-    url: "http://47.113.224.195:31108/account/login",
+    url: "/account/login",
     method: "post",
     data,
   });
@@ -60,7 +60,7 @@ export function updatePassword(email, password) {
   };
   console.log('发送修改密码', data)
   return service({
-    url: "http://47.113.224.195:31108/account/updatePassword",
+    url: "/account/updatePassword",
     method: "post",
     data,
   });
@@ -72,7 +72,7 @@ export function homePageUserInfo(userId) {
   };
   console.log('发送获得用户名与头像', params)
   return service({
-    url: "http://47.113.224.195:31108/account/homePageUserInfo",
+    url: "/account/homePageUserInfo",
     method: "get",
     params,
   });
@@ -88,7 +88,7 @@ export function homePageShowSoftware(page, softwareName = '', tages = [], pageSi
   };
   console.log('发送首页分页展示', params)
   return service({
-    url: "http://47.113.224.195:31108/software/homePageShowSoftware",
+    url: "/software/homePageShowSoftware",
     method: "get",
     params,
   });
@@ -98,7 +98,7 @@ export function homePageShowSoftware(page, softwareName = '', tages = [], pageSi
 export function softwareRanking() {
   console.log('发现软件热门排行')
   return service({
-    url: "http://47.113.224.195:31108/software/softwareRanking",
+    url: "/software/softwareRanking",
     method: "get",
   });
 }
@@ -110,7 +110,7 @@ export function basicSoftwareInfo(softwareId) {
   };
   console.log('发送件详情页 上半部分基本软件信息', params)
   return service({
-    url: "http://47.113.224.195:31108/software/basicSoftwareInfo",
+    url: "/software/basicSoftwareInfo",
     method: "get",
     params,
   });
@@ -123,7 +123,7 @@ export function detailedSoftwareInfo(softwareId) {
   };
   console.log('发送首软件详情页 下半部分 普通/专业 软件信息', params)
   return service({
-    url: "http://47.113.224.195:31108/software/detailedSoftwareInfo",
+    url: "/software/detailedSoftwareInfo",
     method: "get",
     params,
   });
@@ -137,7 +137,7 @@ export function historySoftwareVersion(softwareId, versionType) {
   };
   console.log('软件详情页下半 历史查看', params)
   return service({
-    url: "http://47.113.224.195:31108/software/historySoftwareVersion",
+    url: "/software/historySoftwareVersion",
     method: "get",
     params,
   });
@@ -151,7 +151,7 @@ export function showRequiredAuthSoftware(userId) {
   };
   console.log('展示用户未授权的软件，即未购买或者已过期的软件', params)
   return service({
-    url: "http://47.113.224.195:31108/software/showRequiredAuthSoftware",
+    url: "/software/showRequiredAuthSoftware",
     method: "get",
     params,
   });
@@ -163,7 +163,7 @@ export function checkLatestSoftware(userId) {
   };
   console.log('首页实时通知新版本', params)
   return service({
-    url: "http://47.113.224.195:31108/software/checkLatestSoftware",
+    url: "/software/checkLatestSoftware",
     method: "get",
     params,
   });

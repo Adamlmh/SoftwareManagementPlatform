@@ -29,23 +29,26 @@ const HomeFourthPage = () => {
 
 
     return (
-        <div>
+        <div className={styles.home_fourthpage}>
             <h1 className={styles.title}>优秀的使用反馈</h1>
-            <List
-                lassName={styles.List}
-                itemLayout="horizontal"
-                dataSource={data}
-                renderItem={(item, index) => (
-                    <List.Item className={styles.MetaList}>
-                        <List.Item.Meta
-                            avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
-                            title={<a href="https://ant.design">{item.title}</a>}
-                            description={item.description}
-                            className={styles.MetaList}
-                        />
-                    </List.Item>
-                )}
-            />
+            <div className={styles.content}>
+                <List
+                    className={styles.List}
+                    itemLayout="horizontal"
+                    dataSource={data}
+                    renderItem={(item, index) => (
+                        <List.Item className={styles.MetaList}>
+                            <List.Item.Meta
+                                avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
+                                title={<a href="https://ant.design">{item.title}</a>}
+                                description={item.description}
+                                className={styles.MetaList}
+                            />
+                        </List.Item>
+                    )}
+                />
+            </div>
+           
         </div>
     )
 }
