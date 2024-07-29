@@ -49,9 +49,9 @@ export default function PasswordLogin({ alert, setAlert }) {
         try {
             let response;
             if (rembermeRef.current.checked)
-                response = await accountLogin(email, password, 1);
-            else
                 response = await accountLogin(email, password, 0);
+            else
+                response = await accountLogin(email, password, 1);
             console.log(response)
             if (response.code == 1) {
                 setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1000, 1);

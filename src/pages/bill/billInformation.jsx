@@ -6,8 +6,8 @@ const billInformation = () => {
     return (
         <Card
             style={{
-                width: 1118,
-                height: 208
+                width: '1118px',
+                height: '208px'
             }} className={styles.billInformation}
         >
             <div className={styles.billInformationDiv}>

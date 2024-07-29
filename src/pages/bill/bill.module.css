@@ -21,7 +21,6 @@ padding-left: 61px;
 
 
 .billInformationDiv{
-     
     width: 954px;
     height: 148px;
     display: flex;
@@ -46,12 +45,98 @@ padding-left: 61px;
     font-size: 20px;
     font-weight: 700;
        display: flex;
-
     align-items: center;
     justify-content: start;
     margin-left: 61px;
      flex: 1;
 }
 .buyaccout{
-    margin-top: 32px;
+    margin-top: 30px;
+    font-size: 28px;
+    color: rgb(30, 14, 98);
 }
+.buyAccountInformation{
+ margin-top: 2px;     
+ height: 200px;
+  width: 1118px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.buyAccountInformation div:nth-of-type(1){
+    height: 142px;
+    width: 476px;
+    display: flex;
+    font-size: 20px;
+}
+
+.buyAccountInformation div:nth-of-type(1) ul:nth-of-type(1){
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
+flex: 1;
+}
+.buyAccountInformation div:nth-of-type(1) ul:nth-of-type(2){
+      display: flex;
+flex-direction: column;
+justify-content: space-between;
+flex: 1;
+}
+
+
+
+.buyAccountInformation div:nth-of-type(2){
+    width: 200px;
+    height: 200px;
+}
+.rihgtCardWord{
+    font-size: 16px;
+}
+.assess{
+        margin-top: 30px;
+    font-size: 28px;
+    color: rgb(30, 14, 98);
+}
+
+.textareaDiv{
+    width: 400px;
+    height: 145px;
+    margin-top: 30px;
+      resize: none;
+}
+
+.cost{
+    margin-top: 50px;
+    font-size: 28px;
+    color: rgb(30, 14, 98);
+}
+
+.buybottom{
+width: 1118px;
+height: 50px;
+margin-top: 45px;
+display: flex;
+justify-content:space-between
+}
+.buybottom button{
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+.buybottom button:nth-of-type(1){
+  width: 109px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: rgb(216, 209, 255);
+  color: rgb(83, 0, 149);
+}
+.buybottom button:nth-of-type(2){
+  width: 180px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: rgb(129, 106, 255);
+  color: white;
+}
+
+
