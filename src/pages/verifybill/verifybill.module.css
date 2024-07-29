@@ -29,7 +29,7 @@
     height: 100%;
     width: 753px;
     background-image: url('../../assets/images/verifybill-first-part-pic.png');
-    background-size: cover;
+    background-size: 100% 100%;
 }
 /* 第一部分右边部分 */
 .right{
