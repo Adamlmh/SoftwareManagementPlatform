@@ -1,6 +1,7 @@
 import "./layout.css";
 import { Layout, Menu, Input, Button } from "antd";
 import { NavLink } from "react-router-dom";
+import StoreDropDown from "./Dropdown";
 const { Header } = Layout;
 const TopHeader = () => {
   return (
@@ -13,9 +14,10 @@ const TopHeader = () => {
           <NavLink to={"/"}>
             <Menu.Item className="top_menu_item">首页</Menu.Item>
           </NavLink>
-          <NavLink to={"/header/shop"}>
-            <Menu.Item className="top_menu_item">商店</Menu.Item>
-          </NavLink>
+          <Menu.Item className="top_menu_item">
+            <StoreDropDown />
+          </Menu.Item>
+
           <NavLink to={"/header/"}>
             <Menu.Item className="top_menu_item">我的</Menu.Item>
           </NavLink>

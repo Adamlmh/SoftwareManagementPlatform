@@ -8,6 +8,7 @@ const Shop = lazy(() => import("../pages/shop/shop"));
 const Login = lazy(() => import("../pages/login"));
 const AboutUs = lazy(() => import("../pages/aboutus"));
 const Shopsoftware = lazy(() => import("../pages/shopsoftware/shopsoftware"));
+const AllSoftware = lazy(() => import("../pages/allSoftware"));
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
       {
         path: "about",
         element: <AboutUs />,
+      },
+      {
+        path: "allsoftware",
+        element: <AllSoftware />,
       },
       {
         path: "",
