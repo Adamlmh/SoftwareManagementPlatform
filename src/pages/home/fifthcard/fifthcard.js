@@ -1,18 +1,18 @@
 import styles from "./card.module.css"
 
 import { Card } from 'antd';
-const FifthCard = ({image}) => {
+const FifthCard = ({ image }) => {
     return (
         <Card
             className={styles.card}
-            hoverable  style={{ width: '270px' }}>
-           
-            <div className={styles.picbox} 
+            hoverable style={{ width: '270px' }}>
+
+            <div className={styles.picbox}
             // style={{ backgroundImage: `url(${image})` }}
-            >  
+            >
                 <img className={styles.pic} src={image}></img>
-                </div>
-                
+            </div>
+
         </Card>
     )
 }

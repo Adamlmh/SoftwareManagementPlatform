@@ -136,6 +136,8 @@ height: 35%;
     border-radius: 20px;
     height: 70%;
     width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     color: rgb(99, 61, 177);
      font-size: clamp(10px, 1vw, 60px); /* 设置最小、理想和最大字体大小 */
          white-space: nowrap; /* 禁止文本换行 */

@@ -39,7 +39,10 @@ justify-content: center;
 align-items: center;
 padding-left: 35%;
     background-color: rgb(234, 240, 255);
+        border: none;
 }
+
+
 .title{
  background-color: rgb(234, 240, 255);
  font-size: 32px;

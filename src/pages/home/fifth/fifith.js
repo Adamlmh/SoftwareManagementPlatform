@@ -16,14 +16,14 @@ const HomeFifthPage = () => {
                 受到多家组织信赖
             </h3>
             <div className={styles.content}>
-                <FifthCard image={image1}></FifthCard>
-                <FifthCard image={image2}></FifthCard>
-                <FifthCard image={image3}></FifthCard>
-                <FifthCard image={image4}></FifthCard>
-                <FifthCard image={image5}></FifthCard>
-                <FifthCard image={image6}></FifthCard>
-                <FifthCard image={image7}></FifthCard>
-                <FifthCard image={image8}></FifthCard>
+                <FifthCard image={image1} num={1}></FifthCard>
+                <FifthCard image={image2} num={2}></FifthCard>
+                <FifthCard image={image3} num={3}></FifthCard>
+                <FifthCard image={image4} num={4}></FifthCard>
+                <FifthCard image={image5} num={5}></FifthCard>
+                <FifthCard image={image6} num={6}></FifthCard>
+                <FifthCard image={image7} num={7}></FifthCard>
+                <FifthCard image={image8} num={8}></FifthCard>
             </div>
         </div>
     )
