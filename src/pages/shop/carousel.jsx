@@ -15,7 +15,7 @@ const contentStyle = {
 
 
 
-const Index = ({ lastData }) => {
+const Index = ({ lastData, goToDetails }) => {
 
     const [data, setData] = useState([
         {
@@ -47,6 +47,7 @@ const Index = ({ lastData }) => {
 
             const information = lastData.map((item) => {
                 return {
+                    softwareId: item.softwareId,
                     image: item.softwareImage,
                     titll: item.softwareName,
                     description: item.description
@@ -58,10 +59,16 @@ const Index = ({ lastData }) => {
         }
     }, [lastData]);
 
+    const clickImg = (data) => {
+        console.log(data)
+        goToDetails(data)
+    }
+
+
     return (
         <Carousel autoplay style={contentStyle}>
             {data.map((item, index) => {
-                return (<div className={styles.carouselTitle}>
+                return (<div className={styles.carouselTitle} onClick={() => clickImg(item)}>
                     <div>  <h1 >{item.titll}</h1>
                         <h2 >{item.description}</h2></div>
                     <h3 style={contentStyle} className={styles.carouselImage}><img src={item.image} className={styles.carouselImage} /></h3>

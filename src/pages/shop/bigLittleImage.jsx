@@ -5,7 +5,7 @@ import littleImage2 from '../../assest/images/8420455527b2e3dbb19c1e32102a1286.p
 import littleImage3 from '../../assest/images/bigImage.png';
 import littleImage4 from '../../assest/images/d0e2d20ff686c5d06a5dae3d6149a639.png';
 
-const BigLittleImage = ({ lastData }) => {
+const BigLittleImage = ({ lastData, goToDetails }) => {
     const [data, setData] = useState([
         {
             image: littleImage1,
@@ -44,6 +44,7 @@ const BigLittleImage = ({ lastData }) => {
 
             const information = lastData.map((item) => {
                 return {
+                    softwareId: item.softwareId,
                     image: item.softwareImage,
                     titll: item.softwareName,
                     tags: item.tags || [], // 确保 tags 存在且是一个数组
@@ -58,15 +59,17 @@ const BigLittleImage = ({ lastData }) => {
     }, [lastData]);
 
 
-
+    const clickImg = (data) => {
+        console.log(data)
+        goToDetails(data)
+    }
 
     return (
-
         <ul className={styles.smallImages}>
             {
                 data.map((item, index) => {
                     return (
-                        <li className={styles.smallImages_li}>
+                        <li className={styles.smallImages_li} onClick={() => { clickImg(item) }}>
 
                             <div>
                                 <img src={item.image} />

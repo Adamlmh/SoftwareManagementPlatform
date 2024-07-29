@@ -47,6 +47,7 @@ img{
   border-radius: 10px;
   min-width: 1300px;
    overflow: hidden; /* 防止内容溢出 */
+   cursor: pointer;
 }
 
 .carouselImage{
