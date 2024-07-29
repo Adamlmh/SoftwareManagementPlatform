@@ -1,7 +1,6 @@
 import styles from "./card.module.css"
 import { Card, Button } from 'antd';
 const ThirdCard = ({ data }) => {
-    console.log(data)
     return (
         <Card
             cover={
