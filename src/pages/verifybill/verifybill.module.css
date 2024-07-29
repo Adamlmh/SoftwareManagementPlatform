@@ -64,6 +64,40 @@
     color: #fff;
     font-weight: 500;
 }
+/* 下载弹窗 */
+.download_choose{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.mychoose_btn{
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+}
+.common,.advanced{
+    width: 200px;
+    height: 300px;
+    display: flex;flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: red; */
+}
+.version_title{
+    font-weight: 400;
+}
+.version_detail{
+    /* background-color: green; */
+    width: 150px;
+    height: 80px;
+    overflow: auto;
+    text-align: center;
+}
+.version_detail::-webkit-scrollbar{
+    display: none;
+}
 
 
 /* 第二部分 详细 */
