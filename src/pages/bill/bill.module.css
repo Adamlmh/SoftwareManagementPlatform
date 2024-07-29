@@ -22,7 +22,6 @@ li{
 } 
 .billInformation{
     margin-top: 60px;
-    height: 208px;
 padding-left: 61px;
 }
 
@@ -30,7 +29,7 @@ padding-left: 61px;
 
 .billInformationDiv{
     width: 954px;
-    height: 148px;
+
     display: flex;
     flex-direction: column;
 }
