@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { sendVerificationCode, register } from "../../api"
 import { Input } from 'antd'
-
+import { useNavigate } from 'react-router-dom'
 
 export default function Register({ alert, setAlert }) {
 
@@ -14,6 +14,7 @@ export default function Register({ alert, setAlert }) {
     const emailRef = useRef()
     const agreeRef = useRef()
     const yemRef = useRef()
+    const native = useNavigate()
 
     const setStatus = (setter, status, duration = 3000) => {
         setter(status);
@@ -34,7 +35,7 @@ export default function Register({ alert, setAlert }) {
             setter(alert)
             setTimeout(() => {
                 setter({ message: '', type: "" })
-                // navigate('/home')
+                native('./header/home')
             }, duration)
 
         }
