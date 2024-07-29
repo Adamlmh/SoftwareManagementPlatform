@@ -7,22 +7,22 @@ const HomeFourthPage = () => {
     const data = [
         {
             title: 'A good software that rotates my code.',
-            description: '一个不错的软件，让我的代码旋转',
+            description: '一个不错的软件，让我的代码旋转.',
         },
         {
 
             title: 'Im extremely satisfied with this software, even to the point of giving it a 9 out of 10.',
-            description: '我对这个软件有十分甚至纠纷的满意',
+            description: '我对这个软件有十分甚至九分的满意。',
 
         },
         {
             title: '私の牢大の直升机は、このウェブサイトを見つけてから陨落しました。',
-            description: '我老大的直升机就是发现了这个网站才坠机的',
+            description: '我老大的直升机就是发现了这个网站才坠机的。',
 
         },
         {
             title: 'Ctrl+C and Ctrl+V are essential tools for engineers.',
-            description: 'Ctrl+C＆Ctrl+Vは、エンジニアの必須ツールです',
+            description: 'Ctrl+C＆Ctrl+Vは、エンジニアの必須ツールです.',
 
         },
     ];

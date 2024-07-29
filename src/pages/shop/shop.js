@@ -31,7 +31,7 @@ export default function Index() {
     }, [])
 
     const goToDetails = (data) => {
-        if (data) {
+        if (data && data.softwareId) {
             const softwareId = data.softwareId;
             console.log(softwareId);
             const encodedSoftwareId = encodeURIComponent(softwareId); // 编码软件ID
