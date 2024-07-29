@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
-import { Card, Input } from 'antd'
+import { Input } from 'antd'
 import { accountLogin } from "../../api"
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function PasswordLogin({ alert, setAlert }) {
@@ -22,6 +22,7 @@ export default function PasswordLogin({ alert, setAlert }) {
         else {
             setter(alert)
             setTimeout(() => {
+                let loginStage = 1
                 setter({ message: '', type: "" })
                 native('./header/home')
             }, duration)
@@ -49,9 +50,9 @@ export default function PasswordLogin({ alert, setAlert }) {
         try {
             let response;
             if (rembermeRef.current.checked)
-                response = await accountLogin(email, password, 1);
-            else
                 response = await accountLogin(email, password, 0);
+            else
+                response = await accountLogin(email, password, 1);
             console.log(response)
             if (response.code == 1) {
                 setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1000, 1);
@@ -71,12 +72,6 @@ export default function PasswordLogin({ alert, setAlert }) {
 
 
     useEffect(() => {
-        if (localStorage.getItem('passwordSF')) {
-            passwordRef.current.input.value = localStorage.getItem('password')
-        }
-        if (localStorage.getItem('emaiSF')) {
-            emailRef.current.input.value = localStorage.getItem('email')
-        }
         agreeRef.current.checked = true
     }, [])
 

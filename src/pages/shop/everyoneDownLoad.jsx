@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './shop.module.css'
 import littleImage1 from '../../assest/images/605b0dc354d5ccb7d3d63eba17900968.png';
+import { useNavigate } from 'react-router-dom';
 
 const EveryoneDownLoad = () => {
 
@@ -43,10 +44,16 @@ const EveryoneDownLoad = () => {
 
         }
     ])
+    const navigate=useNavigate()
+    const handleClick=()=>{
+// console.log(111);
 
+navigate('/header/verifybill')
+        window.scrollTo(0, 0)
+    }
 
     return (
-        <ul className={styles.everyoneDownLoad}>
+        <ul className={styles.everyoneDownLoad} onClick={() => handleClick()}>
             {data.map((item, index) => {
                 return (
                     <li>

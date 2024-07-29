@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './shop.module.css'
 import littleImage1 from '../../assest/images/9e748038ad0f0b055344736f61190665.png';
-
+import { useNavigate } from 'react-router-dom';
 
 const Count = () => {
     const [data, setData] = useState([
@@ -24,11 +24,17 @@ const Count = () => {
             count: '折扣：80%'
         },
     ])
+    const navigate = useNavigate()
+    const handleClick = () => {
+        // console.log(111);
 
+        navigate('/header/verifybill')
+        window.scrollTo(0, 0)
+    }
 
 
     return (
-        <ul className={styles.countUl}>
+        <ul className={styles.countUl} onClick={() => handleClick()}>
             {
                 data.map((item, index) => {
                     return (

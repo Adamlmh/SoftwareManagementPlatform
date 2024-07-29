@@ -1,20 +1,20 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { sendVerificationCode, accountController, register } from "../../api"
+import { sendVerificationCode, register } from "../../api"
 import { Input } from 'antd'
-
+import { useNavigate } from 'react-router-dom'
 
 export default function Register({ alert, setAlert }) {
 
     const [seconds, setSeconds] = useState(60);
     const [emailStatus, setEmailStatus] = useState('');
     const [disabled, setDisabled] = useState(false);
-    const [yzmStatus, setYzmStatus] = useState('');
     let [sendyzem, setsendyzem] = useState(0)
     const firstPasswordRef = useRef()
     const secondPasswordRef = useRef()
     const emailRef = useRef()
     const agreeRef = useRef()
     const yemRef = useRef()
+    const native = useNavigate()
 
     const setStatus = (setter, status, duration = 3000) => {
         setter(status);
@@ -35,7 +35,7 @@ export default function Register({ alert, setAlert }) {
             setter(alert)
             setTimeout(() => {
                 setter({ message: '', type: "" })
-                // navigate('/home')
+                native('./header/home')
             }, duration)
 
         }
@@ -82,7 +82,7 @@ export default function Register({ alert, setAlert }) {
         const email = emailRef.current.input.value;
         const firstPassword = firstPasswordRef.current.input.value;
         const secondPassword = secondPasswordRef.current.input.value;
-        const yem = secondPasswordRef.current.input.value;
+        const yem = yemRef.current.input.value;
         const agree = agreeRef.current.checked
 
         if (!email) {
@@ -111,7 +111,7 @@ export default function Register({ alert, setAlert }) {
         }
         try {
             const response = await register(email, yem, firstPassword);
-            if (response.code == 1) {
+            if (response.code === 1) {
                 setAlertTimeout(setAlert, { message: '注册成功，将跳转到登录页面', type: 'success' }, 1000, 1);
             }
             else {
