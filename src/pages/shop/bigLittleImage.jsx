@@ -47,7 +47,7 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
                     softwareId: item.softwareId,
                     image: item.softwareImage,
                     titll: item.softwareName,
-                    tags: item.tags || [], // 确保 tags 存在且是一个数组
+                    tags: item.tags || ['标签', '标签', '标签'], // 确保 tags 存在且是一个数组
                     score: '5.0',
                     description: item.description
                 };
