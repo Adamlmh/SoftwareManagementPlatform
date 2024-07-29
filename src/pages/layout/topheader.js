@@ -8,7 +8,7 @@ const TopHeader = () => {
   const [loginState, setLoginStage] = useState(0)
 
   useEffect(() => {
-    if (localStorage.getItem('token') && localStorage.getItem('userId'))
+    if (localStorage.getItem('token') && localStorage.getItem('userIdSf'))
       setLoginStage(1)
     else
       setLoginStage(0)

@@ -26,7 +26,7 @@ const BigLittleImage = () => {
             titll: '麻布仔大冒险',
             tag1: '标签',
             tag2: '标签',
-            tag3: '标签',
+            tag3: '标签555000',
             score: '5.0',
             description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
 
