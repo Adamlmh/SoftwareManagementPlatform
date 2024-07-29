@@ -1,0 +1,57 @@
+.BigDiv{
+    width: 100%;
+    padding-top: 40px;
+ background-color: rgb(234, 240, 255);
+ padding-left: 141px;
+}
+li{
+    list-style: none;
+}
+
+.agreeBill{
+    font-size: 28px;
+    color: rgb(30, 14, 98);
+} 
+.billInformation{
+    margin-top: 60px;
+    height: 208px;
+padding-left: 61px;
+}
+
+
+
+.billInformationDiv{
+     
+    width: 954px;
+    height: 148px;
+    display: flex;
+    flex-direction: column;
+}
+.billInformationDiv ul:nth-of-type(1){
+  margin-left: 25px;
+    display: flex;
+    justify-content: space-around;
+    flex: 2;
+    font-size: 20px;
+}
+.billInformationDiv ul:nth-of-type(1) li{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.billInformationDiv ul:nth-of-type(2){
+    font-size: 20px;
+    font-weight: 700;
+       display: flex;
+
+    align-items: center;
+    justify-content: start;
+    margin-left: 61px;
+     flex: 1;
+}
+.buyaccout{
+    margin-top: 32px;
+}
