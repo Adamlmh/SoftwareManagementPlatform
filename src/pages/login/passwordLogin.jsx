@@ -22,6 +22,7 @@ export default function PasswordLogin({ alert, setAlert }) {
         else {
             setter(alert)
             setTimeout(() => {
+                let loginStage = 1
                 setter({ message: '', type: "" })
                 native('./header/home')
             }, duration)

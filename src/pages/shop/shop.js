@@ -5,10 +5,28 @@ import EveryoneDownLoad from './everyoneDownLoad';
 import Recommend from './recommend';
 import Count from './count';
 import Carousel from './carousel'
-
+import { useEffect, useState } from 'react'
+import { softwareRanking } from "../../api"
 
 
 export default function Index() {
+
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        async function receiveInformation() {
+            try {
+                const response = await softwareRanking()
+                console.log(response);
+            } catch (error) {
+                console.error('Error sending verification code:', error);
+            }
+
+        }
+        receiveInformation()
+    }, [])
+
+
     return (
         <div className={styles.shop}>
             <h3 className={styles.todayfind}>今日发现</h3>

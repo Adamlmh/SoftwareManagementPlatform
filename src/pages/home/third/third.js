@@ -1,7 +1,7 @@
 import styles from "./third.module.css"
 import ThirdCard from "../thirdcard/thirdcard";
 import { useEffect, useState } from 'react'
-import { homePageShowSoftware } from "../../../api"
+import { softwareRanking } from "../../../api"
 import axios from "axios";
 
 
@@ -11,7 +11,7 @@ const HomeThirdPage = () => {
     useEffect(() => {
         async function receiveInformation() {
             try {
-                const response = await homePageShowSoftware(1, '', [], 6)
+                const response = await softwareRanking()
                 console.log(response);
             } catch (error) {
                 console.error('Error sending verification code:', error);
