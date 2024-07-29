@@ -50,7 +50,7 @@ const TopHeader = () => {
               <Button className="linkto_login top_link_btn">登录</Button>
             </>
           ) : (
-              <Button className="linkto_login top_link_btn">退出登录</Button>
+              <Button className="linkto_login top_link_btn">注销</Button>
             )}
         </NavLink>
       </div>
