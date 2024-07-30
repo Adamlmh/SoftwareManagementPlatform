@@ -161,7 +161,7 @@ margin-right: 5px;
 margin-bottom: 40px;
 }
 .main {
-    background-image: url("../../assest/images/third.jpg");
+    background-image: url("../../assets/images/third.jpg");
     background-size: cover; /* 使背景图片覆盖整个元素 */
     background-position: center center; /* 使背景图片居中 */
     background-repeat: no-repeat; /* 防止背景图片重复 */

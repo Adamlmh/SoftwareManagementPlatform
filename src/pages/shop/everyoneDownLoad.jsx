@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './shop.module.css'
-import littleImage1 from '../../assest/images/605b0dc354d5ccb7d3d63eba17900968.png';
+import littleImage1 from '../../assets/images/605b0dc354d5ccb7d3d63eba17900968.png';
 import { useNavigate } from 'react-router-dom';
 
 const EveryoneDownLoad = (goToDetails) => {

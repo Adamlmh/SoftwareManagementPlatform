@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './shop.module.css'
-import littleImage1 from '../../assest/images/670d8aa44292f234551dc4d837c4257a.png';
-import littleImage2 from '../../assest/images/09a5bdc1face7ec001ae71105bf91809.png';
+import littleImage1 from '../../assets/images/670d8aa44292f234551dc4d837c4257a.png';
+import littleImage2 from '../../assets/images/09a5bdc1face7ec001ae71105bf91809.png';
 import { useNavigate } from 'react-router-dom';
 
 const Recommend = () => {

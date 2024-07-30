@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './shop.module.css'
-import littleImage1 from '../../assest/images/9e748038ad0f0b055344736f61190665.png';
+import littleImage1 from '../../assets/images/9e748038ad0f0b055344736f61190665.png';
 import { useNavigate } from 'react-router-dom';
 
 const Count = (goToDetails) => {

@@ -11,7 +11,7 @@ export function loginAPI(data) {
 
 //发送验证码
 export function sendVerificationCode(email) {
-  console.log(`发送验证码`);
+  // console.log(`发送验证码`);
   const data = {
     email: email,
   };
@@ -29,7 +29,7 @@ export function register(email, verificationCode, password) {
     verificationCode,
     password,
   };
-  console.log("发送注册", data);
+  // console.log("发送注册", data);
   return service({
     url: "http://47.113.224.195:31108/account/register",
     method: "post",
@@ -43,7 +43,7 @@ export function accountLogin(account, password, role = 1) {
     password,
     role,
   };
-  console.log("发送登录", data);
+  // console.log("发送登录", data);
   return service({
     url: "http://47.113.224.195:31108/account/login",
     method: "post",
@@ -57,7 +57,7 @@ export function updatePassword(email, password) {
     email,
     password,
   };
-  console.log("发送修改密码", data);
+  // console.log("发送修改密码", data);
   return service({
     url: "http://47.113.224.195:31108/account/updatePassword",
     method: "post",
@@ -69,7 +69,7 @@ export function homePageUserInfo(userId) {
   const params = {
     userId,
   };
-  console.log("发送获得用户名与头像", params);
+  // console.log("发送获得用户名与头像", params);
   return service({
     url: "http://47.113.224.195:31108/account/homePageUserInfo",
     method: "get",
@@ -90,7 +90,7 @@ export function homePageShowSoftware(
     // tages,
     pageSize,
   };
-  console.log("发送首页分页展示", params);
+  // console.log("发送首页分页展示", params);
   return service({
     url: "http://47.113.224.195:31108/software/homePageShowSoftware",
     method: "get",
@@ -112,7 +112,7 @@ export function basicSoftwareInfo(softwareId) {
   const params = {
     softwareId,
   };
-  console.log("发送件详情页 上半部分基本软件信息", params);
+  // console.log("发送件详情页 上半部分基本软件信息", params);
   return service({
     url: "http://47.113.224.195:31108/software/basicSoftwareInfo",
     method: "get",
@@ -125,7 +125,7 @@ export function detailedSoftwareInfo(softwareId) {
   const params = {
     softwareId,
   };
-  console.log("发送首软件详情页 下半部分 普通/专业 软件信息", params);
+  // console.log("发送首软件详情页 下半部分 普通/专业 软件信息", params);
   return service({
     url: "http://47.113.224.195:31108/software/detailedSoftwareInfo",
     method: "get",
@@ -139,7 +139,7 @@ export function historySoftwareVersion(softwareId, versionType) {
     softwareId,
     versionType,
   };
-  console.log("软件详情页下半 历史查看", params);
+  // console.log("软件详情页下半 历史查看", params);
   return service({
     url: "http://47.113.224.195:31108/software/historySoftwareVersion",
     method: "get",
@@ -164,7 +164,7 @@ export function checkLatestSoftware(userId) {
   const params = {
     userId,
   };
-  console.log("首页实时通知新版本", params);
+  // console.log("首页实时通知新版本", params);
   return service({
     url: "http://47.113.224.195:31108/software/checkLatestSoftware",
     method: "get",
@@ -215,6 +215,20 @@ export function getCommit(softwareId, userId, versionType, version) {
   };
   return service({
     url: "http://47.113.224.195:31108/auth/checkAuth",
+    method: "post",
+    data,
+  });
+}
+// 用户点击下载
+export function downloadSoftware(softwareId, userId, versionType, version) {
+  const data = {
+    softwareId,
+    userId,
+    versionType,
+    version,
+  };
+  return service({
+    url: "http://47.113.224.195:31108/software/downloadSoftware",
     method: "post",
     data,
   });
