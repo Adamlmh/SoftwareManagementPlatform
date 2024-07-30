@@ -112,7 +112,10 @@ export default function Register({ alert, setAlert }) {
         try {
             const response = await register(email, yem, firstPassword);
             if (response.code === 1) {
-                setAlertTimeout(setAlert, { message: '注册成功，将跳转到登录页面', type: 'success' }, 1000, 1);
+                setAlertTimeout(setAlert, { message: '注册成功，将跳转', type: 'success' }, 1000, 1);
+                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('userIdSf', response.data.userId)
+                localStorage.setItem('emailSf', email)
             }
             else {
                 setAlertTimeout(setAlert, { message: response.msg, type: 'error' });

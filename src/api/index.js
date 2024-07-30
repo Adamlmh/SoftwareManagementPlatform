@@ -3,7 +3,7 @@ import service from "../utils/axios";
 //登录API
 export function loginAPI(data) {
   return service({
-    url: "/login",
+    url: "http://47.113.224.195:31108/login",
     method: "post",
     data,
   });
@@ -86,8 +86,8 @@ export function homePageShowSoftware(
 ) {
   const params = {
     page,
-    softwareName,
-    tages,
+    // softwareName,
+    // tages,
     pageSize,
   };
   console.log("发送首页分页展示", params);
@@ -203,5 +203,19 @@ export function subscribeSoftwarePage(params) {
     )}`,
     method: "get",
     params,
+  });
+}
+// 检验授权
+export function getCommit(softwareId, userId, versionType, version) {
+  const data = {
+    softwareId,
+    userId,
+    versionType,
+    version,
+  };
+  return service({
+    url: "http://47.113.224.195:31108/auth/checkAuth",
+    method: "post",
+    data,
   });
 }

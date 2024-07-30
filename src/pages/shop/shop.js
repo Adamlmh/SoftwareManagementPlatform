@@ -7,17 +7,21 @@ import Count from './count';
 import Carousel from './carousel'
 import { useEffect, useState } from 'react'
 import { softwareRanking } from "../../api"
-
+import { useNavigate } from "react-router-dom"
 
 export default function Index() {
-
     const [data, setData] = useState([])
+    const [lastData, setLastData] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function receiveInformation() {
             try {
                 const response = await softwareRanking()
-                console.log(response);
+                setData(response)
+                const sortedResponse = response.data.sort((b, a) => new Date(a.createTime) - new Date(b.createTime));
+                console.log(sortedResponse)
+                setLastData(sortedResponse)
             } catch (error) {
                 console.error('Error sending verification code:', error);
             }
@@ -26,21 +30,32 @@ export default function Index() {
         receiveInformation()
     }, [])
 
+    const goToDetails = (data) => {
+        if (data && data.softwareId) {
+            const softwareId = data.softwareId;
+            console.log(softwareId);
+            const encodedSoftwareId = encodeURIComponent(softwareId); // 编码软件ID
+            const url = `/header/verifybill?softwareId=${encodedSoftwareId}`; // 构建URL
+            navigate(url);
+            window.scrollTo(0, 0);
+        }
+    };
+
 
     return (
         <div className={styles.shop}>
             <h3 className={styles.todayfind}>今日发现</h3>
             <div className={styles.bigImage}>
 
-                <Carousel />
+                <Carousel lastData={lastData} goToDetails={goToDetails} />
             </div>
-            <BigLittleImage />
+            <BigLittleImage lastData={lastData} goToDetails={goToDetails} />
             <h3 className={styles.todayfind}>大家都在下载</h3>
-            <EveryoneDownLoad />
+            <EveryoneDownLoad goToDetails={goToDetails} />
             <h3 className={styles.todayfind}>推荐</h3>
-            <Recommend />
+            <Recommend goToDetails={goToDetails} />
             <h3 className={styles.todayfind}>现实优惠</h3>
-            <Count />
+            <Count goToDetails={goToDetails} />
         </div>
     );
 }

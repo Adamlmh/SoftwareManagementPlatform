@@ -1,0 +1,272 @@
+.person_page{
+    width: 100%;
+    background-color: #eaf0ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title {
+    margin-top: 50px;
+    color: #1E0E62;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+/* 个人信息部分 */
+.information_part{
+    width: 1200px;
+    height: 500px;
+}
+
+.information_box{
+    width: 100%;
+    height: 340px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+/* 个人资料卡 */
+.information_card{
+    height: 100%;
+    position: relative;
+}
+.message_box{
+    width: 100%;
+    height: 300px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+}
+/* 头像盒子 */
+.headbox{
+    width: 280px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mymessage{
+    width: 493px;
+    height: 80%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+/* 信息列表 */
+.mylist_message {
+    width: 80%;
+    
+}
+.text_key {
+    white-space: nowrap;
+    overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+.text_information {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* border: 0px; */
+}
+ .text_information .ant-input-disabled {
+     background-color: #fff !important;
+     color: #000 !important;
+     border: 0px;
+     cursor: pointer !important;
+ }
+ .myprivate{
+    /* background-color: red; */
+    /* display: inline-block; */
+    /* width: 30px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+ }
+.myfingerprint_btn{
+    width: 493px;
+    height: 56px;
+    border-radius: 44px;
+    background-color: #D8D1FF;
+    color:#8846BC;
+    border: 0;
+}
+.change_message{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    border: 0px;
+    color: #8846BC;
+}
+
+
+
+/* 第二部分 消息 */
+.mymessage_part {
+    width: 1200px;
+    height: 500px;
+}
+.myprivate_box{
+    width: 100%;
+    height: 300px;
+    margin-top: 37px;
+}
+.privatecard{
+    height: 100%;
+    position: relative;
+}
+.private_content{
+    width: 100%;
+    height: 200px;
+    /* background-color: pink; */
+    overflow: auto;
+}
+.private_content::-webkit-scrollbar{
+    display: none;
+}
+.everymessage{
+    width: 100%;
+    height: 26px;
+    /* background-color: green; */
+    display: flex;
+    justify-content: space-between;
+}
+.detail{
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* background-color: green; */
+}
+.cue{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: red;
+}
+.detail_right{
+width: 30%;
+height: 100%;
+/* background-color: red; */
+display: flex;
+justify-content: space-evenly;
+}
+.messagetime{
+    color: #505050;
+}
+.disknow{
+    color: #8846BC;
+}
+.isknow{
+    color:#CCCCCC;
+}
+.delete{
+    border: 0;
+    width: 20px;
+    height: 20px;
+    color:#999999;
+}
+.pagebtn{
+    position: absolute;
+    bottom:17px;
+    left: 560px;
+}
+
+
+
+
+
+/* 第三部分 已购买的软件 */
+.bought_part{
+width: 1200px;
+height: 1200px;
+}
+.Bought_box{
+    width: 100%;
+    height: 1010px;
+    margin-top: 40px;
+}
+.Boughtcard{
+    height: 100%;
+}
+.everybought{
+    width: 1120px;
+    height: 120px;
+    display: flex;
+    align-items: start;
+    position: relative;
+}
+.bought_content{
+    width: 100%;
+    height: 950px;
+    /* background-color: red; */
+    overflow: auto;
+
+}
+.bought_content::-webkit-scrollbar{
+    display: none;
+}
+.pic{
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    background-color: #CCCCCC;
+    background-image: url('../../assets/images/Rectangle\ 1079.png');
+    background-size: 100% 100%;
+}
+.description{
+    margin-left: 12px;
+    /* background-color: red; */
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.softwaretitle{
+    color: #303030;
+    font-size: 22px;
+    font-weight: 600;
+}
+.soft_description{
+    overflow: hidden;
+
+}
+.update_time{
+    margin-left: 184px;
+    width: 300px;
+    height: 100%;
+    line-height: 6;
+    font-size: 16px;
+}
+.download{
+    position: absolute;
+    right: 0;
+    top: 32px;
+    width: 96px;
+    height: 38px;
+    border-radius: 41px;
+    background-color: #816AFF;
+    color: #fff;
+}
+.update {
+    position: absolute;
+    right: 0;
+    top: 32px;
+    width: 96px;
+    height: 38px;
+    border-radius: 41px;
+    background-color: #D8D1FF;
+    color: #530095;
+    display: none;
+}
+.btn_cue{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+    right: 10px;
+    top: -5px;
+}

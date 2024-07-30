@@ -47,6 +47,7 @@ img{
   border-radius: 10px;
   min-width: 1300px;
    overflow: hidden; /* 防止内容溢出 */
+   cursor: pointer;
 }
 
 .carouselImage{
@@ -113,9 +114,8 @@ height: 35%;
 }
 .tages{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-
 }
 .tages ul{
     display: flex;
@@ -130,13 +130,17 @@ height: 35%;
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-wrap: nowrap;
     background-color: rgb(229, 223, 244);
     margin-right: 10px;
     border-radius: 20px;
     height: 70%;
-    width: 20%;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     color: rgb(99, 61, 177);
      font-size: clamp(10px, 1vw, 60px); /* 设置最小、理想和最大字体大小 */
+         white-space: nowrap; /* 禁止文本换行 */
 }
 .tages div{
     display: flex;

@@ -1,7 +1,6 @@
 import styles from "./card.module.css"
 import { Card, Button } from 'antd';
 const ThirdCard = ({ data }) => {
-    console.log(data)
     return (
         <Card
             cover={
@@ -12,7 +11,7 @@ const ThirdCard = ({ data }) => {
             hoverable bordered={false} style={{ width: '370px', padding: '0' }}>
             <div className={styles.card_bottom}>
                 <h3>{data ? data.softwareName : '未知'}</h3>
-                <h5>软化描述</h5>
+                <h5>软件描述</h5>
                 <div className={styles.discription}>
                     <p>{data ? data.createTime : '未知'}</p>
 

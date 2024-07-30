@@ -3,7 +3,7 @@ import styles from './shop.module.css'
 import littleImage1 from '../../assest/images/9e748038ad0f0b055344736f61190665.png';
 import { useNavigate } from 'react-router-dom';
 
-const Count = () => {
+const Count = (goToDetails) => {
     const [data, setData] = useState([
         {
             image: littleImage1,
@@ -24,17 +24,15 @@ const Count = () => {
             count: '折扣：80%'
         },
     ])
-    const navigate = useNavigate()
-    const handleClick = () => {
-        // console.log(111);
 
-        navigate('/header/verifybill')
-        window.scrollTo(0, 0)
+    const clickImg = (data) => {
+        console.log(data)
+        goToDetails(data)
     }
 
 
     return (
-        <ul className={styles.countUl} onClick={() => handleClick()}>
+        <ul className={styles.countUl} >
             {
                 data.map((item, index) => {
                     return (

@@ -8,10 +8,14 @@ const TopHeader = () => {
   const [loginState, setLoginStage] = useState(0);
 
   useEffect(() => {
-    if (localStorage.getItem("token") && localStorage.getItem("userId"))
-      setLoginStage(1);
-    else setLoginStage(0);
-  }, []);
+
+    if (localStorage.getItem('token') && localStorage.getItem('userIdSf'))
+      setLoginStage(1)
+    else
+      setLoginStage(0)
+  }, [])
+
+
 
   return (
     <Header className="top_head">
@@ -27,7 +31,7 @@ const TopHeader = () => {
             <StoreDropDown />
           </Menu.Item>
 
-          <NavLink to={"/header/"}>
+          <NavLink to={"/header/person"}>
             <Menu.Item className="top_menu_item">我的</Menu.Item>
           </NavLink>
           <NavLink to={"/header/about"}>
@@ -46,8 +50,8 @@ const TopHeader = () => {
               <Button className="linkto_login top_link_btn">登录</Button>
             </>
           ) : (
-            <Button className="linkto_login top_link_btn">退出登录</Button>
-          )}
+              <Button className="linkto_login top_link_btn">注销</Button>
+            )}
         </NavLink>
       </div>
     </Header>

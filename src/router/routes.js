@@ -11,7 +11,9 @@ const Shopsoftware = lazy(() => import("../pages/shopsoftware/shopsoftware"));
 const Bill = lazy(() => import("../pages/bill/bill"));
 const VerifyBill = lazy(() => import("../pages/verifybill/verifybill"));
 const AllSoftware = lazy(() => import("../pages/allSoftware"));
+const Person = lazy(() => import("../pages/person"));
 const Subscription = lazy(() => import("../pages/subscription"));
+
 const routes = [
   {
     path: "/header",
@@ -48,6 +50,10 @@ const routes = [
       {
         path: "shopsoftware",
         element: <Shopsoftware />,
+      },
+      {
+        path: "person",
+        element: <Person />,
       },
       {
         path: "subscription",

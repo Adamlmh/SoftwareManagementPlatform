@@ -4,7 +4,12 @@ import IndividualSoftware from "./IndividualSoftware";
 import { CloseOutlined } from "@ant-design/icons";
 import { subscribeSoftwarePage } from "../../api/index";
 const Subscription = () => {
-  const onChange = async (pageNumber) => {};
+  const onChange = async (pageNumber) => {
+    const response = await subscribeSoftwarePage({ page: pageNumber });
+    console.log(response.data.data);
+    setAllSoftwareData(response.data.data);
+  };
+
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     console.log(11);
@@ -13,12 +18,7 @@ const Subscription = () => {
   const onClose = () => {
     setOpen(false);
   };
-  // console.log("Page: ", pageNumber);
-  // const response = await allSoftwarePage({
-  //   page: pageNumber,
-  // });
-  // console.log(response.data.data);
-  // setAllSoftwareData(response.data.data);
+
   const [allSoftwareData, setAllSoftwareData] = useState([]);
   const [shoppingOrder, setShoppingOrder] = useState([]);
   const [amount, setAmount] = useState(0);

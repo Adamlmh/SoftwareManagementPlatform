@@ -37,16 +37,16 @@ const Recommend = () => {
     ])
 
 
-    const navigate = useNavigate()
-    const handleClick = () => {
-        // console.log(111);
+    // const navigate = useNavigate()
+    // const handleClick = () => {
+    //     // console.log(111);
 
-        navigate('/header/verifybill')
-        window.scrollTo(0, 0)
-    }
+    //     navigate('/header/verifybill')
+    //     window.scrollTo(0, 0)
+    // }
 
     return (
-        <ul className={styles.recommendUl} onClick={() => handleClick()}>
+        <ul className={styles.recommendUl} >
             {
                 data.map((item, index) => {
                     return (
