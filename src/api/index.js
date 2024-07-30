@@ -172,3 +172,17 @@ export function checkLatestSoftware(userId) {
 //确认购买授权
 
 
+// 检验授权
+export function getCommit(softwareId, userId, versionType, version) {
+  const data = {
+    softwareId, 
+    userId,
+     versionType, 
+     version
+  };
+  return service({
+    url: "/auth/checkAuth",
+    method: "post",
+    data,
+  });
+}

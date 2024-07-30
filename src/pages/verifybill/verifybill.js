@@ -56,13 +56,13 @@ const VerifyBill=()=>{
             name={data.softwareName}
             time={data.createTime}
             allversion={version[0]?.version}
-            status={version[0]?.versionType} ></CommonVersion>
+                versionType={version[0]?.versionType} ></CommonVersion>
             {isadvanced && <CommonVersion version="高级版"
                 description={version[1]?.description}
                 allversion={version[1]?.version} 
                 name={data.softwareName}
                 time={data.createTime}
-                status={version[1]?.versionType} ></CommonVersion>}
+                versionType={version[1]?.versionType} ></CommonVersion>}
             <Update></Update>
         </div>
     )
