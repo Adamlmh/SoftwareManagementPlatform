@@ -26,34 +26,14 @@ const BuyAccountInformation = ({ onSelectFingerprint }) => {
     const [showName, setShowName] = useState('选择你的指纹信息')
 
     const [data, setData] = useState([
-        {
-            userFingerprintId: '11',
-            hardwareName: '11',
-
-        },
-        {
-            userFingerprintId: '22',
-            hardwareName: '22',
-
-        },
-        {
-            userFingerprintId: '33',
-            hardwareName: '33',
-
-        },
-        {
-            userFingerprintId: '4',
-            hardwareName: '4',
-
-        },
     ])
 
     useEffect(() => {
         async function receiveInformation() {
             try {
                 const response = await getFingerprint(localStorage.getItem('userIdSf'))
-                console.log(response.data)
                 setData(response.data)
+                console.log(response.data)
             } catch (error) {
                 console.error('Error sending verification code:', error);
             }
@@ -72,9 +52,6 @@ const BuyAccountInformation = ({ onSelectFingerprint }) => {
         });
         handleCancel()
     }
-
-
-
 
 
 
