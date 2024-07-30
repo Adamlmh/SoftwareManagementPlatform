@@ -9,7 +9,7 @@
 
 
 .BigDiv{
-padding-top: 40px;
+margin-top: 40px;
  padding-left: 141px;
 }
 li{
@@ -22,16 +22,15 @@ li{
 } 
 .billInformation{
     margin-top: 60px;
-padding-left: 61px;
 }
 
 
 
 .billInformationDiv{
     width: 954px;
-
     display: flex;
     flex-direction: column;
+
 }
 .billInformationDiv ul:nth-of-type(1){
   margin-left: 25px;
@@ -45,21 +44,30 @@ padding-left: 61px;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
 }
+.billInformationDiv ul:nth-of-type(1) li div{
+   margin-top: 10px;
+}
+
+
+
+
 
 .billInformationDiv ul:nth-of-type(2){
     font-size: 20px;
     font-weight: 700;
        display: flex;
-    align-items: center;
-    justify-content: start;
+  
     margin-left: 61px;
+      margin-top: 10px;
      flex: 1;
 }
 .billInformationDiv ul:nth-of-type(2) li:nth-of-type(2){
-    margin-left: 50px;
+    margin-left: 30px;
 }
+
+
+
 .buyaccout{
     margin-top: 30px;
     font-size: 28px;
