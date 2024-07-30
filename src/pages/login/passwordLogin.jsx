@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Input } from 'antd'
-import { accountLogin } from "../../api"
+import { accountLogin, homePageUserInfo } from "../../api"
 import { useNavigate } from 'react-router-dom'
 
 
@@ -25,7 +25,8 @@ export default function PasswordLogin({ alert, setAlert }) {
                 let loginStage = 1
                 setter({ message: '', type: "" })
                 native('./header/home')
-            }, duration)
+            }, duration);
+
 
         }
     }
@@ -55,10 +56,22 @@ export default function PasswordLogin({ alert, setAlert }) {
                 response = await accountLogin(email, password, 1);
             console.log(response)
             if (response.code == 1) {
-                setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1000, 1);
                 localStorage.setItem('token', response.data.token)
                 localStorage.setItem('userIdSf', response.data.userId)
                 localStorage.setItem('emailSf', email)
+                async function receiveInformation() {
+                    try {
+                        const response = await homePageUserInfo(localStorage.getItem('userIdSf'))
+                        localStorage.setItem('userName', response.data.username)
+                        localStorage.setItem('userImage', response.data.image)
+                        if (response.code == 1)
+                            setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1500, 1);
+                    } catch (error) {
+                        console.error('Error sending verification code:', error);
+                    }
+
+                }
+                receiveInformation()
 
             }
             else {

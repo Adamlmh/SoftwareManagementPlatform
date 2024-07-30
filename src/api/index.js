@@ -180,7 +180,7 @@ export function allSoftwarePage(params) {
     pageSize: 12,
     page: 1,
     softwareName: "",
-    tags: "",
+    tags: ["OPEN"],
     ...params,
   };
   console.log("全部软件首页", params);
@@ -195,12 +195,12 @@ export function allSoftwarePage(params) {
 export function subscribeSoftwarePage(params) {
   params = {
     page: 1,
+    userId: localStorage.getItem("userId"),
     ...params,
   };
+  console.log("订阅购买展示", params);
   return service({
-    url: `http://47.113.224.195:31108/software/showRequiredAuthSoftwar?userId=${localStorage.getItem(
-      "userId"
-    )}`,
+    url: `http://47.113.224.195:31108/software/showRequiredAuthSoftware`,
     method: "get",
     params,
   });
@@ -234,26 +234,26 @@ export function downloadSoftware(softwareId, userId, versionType, version) {
   });
 }
 // 个人页面更改个人信息
-export function updateUserInfo(username, description, userId, headImage='') {
-  const formData = new FormData(); 
+export function updateUserInfo(username, description, userId, headImage = '') {
+  const formData = new FormData();
   formData.append('username', username); // 添加普通字段  
-  formData.append('description', description); 
-  formData.append('userId', userId); 
-  formData.append('headImage', headImage); 
- 
+  formData.append('description', description);
+  formData.append('userId', userId);
+  formData.append('headImage', headImage);
+
   return service({
     url: "http://47.113.224.195:31108/user/updateUserInfo",
     method: "post",
-    data:formData,
-      headers: {
+    data: formData,
+    headers: {
       // 不要设置 Content-Type，浏览器会自动处理  
-      'Content-Type': 'multipart/form-data'   
-    }  
+      'Content-Type': 'multipart/form-data'
+    }
   });
 }
 // 回显指纹信息
 export function getFingerprint(userId) {
-  const params={
+  const params = {
     userId,
   }
   return service({
@@ -280,6 +280,22 @@ export function insertFingerprint(userId, fingerprint, hardwareName) {
   };
   return service({
     url: "http://47.113.224.195:31108/hardware/insertFingerprint",
+    method: "post",
+    data,
+  });
+}
+
+//确认购买授权
+export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
+  const data = {
+    userId,
+    fingerprint,
+    totalPrize,
+    softwareList,
+  };
+  console.log('购买', data)
+  return service({
+    url: "http://47.113.224.195:31108/auth/purchaseAuth",
     method: "post",
     data,
   });

@@ -52,7 +52,20 @@ const IndividualSoftware = ({ imageUrl, description, tags, name, version }) => {
             </Card>
           ))}
         </div>
-        <p style={{ margin: "8px 0 16px" }}>{`简述:${description}`}</p>
+        <p
+          style={{
+            margin: "8px 0 16px",
+            maxHeight: "200px",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            display: "-webkit-box", // 兼容 Webkit 浏览器
+            WebkitBoxOrient: "vertical", // 设置垂直方向的排列
+            WebkitLineClamp: "3", // 限制显示的行数（根据需要调整）
+          }}
+          title={description}
+        >
+          简述:{description}
+        </p>
         <div
           style={{
             display: "flex",

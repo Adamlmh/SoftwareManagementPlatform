@@ -37,7 +37,7 @@ img{
    color: rgb(30, 14, 98);
 }
 .bigImage {
-     width: 1500px;
+     width: 1300px;
   height: 700px;
   background-size: cover; /* 按比例缩放以完全覆盖盒子 */
   background-position: center; /* 图片在盒子内部居中显示 */
@@ -56,7 +56,7 @@ img{
 
 .smallImages{
     width: 1300px;
-height: 350px;
+height: 320px;
 display: flex;
 justify-content: space-between;
 margin-bottom: 20px;
@@ -80,12 +80,20 @@ margin-bottom: 20px;
     flex-direction: column;
     background-color: white;
       border-radius: 10px;
-      height: 380px;
+      height: 320px;
           width: 1300px;
 }
 .smallImages_li div:nth-child(1){
     height: 65%;
 }
+.smallImages_li div:nth-child(1) img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+}
+
+
+
 .smallImages_li div:nth-of-type(2){
     padding-left: 25px;
     padding-right: 5px;
@@ -121,7 +129,8 @@ height: 35%;
     display: flex;
     justify-content: start;
     align-items: center;
-    padding-left: 1%;
+    margin-left: -5px;
+    padding-left: 0px;
     flex: 3;
     height: 100%;
 }
@@ -134,22 +143,24 @@ height: 35%;
     background-color: rgb(229, 223, 244);
     margin-right: 10px;
     border-radius: 20px;
-    height: 70%;
+    height: 60%;
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
     color: rgb(99, 61, 177);
-     font-size: 20px; /* 设置最小、理想和最大字体大小 */
-         white-space: nowrap; /* 禁止文本换行 */
+    font-size: 12px; /* 设置最小、理想和最大字体大小 */
+    white-space: nowrap; /* 禁止文本换行 */
+    font-weight: 700;
 }
 .tages div{
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
-     font-size: 35px; /* 设置最小、理想和最大字体大小 */
+     font-size: 20px; /* 设置最小、理想和最大字体大小 */
     color: rgb(255, 206, 79);
     font-weight: 700;
+    margin-right: 10px;
 
 }
 .everyoneDownLoad{

@@ -1,9 +1,11 @@
-import { Row, Pagination, Drawer, Image } from "antd";
+import { Row, Pagination, Drawer } from "antd";
 import { useEffect, useState } from "react";
 import IndividualSoftware from "./IndividualSoftware";
-import { CloseOutlined } from "@ant-design/icons";
 import { subscribeSoftwarePage } from "../../api/index";
+import { useOutletContext, useNavigate } from "react-router-dom";
+import MyShopping from "./myshopping";
 const Subscription = () => {
+  const { shoppingOrder, setShoppingOrder } = useOutletContext();
   const onChange = async (pageNumber) => {
     const response = await subscribeSoftwarePage({ page: pageNumber });
     console.log(response.data.data);
@@ -12,21 +14,34 @@ const Subscription = () => {
 
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
-    console.log(11);
     setOpen(true);
+    console.log(shoppingOrder);
   };
   const onClose = () => {
     setOpen(false);
   };
 
   const [allSoftwareData, setAllSoftwareData] = useState([]);
-  const [shoppingOrder, setShoppingOrder] = useState([]);
-  const [amount, setAmount] = useState(0);
-  useEffect(async () => {
-    const response = await subscribeSoftwarePage();
-    console.log(response.data.data);
-    setAllSoftwareData(response.data.data);
+  const [Allamout, setAllamout] = useState(0);
+  useEffect(() => {
+    setAllamout(shoppingOrder.reduce((pre, cur) => pre + cur.price, 0));
+  }, [shoppingOrder]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await subscribeSoftwarePage();
+      setAllSoftwareData(response.data);
+    };
+    fetchData();
   }, []);
+
+  const handleClick = (index) => {
+    const item = allSoftwareData[index];
+    setShoppingOrder([...shoppingOrder, item]);
+  };
+  const navigate = useNavigate();
+  const handleBuyClick = () => {
+    navigate(`/header/bill`);
+  };
   return (
     <div
       style={{
@@ -52,23 +67,17 @@ const Subscription = () => {
         订阅与购买
       </div>
       <Row style={{ width: 1220 }} gutter={[8, 16]}>
-        <IndividualSoftware />
-        <IndividualSoftware />
-        <IndividualSoftware />
-        <IndividualSoftware />
-        <IndividualSoftware />
-        {/* {allSoftwareData.map((item, index) => {
+        {allSoftwareData.map((item, index) => {
           return (
             <IndividualSoftware
+              index={index}
               key={index}
               {...item}
-              onClick={() => {
-                setShoppingOrder([...shoppingOrder, item]);
-                setAmount(amount + item.price);
-              }}
+              handleClick={handleClick}
+              shoppingOrder={shoppingOrder}
             />
           );
-        })} */}
+        })}
       </Row>
       <div style={{ height: "50px" }}></div>
       <Pagination
@@ -98,7 +107,7 @@ const Subscription = () => {
             我的购物车🛒
           </span>
           <span style={{ fontSize: "16px", fontWeight: "400" }}>
-            总计: 123456 CNY
+            总计: {Allamout} CNY
           </span>
         </div>
         <div style={{ display: "flex", gap: "32px" }}>
@@ -129,47 +138,10 @@ const Subscription = () => {
               onClose={onClose}
               open={open}
             >
-              <div
-                style={{
-                  margin: "auto",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "1200px",
-                  fontWeight: "bold",
-                  fontSize: "20px",
-                  borderBottom: "1px solid #CCCCCC",
-                }}
-              >
-                <span style={{ width: "450px" }}>产品信息</span>
-                <span style={{ width: "250px" }}>类型</span>
-                <span style={{ width: "200px" }}>数量</span>
-                <span style={{ width: "200px" }}>价格</span>
-                <span style={{ width: "50px" }}></span>
-              </div>
-              <div
-                style={{
-                  margin: "auto",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "1200px",
-
-                  fontSize: "20px",
-                  borderBottom: "1px solid #CCCCCC",
-                }}
-              >
-                <span style={{ width: "450px", margin: "18px 0 18px" }}>
-                  <Image width={50} height={50} src="error" />
-                  <span> 软件名字(基础版)</span>
-                </span>
-                <span style={{ width: "250px" }}>(基础版)</span>
-                <span style={{ width: "200px" }}>1</span>
-                <span style={{ width: "200px" }}>100 CNY</span>
-                <span style={{ width: "50px" }}>
-                  <CloseOutlined style={{ cursor: "pointer" }} />
-                </span>
-              </div>
+              <MyShopping
+                shoppingOrder={shoppingOrder}
+                setShoppingOrder={setShoppingOrder}
+              />
             </Drawer>
           </span>
           <span style={{ width: "200px", height: "40px" }}>
@@ -181,9 +153,9 @@ const Subscription = () => {
                 cursor: "pointer",
                 borderRadius: "56px",
                 backgroundColor: "#816AFF",
-                borderRadius: "56px",
                 color: "#FFFFFF",
               }}
+              onClick={handleBuyClick}
             >
               去支付
             </button>
