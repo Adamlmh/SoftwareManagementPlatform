@@ -23,16 +23,16 @@ const billInformation = () => {
 
                     </li>
                     <li>
-                        <div>产品信息</div>
-                        <div>1，400CNY</div>
+                        <div>商品价格</div>
+                        <div>1400CNY</div>
                     </li>
                     <li>
-                        <div>商品价格</div>
+                        <div>数量</div>
                         <div>1</div>
                     </li>
                     <li>
-                        <div>产品信息</div>
-                        <div>1，400CNY</div>
+                        <div>小计</div>
+                        <div>1400CNY</div>
                     </li>
                 </ul>
                 <ul>
