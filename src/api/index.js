@@ -233,16 +233,55 @@ export function downloadSoftware(softwareId, userId, versionType, version) {
     data,
   });
 }
+// 个人页面更改个人信息
+export function updateUserInfo(username, description, userId, headImage = '') {
+  const formData = new FormData();
+  formData.append('username', username); // 添加普通字段  
+  formData.append('description', description);
+  formData.append('userId', userId);
+  formData.append('headImage', headImage);
 
-//回显硬件指纹
+  return service({
+    url: "http://47.113.224.195:31108/user/updateUserInfo",
+    method: "post",
+    data: formData,
+    headers: {
+      // 不要设置 Content-Type，浏览器会自动处理  
+      'Content-Type': 'multipart/form-data'
+    }
+  });
+}
+// 回显指纹信息
 export function getFingerprint(userId) {
   const params = {
-    userId
-  };
+    userId,
+  }
   return service({
     url: "http://47.113.224.195:31108/hardware/getFingerprint",
     method: "get",
     params,
+  });
+}
+// 删除指纹信息
+export function deleteFingerprint(userHardwareId) {
+  const params = {
+    userHardwareId,
+  }
+  return service({
+    url: "http://47.113.224.195:31108/hardware/deleteFingerprint",
+    method: "DELETE",
+    params,
+  });
+}
+// 上传指纹信息
+export function insertFingerprint(userId, fingerprint, hardwareName) {
+  const data = {
+    userId, fingerprint, hardwareName
+  };
+  return service({
+    url: "http://47.113.224.195:31108/hardware/insertFingerprint",
+    method: "post",
+    data,
   });
 }
 
