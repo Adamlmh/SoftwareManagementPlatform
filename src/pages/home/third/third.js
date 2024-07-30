@@ -3,17 +3,53 @@ import ThirdCard from "../thirdcard/thirdcard";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { softwareRanking } from "../../../api";
-import axios from "axios";
+import littleImage1 from '../../../assets/images/8420455527b2e3dbb19c1e32102a1286.png';
+import littleImage2 from '../../../assets/images/8420455527b2e3dbb19c1e32102a1286.png';
+import littleImage3 from '../../../assets/images/8420455527b2e3dbb19c1e32102a1286.png';
+import littleImage4 from '../../../assets/images/8420455527b2e3dbb19c1e32102a1286.png';
 
 const HomeThirdPage = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([
+        {
+            softwareImage: littleImage1,
+            titll: '绝地潜兵',
+            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌'
+
+        },
+        {
+            softwareImage: littleImage2,
+            titll: '麻布仔大冒险',
+            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
+
+        }, {
+            softwareImage: littleImage3,
+            titll: '地平线 西之绝境',
+            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
+
+        }, {
+            softwareImage: littleImage4,
+            titll: '原神',
+            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
+
+        }, {
+            softwareImage: littleImage4,
+            titll: '原神',
+            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
+
+        }, {
+            softwareImage: littleImage4,
+            titll: '原神',
+            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
+
+        }
+    ])
     const navigate = useNavigate();
 
     useEffect(() => {
         async function receiveInformation() {
             try {
                 const response = await softwareRanking();
-                setData(response.data || []); // Ensure data is always an array
+                setData(response.data || data); // Ensure data is always an array
             } catch (error) {
                 console.error('Error fetching software ranking:', error);
             }
