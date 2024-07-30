@@ -26,7 +26,6 @@ const Count = (goToDetails) => {
     ])
 
     const clickImg = (data) => {
-        console.log(data)
         goToDetails(data)
     }
 

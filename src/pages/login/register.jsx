@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { sendVerificationCode, register } from "../../api"
+import { sendVerificationCode, register, homePageUserInfo } from "../../api"
 import { Input } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
@@ -65,12 +65,32 @@ export default function Register({ alert, setAlert }) {
             console.log(email);
             const response = await sendVerificationCode(email);
             console.log(response);
-            // 根据 `data` 处理返回逻辑  
-        } catch (error) {
-            console.error('Error sending verification code:', error);
-        }
-    };
+            if (response.code == 1) {
+                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('userIdSf', response.data.userId)
+                localStorage.setItem('emailSf', email)
+                async function receiveInformation() {
+                    try {
+                        const response = await homePageUserInfo(localStorage.getItem('userIdSf'))
+                        localStorage.setItem('userName', response.data.username)
+                        localStorage.setItem('userImage', response.data.image)
+                        if (response.code == 1)
+                            setAlertTimeout(setAlert, { message: '登录成功', type: 'success' }, 1500, 1);
+                    } catch (error) {
+                        console.error('Error sending verification code:', error);
+                    }
 
+                }
+                receiveInformation()
+
+            }
+            else {
+                setAlertTimeout(setAlert, { message: response.msg, type: 'error' });
+            }
+        } catch (error) {
+            console.error('Error fetching models:', error);
+        }
+    }
 
 
 

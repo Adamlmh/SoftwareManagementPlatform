@@ -2,7 +2,9 @@ import React from 'react';
 import styles from './bill.module.css'
 import { Card } from 'antd';
 
-const billInformation = () => {
+const billInformation = ({ shoppingOrder }) => {
+
+
     return (
         <Card
             style={{
@@ -14,30 +16,54 @@ const billInformation = () => {
                 <ul>
                     <li>
                         <div>产品信息</div>
-                        <div>产品名字</div>
+                        {
+                            shoppingOrder.map((item) => {
+                                return (<div>{item.softwareName}</div>)
+                            })
+                        }
+
+
+
 
                     </li>
                     <li>
-                        <div>时限</div>
-                        <div>起始时间-过期时间</div>
+                        <div>起始时间</div>
+                        {
+                            shoppingOrder.map((item) => {
+                                return (<div>{item.createTime}</div>)
+                            })
+                        }
 
                     </li>
                     <li>
                         <div>商品价格</div>
-                        <div>1400CNY</div>
+                        {
+                            shoppingOrder.map((item) => {
+                                return (<div>{item.price}</div>)
+                            })
+                        }
                     </li>
                     <li>
                         <div>数量</div>
-                        <div>1</div>
+                        {
+                            shoppingOrder.map((item) => {
+                                return (<div>1</div>)
+                            })
+                        }
                     </li>
                     <li>
                         <div>小计</div>
-                        <div>1400CNY</div>
+
+                        {
+                            shoppingOrder.map((item) => {
+                                return (<div>{item.price}</div>)
+                            })
+                        }
                     </li>
                 </ul>
                 <ul>
                     <li>总计</li>
-                    <li>1，400CNY</li>
+                    <li>{shoppingOrder.reduce((total, item) => total + item.price, 0)}</li>
                 </ul>
             </div>
         </Card>

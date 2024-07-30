@@ -18,6 +18,7 @@ export default function Index() {
         async function receiveInformation() {
             try {
                 const response = await softwareRanking()
+                console.log(response)
                 setData(response)
                 const sortedResponse = response.data.sort((b, a) => new Date(a.createTime) - new Date(b.createTime));
                 console.log(sortedResponse)
