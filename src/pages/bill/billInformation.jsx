@@ -3,6 +3,9 @@ import styles from './bill.module.css'
 import { Card } from 'antd';
 
 const billInformation = () => {
+
+
+
     return (
         <Card
             style={{

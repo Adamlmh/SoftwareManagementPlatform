@@ -233,3 +233,30 @@ export function downloadSoftware(softwareId, userId, versionType, version) {
     data,
   });
 }
+
+//回显硬件指纹
+export function getFingerprint(userId) {
+  const params = {
+    userId
+  };
+  return service({
+    url: "http://47.113.224.195:31108/hardware/getFingerprint",
+    method: "get",
+    params,
+  });
+}
+
+//确认购买授权
+export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
+  const data = {
+    userId,
+    fingerprint,
+    totalPrize,
+    softwareList,
+  };
+  return service({
+    url: "http://47.113.224.195:31108/auth/purchaseAuth",
+    method: "post",
+    data,
+  });
+}
