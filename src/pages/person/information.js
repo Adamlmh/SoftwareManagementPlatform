@@ -3,18 +3,20 @@ import {Card,Avatar,List,Input,Button} from "antd"
 import { UserOutlined } from '@ant-design/icons';
 import { useState, useEffect } from "react";
 const Information = () => {
+    const userId = localStorage.getItem('userId')
+    const email=localStorage.getItem('email')
     const data = [
         {
             key: '用户名：',
-            text: 'Racing car sprays burning fuel into crowd.sdfadjsfakdsjfakdsjfkadf'
+            text: `${userId ? userId :'1311471185@qq.com'}`
         },
         {
             key: '邮箱：',
-            text: 'Racing car sprays burning fuel into crowd.'
+            text: `${email ? email : ''}`
         },
         {
             key: '个性签名：',
-            text: 'Racing car sprays burning fuel into crowd.'
+            text: '宝'
         },
     ];
     const [disabled, setDisabled] = useState(true);
@@ -30,6 +32,15 @@ className={styles.information_card}
 <div className={styles.message_box}>
     <div className={styles.headbox}>
                             <Avatar size={150} icon={<UserOutlined />} />
+                            <Input type="file" style={{
+                                zIndex:'100',
+                                position:'absolute',
+                                width:'150px',
+                                height:'150px',
+                                borderRadius:'150px',
+                                opacity:0,
+                                cursor:'pointer'
+                            }}></Input>
     </div>
     <div className={styles.mymessage}>
                             <List
@@ -38,7 +49,7 @@ className={styles.information_card}
                                 dataSource={userinformation}
                                 renderItem={(item, index) => (
                                     <List.Item style={{ border: 'none', whiteSpace: 'nowrap' }}>
-                                        <span className={styles.text_key}>{item.key}</span>
+                                        <span className={styles.text_key}>{item.key}{item.text}</span>
                                         {/* <Input
                                             className="text_information"
                                             // className={`${styles.text_information} ${disabled ? styles.disabledStyle : ''}`}
@@ -46,7 +57,7 @@ className={styles.information_card}
                                             value={item.text}
                                             // onChange={(e) => handleInputChange(index, e)}
                                         /> */}
-                                        <span className={styles.myprivate}>{item.text}</span>
+                                        
                                     </List.Item>
                                 )}
                             />
