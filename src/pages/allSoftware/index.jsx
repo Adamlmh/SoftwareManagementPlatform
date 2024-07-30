@@ -3,13 +3,11 @@ import { Card, Input, Row, Col, Pagination } from "antd";
 import IndividualSoftware from "./IndividualSoftware";
 import ListContainer from "./ListContainer";
 import { allSoftwarePage } from "../../api";
+import { useNavigate } from "react-router-dom";
 const { Search } = Input;
-// const allSoftwareData = []   发请求拿12个数据
 
-const handleClick = (key) => {
-  console.log("Clicked Col key:", key);
-};
 const AllSoftware = () => {
+  const navigate = useNavigate();
   const [allSoftwareData, setAllSoftwareData] = useState([]);
   const [searchTag, setSearchTag] = useState([]);
   useEffect(() => {
@@ -22,18 +20,6 @@ const AllSoftware = () => {
     };
     fetchData();
   }, [searchTag]);
-  // useEffect(() => {
-  //   const fetchTagData = async () => {
-  //     const response = await allSoftwarePage({
-  //       pageSize: 12,
-  //       page: 1,
-  //       softwareName: "",
-  //       tags: searchTag,
-  //     });
-  //     setAllSoftwareData(response.data.data);
-  //   };
-  //   fetchTagData();
-  // }, [searchTag]);
   const onSearch = async (value, _e, info) => {
     const response = await allSoftwarePage({
       softwareName: value,
@@ -48,6 +34,11 @@ const AllSoftware = () => {
     });
     console.log(response.data.data);
     setAllSoftwareData(response.data.data);
+  };
+
+  const handleClick = (key) => {
+    console.log("Clicked Col key:", key);
+    navigate(`/header/verifybill?softwareId=${key}`);
   };
   return (
     <div

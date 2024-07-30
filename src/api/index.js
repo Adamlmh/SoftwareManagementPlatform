@@ -195,12 +195,12 @@ export function allSoftwarePage(params) {
 export function subscribeSoftwarePage(params) {
   params = {
     page: 1,
+    userId: localStorage.getItem("userId"),
     ...params,
   };
+  console.log("订阅购买展示", params);
   return service({
-    url: `http://47.113.224.195:31108/software/showRequiredAuthSoftwar?userId=${localStorage.getItem(
-      "userId"
-    )}`,
+    url: `http://47.113.224.195:31108/software/showRequiredAuthSoftwar`,
     method: "get",
     params,
   });

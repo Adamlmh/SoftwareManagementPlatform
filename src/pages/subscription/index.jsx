@@ -3,16 +3,18 @@ import { useEffect, useState } from "react";
 import IndividualSoftware from "./IndividualSoftware";
 import { CloseOutlined } from "@ant-design/icons";
 import { subscribeSoftwarePage } from "../../api/index";
+import { useOutletContext } from "react-router-dom";
 const Subscription = () => {
+  const { shoppingOrder, setShoppingOrder, amount, setAmount } =
+    useOutletContext();
   const onChange = async (pageNumber) => {
     const response = await subscribeSoftwarePage({ page: pageNumber });
     console.log(response.data.data);
     setAllSoftwareData(response.data.data);
   };
-
+  console.log(amount);
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
-    console.log(11);
     setOpen(true);
   };
   const onClose = () => {
@@ -20,13 +22,12 @@ const Subscription = () => {
   };
 
   const [allSoftwareData, setAllSoftwareData] = useState([]);
-  const [shoppingOrder, setShoppingOrder] = useState([]);
-  const [amount, setAmount] = useState(0);
-  useEffect(async () => {
-    const response = await subscribeSoftwarePage();
-    console.log(response.data.data);
-    setAllSoftwareData(response.data.data);
-  }, []);
+
+  // useEffect(async () => {
+  //   const response = await subscribeSoftwarePage();
+  //   console.log(response.data.data);
+  //   setAllSoftwareData(response.data.data);
+  // }, []);
   return (
     <div
       style={{
@@ -98,7 +99,7 @@ const Subscription = () => {
             我的购物车🛒
           </span>
           <span style={{ fontSize: "16px", fontWeight: "400" }}>
-            总计: 123456 CNY
+            总计: {amount} CNY
           </span>
         </div>
         <div style={{ display: "flex", gap: "32px" }}>
