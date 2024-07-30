@@ -31,13 +31,12 @@ const [addState,setAddState]=useState(false)
     const descriptionRef=useRef(null)
     const imageRef=useRef(null)
     // 展示编辑个人信息页面弹窗
-    const showModal = () => {
-        
+    const showModal = async () => {
         setIsModalOpen(true);
       
     };
     const handleOk = async() => {
-        // console.log(userNameRef.current.input.value);
+        // console.log(userNameRef.current.input);
         // 获取最新的输入值  
         const newUserName = userNameRef.current.input.value;
         const newDescription = descriptionRef.current.input.value;
@@ -45,7 +44,9 @@ const [addState,setAddState]=useState(false)
         // 更新状态  
         if (newUserName) setUserName(newUserName);
         if (newDescription) setMyDescription(newDescription);
-
+        if (!newUserName && !newDescription && !changeImage) {
+            return;
+        } 
         // 清空输入框  
         if (newUserName  || newDescription || changeImage) {
             userNameRef.current.input.value = '';
@@ -57,7 +58,7 @@ const [addState,setAddState]=useState(false)
             {newDescription&&localStorage.setItem('myDescription', newDescription);}
             localStorage.setItem('userImage', image); // 确保 image 是最新的值  
 
-            console.log(response);
+            // console.log(response);
            
         } catch (error) {
             console.error('Error fetching models:', error);
@@ -65,11 +66,10 @@ const [addState,setAddState]=useState(false)
         } finally {
             // 清空输入框  
             userNameRef.current.input.value = ''
-            descriptionRef.current.input.value =' '
+            descriptionRef.current.input.value =''
             setIsModalOpen(false);
         }  
-    
-        setIsModalOpen(false);
+
     };
     
     const handleCancel = () => {
@@ -78,6 +78,7 @@ const [addState,setAddState]=useState(false)
     // 展示管理指纹页面弹窗
     const showFingerprintModal = () => {
         setIsFingerprintModalOpen(true);
+        setAddState(false)
     };
     const handleFingerprintOk = () => {
         setIsFingerprintModalOpen(false);
@@ -103,7 +104,7 @@ const [addState,setAddState]=useState(false)
         setUserinformation([
             {
                 key: '用户名：',
-                text: `${userName ? userName : '帅哥'}`
+                text: `${userName ? userName : '美女'}`
             },
             {
                 key: '邮箱：',
@@ -111,14 +112,14 @@ const [addState,setAddState]=useState(false)
             },
             {
                 key: '个性签名：',
-                text: myDescription
+                text: `${myDescription ? myDescription : '哥哥别钓我'}`
             },
         ])
         
     }, [userName,myDescription,image]); 
     const inputClick = (e) => {
         const file = e.target.files[0];
-        console.log(e.target.files[0]);
+        // console.log(e.target.files[0]);
         setImageFiles(file)
         if (file) {
             // setImage(file);
