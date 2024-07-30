@@ -12,7 +12,7 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
             titll: '绝地潜兵',
             tags: ['标签', '标签', '标签'],
             score: '5.0',
-            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
+            description: '玩家必须齐心协力保护超级地球，在浩大的保护超保护超级地球，在浩大的保护超级地球，在浩大保护超级地球，在浩大保护超级地球，在浩大星际战争中打败人类的敌人'
 
         },
         {
@@ -38,6 +38,14 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
 
         },
     ])
+
+    const truncateText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.slice(0, maxLength) + '...';
+        }
+        return text;
+    };
+
     useEffect(() => {
         if (lastData.length > 0) { // 确保 lastData 不为空
             console.log(lastData);
@@ -87,7 +95,7 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
                                     <ul></ul>
                                     <div>{item.score}</div>
                                 </div>
-                                <p>{item.description}</p>
+                                <p>{truncateText(item.description, 35)}</p>
                             </div>
 
                         </li>

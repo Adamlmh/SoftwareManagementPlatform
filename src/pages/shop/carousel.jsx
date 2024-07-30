@@ -21,7 +21,7 @@ const Index = ({ lastData, goToDetails }) => {
         {
             image: littleImage1,
             titll: '绝地潜兵',
-            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
+            description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌'
 
         },
         {
@@ -41,6 +41,13 @@ const Index = ({ lastData, goToDetails }) => {
 
         },
     ])
+    const truncateText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.slice(0, maxLength) + '...';
+        }
+        return text;
+    };
+
     useEffect(() => {
         if (lastData.length > 0) { // 确保 lastData 不为空
             console.log(lastData);
@@ -70,7 +77,7 @@ const Index = ({ lastData, goToDetails }) => {
             {data.map((item, index) => {
                 return (<div className={styles.carouselTitle} onClick={() => clickImg(item)}>
                     <div>  <h1 >{item.titll}</h1>
-                        <h2 >{item.description}</h2></div>
+                        <h2 >{truncateText(item.description, 40)}</h2></div>
                     <h3 style={contentStyle} className={styles.carouselImage}><img src={item.image} className={styles.carouselImage} /></h3>
                 </div>)
             })}

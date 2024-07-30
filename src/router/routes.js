@@ -12,6 +12,7 @@ const Bill = lazy(() => import("../pages/bill/bill"));
 const VerifyBill = lazy(() => import("../pages/verifybill/verifybill"));
 const AllSoftware = lazy(() => import("../pages/allSoftware"));
 const Person = lazy(() => import("../pages/person"));
+const Subscription = lazy(() => import("../pages/subscription"));
 
 const routes = [
   {
@@ -53,6 +54,10 @@ const routes = [
       {
         path: "person",
         element: <Person />,
+      },
+      {
+        path: "subscription",
+        element: <Subscription />,
       },
     ],
   },

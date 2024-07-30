@@ -7,10 +7,10 @@
 .custom-dropdown .ant-dropdown-menu-item {
   color: #f0f0f0 !important;
   opacity: 0.8;
-  /* 设置菜单项的文字颜色 */
+
 }
 .custom-dropdown .ant-dropdown-menu-item:hover {
   color: #f0f0f0;
   opacity: 1;
-  /* 设置鼠标悬停时文字颜色 */
+
 }
