@@ -61,14 +61,9 @@ const BuyAccountInformation = ({ onSelectFingerprint }) => {
     //     }
     //     receiveInformation()
     // }, [])
-    useEffect(() => {
-        console.log(data)
-    }, data)
 
     //用于展示指纹信息
     const show = (name, id) => {
-        console.log('before', buttonRef.current.value)
-        console.log('name', name, "id", id)
         setFingerprint(id)
         setShowName(name)
         onSelectFingerprint({

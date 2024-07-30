@@ -1,14 +1,11 @@
 import "./layout.css";
-import { useEffect } from "react";
 import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 import TopHeader from "./topheader";
 import BottomFooter from "./bottomfooter";
-import { homePageUserInfo } from "../../api/index";
 import { useState } from "react";
 const TopMenu = () => {
   const [shoppingOrder, setShoppingOrder] = useState([]);
-
 
 
 

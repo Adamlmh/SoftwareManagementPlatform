@@ -3,10 +3,10 @@ import styles from './bill.module.css'
 import BillInformation from "./billInformation"
 import BuyAccountInformation from './buyAccountInformation'
 import Textarea from './textarea'
-import { getFingerprint } from "../../api"
+import { purchaseAuth } from "../../api"
 import { useNavigate } from 'react-router-dom'
 import { Alert } from 'antd';
-
+import { useOutletContext } from 'react-router-dom'
 
 const Bill = () => {
     const [alert, setAlert] = useState({ message: '', type: '' });
@@ -16,18 +16,35 @@ const Bill = () => {
         setSelectedInformation(infromation);
     }
 
+    const { shoppingOrder } = useOutletContext();
+
     useEffect(() => {
-        console.log('重调', selectedInformation)
     }, [selectedInformation]);
 
-
-
+    //点击购买按钮后
     const desireBuy = () => {
-        console.log('打算买', selectedInformation.id)
         if (!selectedInformation.id)
             setAlertTimeout(setAlert, { message: '请先选择硬件指纹', type: 'error' });
-        else
+        else {
+            const totalPrice = shoppingOrder.reduce((total, item) => total + item.price, 0)
+            console.log('打算买', selectedInformation, shoppingOrder, totalPrice)
+            const softwareList = shoppingOrder.map(item => ({
+                softwareId: item.softwareId,
+                softwareName: item.softwareName,
+                versionType: item.versionType
+            }));
+            async function buyAll() {
+                try {
+                    const response = await purchaseAuth(localStorage.getItem('userIdSf'), selectedInformation.id, totalPrice, softwareList)
+                    console.log('回复', response)
+                } catch (error) {
+                    console.error('Error sending verification code:', error);
+                }
+
+            }
+            buyAll()
             setAlertTimeout(setAlert, { message: '成功', type: 'success' });
+        }
 
     }
     //定时器
@@ -41,9 +58,8 @@ const Bill = () => {
         else {
             setter(alert)
             setTimeout(() => {
-                let loginStage = 1
                 setter({ message: '', type: "" })
-                native('./header/home')
+                native('./header/shop')
             }, duration)
 
         }
@@ -61,8 +77,8 @@ const Bill = () => {
     return (
         <div className={styles.Div}>
             <div className={styles.BigDiv}>
-                <h1 className={styles.agreeBill}>确认订单</h1>
-                <BillInformation />
+                <h1 className={styles.agreeBill} >确认订单</h1>
+                <BillInformation shoppingOrder={shoppingOrder} />
                 <h1 className={styles.buyaccout} >购买账号</h1>
                 <BuyAccountInformation onSelectFingerprint={handleFingerprintSelection} />
                 <h1 className={styles.assess}>评价</h1>

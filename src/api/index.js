@@ -254,6 +254,7 @@ export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
     totalPrize,
     softwareList,
   };
+  console.log('购买', data)
   return service({
     url: "http://47.113.224.195:31108/auth/purchaseAuth",
     method: "post",
