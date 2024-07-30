@@ -87,7 +87,16 @@ const userId=localStorage.getItem('userId')
             const response = await getCommit(softwareId, userId, versionType, softwareVersion)
             console.log(response.data);
             setLoadingUrl(response.data)
-            toggleDownloadModal(true); 
+            
+            if(!response.data){
+                setAlertMessage(response.msg)
+                alertShow(setVisible, 3000)
+                setTimeout(() => {
+                    toggleDownloadModal(true);
+                }, 3000)
+            }
+            
+            
         } catch (error) {
             setLoadingState(false)
             setAlertMessage('未经授权，请先购买')
@@ -103,7 +112,7 @@ const userId=localStorage.getItem('userId')
    return (
         <div className={styles.common_version}>
            
-           {visible && <Alert message={alertMessage} className={styles.alert} type="error" showIcon />}
+           
             <h3 className={styles.title}>{version}</h3>
             <div className={styles.detail_content}>
                 <Card style={{width:'100%'}}
@@ -119,6 +128,7 @@ const userId=localStorage.getItem('userId')
                             
                         </p>
                     </div>
+                   {visible && <Alert message={alertMessage} className={styles.alert} type="error" showIcon />}
                     <div className={styles.history_version}>  
                         <List
                             size="large"
@@ -128,6 +138,7 @@ const userId=localStorage.getItem('userId')
                                 <Button className={styles.download_btn} onClick={() => { toggleLoadingState(item.version); }}>下载</Button></div></List.Item>}
                         />
                     </div>
+                  
                     <div className={styles.checkout_btnbox}><Button className={styles.checkout_btn} onClick={() => toggleModal(1, true)}>查看历史版本</Button></div>
                     {/* 软件历史版本弹出窗 */}
                     <Modal
