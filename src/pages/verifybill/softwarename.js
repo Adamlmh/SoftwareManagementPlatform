@@ -19,7 +19,7 @@ const SoftwareName = ({description,image,name}) => {
 </Card>
     </div>
     <div className={styles.buy_btn}>
-                        <Button className={styles.btn}>1,400CNY起 购买</Button>
+                        <Button className={styles.btn}>1,400CNY起</Button>
     </div>
 </div>
             </div>

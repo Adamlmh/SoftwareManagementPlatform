@@ -1,7 +1,7 @@
 import styles from "./verifybill.module.css"
 import React, { useEffect, useState } from 'react';
 import { Card,List,Button,Modal,Alert } from "antd"
-import { historySoftwareVersion, getCommit } from "../../api"
+import { historySoftwareVersion, getCommit,downloadSoftware } from "../../api"
 import { useLocation } from 'react-router-dom';
 const data1 = [
     '我的世界 V2.00',
@@ -27,7 +27,7 @@ const CommonVersion = ({ version, versionType,description,allversion,time,name})
     // 设置警告弹窗信息
     const [alertMessage, setAlertMessage] = useState('');
     // 获取userId
-const userId=localStorage.getItem('userId')
+const userId=localStorage.getItem('userIdSf')
 // 获取softwareId
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -37,6 +37,7 @@ const userId=localStorage.getItem('userId')
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
     const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
     const [loadingUrl, setLoadingUrl] = useState({});
+    const [downloadVersion,setDownloadVersion]=useState('')
     useEffect(() => {
         // 使用 URLSearchParams 提取查询参数  
         const queryParams = new URLSearchParams(location.search);
@@ -79,15 +80,28 @@ const userId=localStorage.getItem('userId')
         }, duration)
     }
 
-    // 下载按钮是否处于加载状态
+    // 点击版本下载按钮
     const toggleLoadingState = async(softwareVersion)=>{
-        
+        setDownloadVersion(softwareVersion)
         setLoadingState(true)
         try {
             const response = await getCommit(softwareId, userId, versionType, softwareVersion)
-            console.log(response.data);
+            // console.log(softwareId, userId, versionType, softwareVersion);
+            // console.log(response);
             setLoadingUrl(response.data)
-            toggleDownloadModal(true); 
+            
+            if(!response.data){
+                setAlertMessage(response.msg)
+                alertShow(setVisible, 3000)
+                
+                setTimeout(() => {
+                    setVisible(false);
+                }, 3000)
+            }else{
+                toggleDownloadModal(true)
+            }
+            setLoadingState(false)
+            
         } catch (error) {
             setLoadingState(false)
             setAlertMessage('未经授权，请先购买')
@@ -96,14 +110,32 @@ const userId=localStorage.getItem('userId')
             
         }
        
-       
+    //    console.log(loadingUrl);
         // console.log(111);
     }
+    // 点击系统下载按钮
+    const handleDownload =async (msg) => {
+        
+        try {
+            const response = await downloadSoftware(softwareId, userId, versionType, downloadVersion);
+            console.log(response);
+            const url = msg;
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = ''; // 设置 download 属性，可以指定下载时的文件名  
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            toggleDownloadModal(false)
+        } catch (error) {
+            console.error('Error fetching models:', error);
+        }
+    };  
     // console.log(historyVersion ? historyVersion : data2);
    return (
         <div className={styles.common_version}>
            
-           {visible && <Alert message={alertMessage} className={styles.alert} type="error" showIcon />}
+           
             <h3 className={styles.title}>{version}</h3>
             <div className={styles.detail_content}>
                 <Card style={{width:'100%'}}
@@ -119,15 +151,17 @@ const userId=localStorage.getItem('userId')
                             
                         </p>
                     </div>
+                   {visible && <Alert message={alertMessage} className={styles.alert} type="error" showIcon />}
                     <div className={styles.history_version}>  
                         <List
                             size="large"
                             dataSource={data1}
                             renderItem={(item) => <List.Item><div className={styles.information}>
-                                <span className={styles.name}>{name?name+' v'+allversion:item}</span><span className={styles.version_time}>{time?time:'2024-06-24'}</span>
-                                <Button className={styles.download_btn} onClick={() => { toggleLoadingState(item.version); }}>下载</Button></div></List.Item>}
+                                <span className={styles.name}>{name?name+' '+allversion:item}</span><span className={styles.version_time}>{time?time:'2024-06-24'}</span>
+                                <Button className={styles.download_btn} onClick={() => { toggleLoadingState(allversion); }}>下载</Button></div></List.Item>}
                         />
                     </div>
+                  
                     <div className={styles.checkout_btnbox}><Button className={styles.checkout_btn} onClick={() => toggleModal(1, true)}>查看历史版本</Button></div>
                     {/* 软件历史版本弹出窗 */}
                     <Modal
@@ -144,7 +178,7 @@ const userId=localStorage.getItem('userId')
                                 className={styles.versionlist}
                                 dataSource={historyVersion?historyVersion:data2}
                                 renderItem={(item) => <List.Item><div className={styles.history_version_check}>
-                                    <span className={styles.versionname}>{name ? name + ' v' + item.version : item}</span><span className={styles.versiontime}>{item.createTime?item.createTime:"2024-06-24"}</span>
+                                    <span className={styles.versionname}>{name ? name + ' ' + item.version : item}</span><span className={styles.versiontime}>{item.createTime?item.createTime:"2024-06-24"}</span>
                                     <Button className={styles.versiondownload_btn} 
                                         onClick={() => { 
                                             // toggleDownloadModal(true); 
@@ -163,9 +197,9 @@ const userId=localStorage.getItem('userId')
                         footer=""
                     >
                         <div className={styles.choose_system}>
-<Button type="primary" className={styles.system_btn}>Windows下载</Button>
-                            <Button type="primary" className={styles.system_btn}>mac下载</Button>
-                            <Button type="primary" className={styles.system_btn}>Linux下载</Button>
+                           <Button type="primary" className={styles.system_btn} onClick={() => handleDownload(loadingUrl.winUrl)}>Windows下载</Button>
+                           <Button type="primary" className={styles.system_btn} onClick={() => handleDownload(loadingUrl.macUrl)} >mac下载</Button>
+                           <Button type="primary" className={styles.system_btn} onClick={() => handleDownload(loadingUrl.linuxUrl)}>Linux下载</Button>
                         </div>
 
 
