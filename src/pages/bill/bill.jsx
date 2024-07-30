@@ -9,6 +9,7 @@ import { Alert } from 'antd';
 import { useOutletContext } from 'react-router-dom'
 
 const Bill = () => {
+
     const [alert, setAlert] = useState({ message: '', type: '' });
     const [selectedInformation, setSelectedInformation] = useState({});
     const native = useNavigate()
@@ -27,7 +28,6 @@ const Bill = () => {
             setAlertTimeout(setAlert, { message: '请先选择硬件指纹', type: 'error' });
         else {
             const totalPrice = shoppingOrder.reduce((total, item) => total + item.price, 0)
-            console.log('打算买', selectedInformation, shoppingOrder, totalPrice)
             const softwareList = shoppingOrder.map(item => ({
                 softwareId: item.softwareId,
                 softwareName: item.softwareName,
@@ -39,13 +39,14 @@ const Bill = () => {
                 try {
                     const response = await purchaseAuth(localStorage.getItem('userIdSf'), selectedInformation.id, totalPrice, softwareList)
                     console.log('回复', response)
+
                 } catch (error) {
                     console.error('Error sending verification code:', error);
                 }
 
             }
             buyAll()
-            setAlertTimeout(setAlert, { message: '成功', type: 'success' });
+            setAlertTimeout(setAlert, { message: '成功', type: 'success' }, 3000, 1);
         }
 
     }
