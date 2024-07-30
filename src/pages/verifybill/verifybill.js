@@ -5,6 +5,7 @@ import styles from "./verifybill.module.css";
 import CommonVersion from "./commonversion";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import FullScreenLoading from "../../components/fullScreenLoading";
 const VerifyBill = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -20,7 +21,8 @@ const VerifyBill = () => {
   });
   // 是否有高级版
   const [isadvanced, setAdvanced] = useState(false);
-
+  // 加载状态
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     // 使用 URLSearchParams 提取查询参数
     const queryParams = new URLSearchParams(location.search);
@@ -42,6 +44,8 @@ const VerifyBill = () => {
         // console.log(response);
       } catch (error) {
         console.error("Error fetching models:", error);
+      } finally {
+        setLoading(false); // 结束加载
       }
     };
     fetchSoftwareData();
@@ -49,30 +53,36 @@ const VerifyBill = () => {
 
   return (
     <div className={styles.verifybill}>
-      <SoftwareName
-        image={data.softwareImage}
-        description={data.description}
-        name={data.softwareName}
-      ></SoftwareName>
-      <CommonVersion
-        version="基础版"
-        description={version[0]?.description}
-        name={data.softwareName}
-        time={data.createTime}
-        allversion={version[0]?.version}
-        versionType={version[0]?.versionType}
-      ></CommonVersion>
-      {isadvanced && (
-        <CommonVersion
-          version="高级版"
-          description={version[1]?.description}
-          allversion={version[1]?.version}
-          name={data.softwareName}
-          time={data.createTime}
-          versionType={version[1]?.versionType}
-        ></CommonVersion>
+      {loading ? (
+        <FullScreenLoading /> // 加载动画
+      ) : (
+        <>
+          <SoftwareName
+            image={data.softwareImage}
+            description={data.description}
+            name={data.softwareName}
+          />
+          <CommonVersion
+            version="基础版"
+            description={version[0]?.description}
+            name={data.softwareName}
+            time={data.createTime}
+            allversion={version[0]?.version}
+            versionType={version[0]?.versionType}
+          />
+          {isadvanced && (
+            <CommonVersion
+              version="高级版"
+              description={version[1]?.description}
+              allversion={version[1]?.version}
+              name={data.softwareName}
+              time={data.createTime}
+              versionType={version[1]?.versionType}
+            />
+          )}
+          <Update />
+        </>
       )}
-      <Update></Update>
     </div>
   );
 };
