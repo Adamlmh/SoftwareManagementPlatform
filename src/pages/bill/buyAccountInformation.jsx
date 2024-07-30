@@ -77,8 +77,9 @@ const BuyAccountInformation = ({ onSelectFingerprint }) => {
                 <Card
                     style={{
                         width: 200,
-                        height: 200
+                        height: 200, border: '2px solid #a7a7a7'
                     }}
+                    bordered
                 >
                     <span className={styles.rihgtCardWord} >当您完成此笔交易后，款项会自您的支付方式中扣除，且您将收到一封电子邮件确认您的购买。</span>
                 </Card>

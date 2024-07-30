@@ -9,8 +9,10 @@ const billInformation = ({ shoppingOrder }) => {
         <Card
             style={{
                 width: '1118px',
+                border:'2px solid #a7a7a7'
 
             }} className={styles.billInformation}
+            bordered
         >
             <div className={styles.billInformationDiv}>
                 <ul>
