@@ -10,11 +10,13 @@ const buyAccountInformation = () => {
                     <li>用户名</li>
                     <li>电子邮件地址</li>
                     <li>授权账户ID</li>
+                    <li>指纹信息</li>
                 </ul>
                 <ul>
                     <li>用户名</li>
                     <li>1231234567@xxx.com</li>
                     <li>20002951</li>
+                    <li><button>选择你的指纹信息</button></li>
                 </ul>
             </div>
             <div>

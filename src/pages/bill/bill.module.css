@@ -75,21 +75,25 @@ li{
 }
 .buyAccountInformation{
  margin-top: 2px;     
- height: 200px;
+ height: 250px;
   width: 1118px;
  display: flex;
  align-items: center;
  justify-content: space-between;
+
 }
 
 .buyAccountInformation div:nth-of-type(1){
-    height: 142px;
+    height: 202px;
     width: 476px;
     display: flex;
     font-size: 20px;
+    margin-top: 0px;
+   
 }
 
 .buyAccountInformation div:nth-of-type(1) ul:nth-of-type(1){
+
     display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -160,3 +164,7 @@ justify-content:space-between
 }
 
 
+.buyAccountInformation button{
+    border: none;
+
+}
