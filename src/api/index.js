@@ -180,7 +180,7 @@ export function allSoftwarePage(params) {
     pageSize: 12,
     page: 1,
     softwareName: "",
-    tags: "",
+    tags: ["OPEN"],
     ...params,
   };
   console.log("全部软件首页", params);
@@ -195,12 +195,12 @@ export function allSoftwarePage(params) {
 export function subscribeSoftwarePage(params) {
   params = {
     page: 1,
+    userId: localStorage.getItem("userId"),
     ...params,
   };
+  console.log("订阅购买展示", params);
   return service({
-    url: `http://47.113.224.195:31108/software/showRequiredAuthSoftwar?userId=${localStorage.getItem(
-      "userId"
-    )}`,
+    url: `http://47.113.224.195:31108/software/showRequiredAuthSoftware`,
     method: "get",
     params,
   });

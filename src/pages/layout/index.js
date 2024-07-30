@@ -1,11 +1,14 @@
 import "./layout.css";
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 import TopHeader from "./topheader";
 import BottomFooter from "./bottomfooter";
-import { homePageUserInfo } from '../../api/index'
+import { homePageUserInfo } from "../../api/index";
+import { useState } from "react";
 const TopMenu = () => {
+  const [shoppingOrder, setShoppingOrder] = useState([]);
+
 
 
 
@@ -13,7 +16,7 @@ const TopMenu = () => {
     <Layout>
       <TopHeader></TopHeader>
       <div className="main_content">
-        <Outlet></Outlet>
+        <Outlet context={{ shoppingOrder, setShoppingOrder }}></Outlet>
       </div>
       <BottomFooter></BottomFooter>
     </Layout>
