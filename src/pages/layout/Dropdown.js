@@ -18,6 +18,10 @@ const items = [
     key: "2",
     label: <NavLink to={"/header/allsoftware"}>全部软件</NavLink>,
   },
+  {
+    key: "3",
+    label: <NavLink to={"/header/subscription"}>订阅购买</NavLink>,
+  },
 ];
 const StoreDropDown = () => (
   <Dropdown

@@ -1,4 +1,4 @@
-const ListContainer = ({ items }) => (
+const ListContainer = ({ items, setSearchTag }) => (
   <div>
     <ul
       style={{
@@ -9,7 +9,11 @@ const ListContainer = ({ items }) => (
       }}
     >
       {items.map((item, index) => (
-        <li key={index} style={{ flex: "0 0 192px" }}>
+        <li
+          key={index}
+          style={{ flex: "0 0 192px", cursor: "pointer" }}
+          onClick={() => setSearchTag([item])}
+        >
           {item}
         </li>
       ))}
