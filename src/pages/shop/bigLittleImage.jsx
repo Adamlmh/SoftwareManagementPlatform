@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from './shop.module.css'
-import littleImage1 from '../../assest/images/827e3278ed3118dabc56ae91afec721e.png';
-import littleImage2 from '../../assest/images/8420455527b2e3dbb19c1e32102a1286.png';
-import littleImage3 from '../../assest/images/bigImage.png';
-import littleImage4 from '../../assest/images/d0e2d20ff686c5d06a5dae3d6149a639.png';
+import littleImage1 from '../../assets/images/827e3278ed3118dabc56ae91afec721e.png';
+import littleImage2 from '../../assets/images/8420455527b2e3dbb19c1e32102a1286.png';
+import littleImage3 from '../../assets/images/bigImage.png';
+import littleImage4 from '../../assets/images/d0e2d20ff686c5d06a5dae3d6149a639.png';
 
 const BigLittleImage = ({ lastData, goToDetails }) => {
     const [data, setData] = useState([

@@ -1,41 +1,40 @@
-import styles from "./third.module.css"
+import styles from "./third.module.css";
 import ThirdCard from "../thirdcard/thirdcard";
-import { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom"
-import { softwareRanking } from "../../../api"
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { softwareRanking } from "../../../api";
 import axios from "axios";
 
-
 const HomeThirdPage = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         async function receiveInformation() {
             try {
-                const response = await softwareRanking()
-                setData(response.data)
+                const response = await softwareRanking();
+                setData(response.data || []); // Ensure data is always an array
             } catch (error) {
-                console.error('Error sending verification code:', error);
+                console.error('Error fetching software ranking:', error);
             }
-
         }
-        receiveInformation()
-    }, [])
+        receiveInformation();
+    }, []);
 
-    //跳转到目标页面
-    const goToDetails = (data) => {
-        if (data) {
-            const softwareId = data.softwareId;
+    // Handle navigation to details page
+    const goToDetails = (software) => {
+        if (software) {
+            const softwareId = software.softwareId;
             console.log(softwareId);
-            const encodedSoftwareId = encodeURIComponent(softwareId); // 编码软件ID
-            const url = `/header/verifybill?softwareId=${encodedSoftwareId}`; // 构建URL
+            const encodedSoftwareId = encodeURIComponent(softwareId); // Encode software ID
+            const url = `/header/verifybill?softwareId=${encodedSoftwareId}`; // Construct URL
             navigate(url);
             window.scrollTo(0, 0);
         }
     };
 
-
+    // Determine the number of items to display
+    const itemsToDisplay = data && data.length > 0 ? (data.length > 6 ? data.slice(0, 6) : data) : [];
 
     return (
         <div className={styles.home_thirdpage}>
@@ -45,15 +44,15 @@ const HomeThirdPage = () => {
             <div className={styles.maincontent}>
                 <h3>优质的软件</h3>
                 <div className={styles.content}>
-                    <div onClick={() => goToDetails(data[0])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
-                    <div onClick={() => goToDetails(data[1])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
-                    <div onClick={() => goToDetails(data[2])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
-                    <div onClick={() => goToDetails(data[3])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
-                    <div onClick={() => goToDetails(data[4])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
-                    <div onClick={() => goToDetails(data[5])}>  <ThirdCard data={data[0]} ></ThirdCard></div>
+                    {itemsToDisplay.map((item, index) => (
+                        <div key={index} onClick={() => goToDetails(item)}>
+                            <ThirdCard data={item} />
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
+
 export default HomeThirdPage;
