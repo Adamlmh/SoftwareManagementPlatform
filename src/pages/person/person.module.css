@@ -98,7 +98,16 @@
     border: 0px;
     color: #8846BC;
 }
-
+/* 修改个人信息弹窗 */
+.change_message_modal{
+height: 300px;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+.change_input{
+    height: 50px;
+}
 
 
 /* 第二部分 消息 */
