@@ -49,7 +49,6 @@ const Index = ({ lastData, goToDetails }) => {
 
     useEffect(() => {
         if (lastData.length > 0) { // 确保 lastData 不为空
-            console.log(lastData);
 
             const information = lastData.map((item) => {
                 return {
@@ -60,13 +59,11 @@ const Index = ({ lastData, goToDetails }) => {
                 };
             }).slice(0, 4); // 只保留前四个元素
 
-            console.log(information);
             setData(information);
         }
     }, [lastData]);
 
     const clickImg = (data) => {
-        console.log(data)
         goToDetails(data)
     }
 

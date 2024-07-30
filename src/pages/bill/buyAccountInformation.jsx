@@ -48,19 +48,19 @@ const BuyAccountInformation = ({ onSelectFingerprint }) => {
         },
     ])
 
-    // useEffect(() => {
-    //     async function receiveInformation() {
-    //         try {
-    //             const response = await getFingerprint(localStorage.getItem('userIdSf'))
-    //             console.log(response.data)
-    //             setData(response.data)
-    //         } catch (error) {
-    //             console.error('Error sending verification code:', error);
-    //         }
+    useEffect(() => {
+        async function receiveInformation() {
+            try {
+                const response = await getFingerprint(localStorage.getItem('userIdSf'))
+                console.log(response.data)
+                setData(response.data)
+            } catch (error) {
+                console.error('Error sending verification code:', error);
+            }
 
-    //     }
-    //     receiveInformation()
-    // }, [])
+        }
+        receiveInformation()
+    }, [])
 
     //用于展示指纹信息
     const show = (name, id) => {

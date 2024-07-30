@@ -33,6 +33,8 @@ const Bill = () => {
                 softwareName: item.softwareName,
                 versionType: item.versionType
             }));
+
+
             async function buyAll() {
                 try {
                     const response = await purchaseAuth(localStorage.getItem('userIdSf'), selectedInformation.id, totalPrice, softwareList)
