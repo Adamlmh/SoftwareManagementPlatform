@@ -180,7 +180,7 @@ export function allSoftwarePage(params) {
     pageSize: 12,
     page: 1,
     softwareName: "",
-    tags: ["OPEN"],
+    tags: [],
     ...params,
   };
   console.log("全部软件首页", params);
@@ -231,5 +231,22 @@ export function downloadSoftware(softwareId, userId, versionType, version) {
     url: "http://47.113.224.195:31108/software/downloadSoftware",
     method: "post",
     data,
+  });
+}
+
+//我的产品首页渲染
+export function myProductPage(params) {
+  params = {
+    softwareName: "",
+    page: 1,
+    tages: "",
+    userId: localStorage.getItem("userId"),
+    ...params,
+    pageSize: 12,
+  };
+  return service({
+    url: `http://47.113.224.195:31108/admin/homePageShowAllSoftware`,
+    method: "get",
+    params,
   });
 }

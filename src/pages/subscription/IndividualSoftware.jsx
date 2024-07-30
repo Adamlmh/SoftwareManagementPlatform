@@ -41,9 +41,8 @@ const IndividualSoftware = ({
     setIsAddToShoppingOrder(true);
   };
   const navigate = useNavigate();
-  const handleCardClick = () => {
+  const handleFindClick = (softwareId) => {
     navigate(`/header/verifybill?softwareId=${softwareId}`);
-    console.log(123);
   };
   return (
     <Col span={6}>
@@ -53,10 +52,15 @@ const IndividualSoftware = ({
           width: 285,
           padding: "16px",
           border: "1.5px solid #cdcdcd",
+          cursor: "default",
         }}
-        onClick={handleCardClick}
       >
-        <Image width={50} height={50} src={softwareImage} />
+        <Image
+          width={50}
+          height={50}
+          src={softwareImage}
+          onClick={(e) => e.stopPropagation()}
+        />
         <span style={{ marginLeft: "16px", fontSize: "16px" }}>
           {softwareName}
           <span style={{ fontWeight: "bold", marginLeft: "8px" }}>
@@ -86,7 +90,31 @@ const IndividualSoftware = ({
         >
           {price}.00 CNY/年
         </div>
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <span
+            style={{
+              width: "60px",
+              height: "30px",
+              borderRadius: "100px",
+              backgroundColor: "#E5DFF4",
+            }}
+          >
+            <button
+              style={{
+                width: "100%",
+                height: "100%",
+                border: "none",
+                backgroundColor: "transparent",
+                cursor: "pointer",
+                color: "#633DB1",
+                fontSize: "14px",
+                lineHeight: "1.6",
+              }}
+              onClick={() => handleFindClick(softwareId)}
+            >
+              详情
+            </button>
+          </span>
           <span
             style={{
               width: "116px",

@@ -3,19 +3,20 @@ import { Card, Input, Row, Col, Pagination } from "antd";
 import IndividualSoftware from "./IndividualSoftware";
 import ListContainer from "./ListContainer";
 import { allSoftwarePage } from "../../api";
-import { useNavigate } from "react-router-dom";
+
 const { Search } = Input;
 
 const AllSoftware = () => {
-  const navigate = useNavigate();
   const [allSoftwareData, setAllSoftwareData] = useState([]);
   const [searchTag, setSearchTag] = useState([]);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       const response = await allSoftwarePage({
         tags: searchTag ? searchTag : "",
       });
-      console.log(response.data.data);
+
+      setTotal(response.data.total);
       setAllSoftwareData(response.data.data);
     };
     fetchData();
@@ -24,7 +25,7 @@ const AllSoftware = () => {
     const response = await allSoftwarePage({
       softwareName: value,
     });
-    console.log(response.data.data);
+    setTotal(response.data.total);
     setAllSoftwareData(response.data.data);
   };
   const onChange = async (pageNumber) => {
@@ -32,14 +33,10 @@ const AllSoftware = () => {
     const response = await allSoftwarePage({
       page: pageNumber,
     });
-    console.log(response.data.data);
+    setTotal(response.data.total);
     setAllSoftwareData(response.data.data);
   };
 
-  const handleClick = (key) => {
-    console.log("Clicked Col key:", key);
-    navigate(`/header/verifybill?softwareId=${key}`);
-  };
   return (
     <div
       style={{
@@ -90,17 +87,14 @@ const AllSoftware = () => {
       </Card>
       <Row style={{ width: 1200 }} gutter={[8, 16]}>
         {allSoftwareData.map((software, index) => (
-          <Col
-            key={software.softwareId}
-            span={6}
-            onClick={() => handleClick(software.softwareId)}
-          >
+          <Col key={software.softwareId} span={6}>
             <IndividualSoftware
               name={software.softwareName}
               version={software.version}
               tags={software.tags}
               description={software.description}
               imageUrl={software.softwareImage}
+              softwareId={software.softwareId}
             />
           </Col>
         ))}
@@ -108,7 +102,7 @@ const AllSoftware = () => {
       <Pagination
         showQuickJumper
         defaultCurrent={1}
-        total={500}
+        total={total}
         onChange={onChange}
         defaultPageSize={12}
       />

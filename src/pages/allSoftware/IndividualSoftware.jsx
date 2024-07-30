@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Col, Image } from "antd";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const StyledCard = styled(Card)`
   .ant-card-body {
@@ -17,7 +18,18 @@ const cardStyle = {
   border: "1px solid #E1E1E1",
 };
 
-const IndividualSoftware = ({ imageUrl, description, tags, name, version }) => {
+const IndividualSoftware = ({
+  imageUrl,
+  description,
+  tags,
+  name,
+  version,
+  softwareId,
+}) => {
+  const navigate = useNavigate();
+  const handleClick = (softwareId) => {
+    navigate(`/header/verifybill?softwareId=${softwareId}`);
+  };
   return (
     <Col span={6}>
       <StyledCard
@@ -27,6 +39,7 @@ const IndividualSoftware = ({ imageUrl, description, tags, name, version }) => {
           maxHeight: 300,
           padding: "16px",
           border: "1.5px solid #cdcdcd",
+          cursor: "default",
         }}
       >
         <Image width={50} height={50} src={imageUrl} />
@@ -91,22 +104,10 @@ const IndividualSoftware = ({ imageUrl, description, tags, name, version }) => {
                 fontSize: "14px",
                 lineHeight: "1.6",
               }}
+              onClick={() => handleClick(softwareId)}
             >
               详情
             </button>
-          </span>
-          <span
-            style={{
-              fontSize: "12px",
-              lineHeight: "1.6",
-              textAlign: "center",
-              display: "flex",
-              alignItems: "center",
-              cursor: "pointer",
-              fontWeight: "bold",
-            }}
-          >
-            获取报价➡
           </span>
         </div>
       </StyledCard>

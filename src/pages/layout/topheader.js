@@ -33,6 +33,9 @@ const TopHeader = () => {
           <NavLink to={"/header/about"}>
             <Menu.Item className="top_menu_item">关于我们</Menu.Item>
           </NavLink>
+          <NavLink to={"/header/manage"}>
+            <Menu.Item className="top_menu_item">管理</Menu.Item>
+          </NavLink>
         </Menu>
       </div>
       <div className="top_search">
