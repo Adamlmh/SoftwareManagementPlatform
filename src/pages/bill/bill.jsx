@@ -12,7 +12,7 @@ const Bill = () => {
 
     const [alert, setAlert] = useState({ message: '', type: '' });
     const [selectedInformation, setSelectedInformation] = useState({});
-    const native = useNavigate()
+    const navigate = useNavigate()
     const handleFingerprintSelection = (infromation) => {
         setSelectedInformation(infromation);
     }
@@ -46,7 +46,7 @@ const Bill = () => {
 
             }
             buyAll()
-            setAlertTimeout(setAlert, { message: '成功', type: 'success' }, 3000, 1);
+            setAlertTimeout(setAlert, { message: '成功,即将返回登录界面', type: 'success' }, 3000, 1);
         }
 
     }
@@ -62,14 +62,17 @@ const Bill = () => {
             setter(alert)
             setTimeout(() => {
                 setter({ message: '', type: "" })
-                native('./header/shop')
+                navigate('/header/shop');
             }, duration)
 
         }
     }
 
 
-
+    //退回上一步
+    const comeBack = () => {
+        navigate('/header/subscription');
+    }
 
 
 
@@ -88,7 +91,7 @@ const Bill = () => {
                 <Textarea />
                 <h2 className={styles.cost}>订单总价：1400CNY</h2>
                 <div className={styles.buybottom}>
-                    <button>返回</button>
+                    <button onClick={comeBack}>返回</button>
                     <button onClick={desireBuy}>确认订单并支付</button>
                 </div>
             </div>
