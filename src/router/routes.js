@@ -13,6 +13,7 @@ const AllSoftware = lazy(() => import("../pages/allSoftware"));
 const Person = lazy(() => import("../pages/person"));
 const Subscription = lazy(() => import("../pages/subscription"));
 const Manage = lazy(() => import("../pages/manage"));
+const ManageUnchecked = lazy(() => import("../pages/manageUnchecked"));
 const routes = [
   {
     path: "/header",
@@ -59,6 +60,11 @@ const routes = [
         path: "manageChecked",
         element: <Manage />,
       },
+      {
+        path: "manageUnchecked",
+        element: <ManageUnchecked />,
+      },
+      ,
     ],
   },
   {

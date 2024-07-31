@@ -40,14 +40,14 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
     ])
 
     const truncateText = (text, maxLength) => {
-        if (text.length > maxLength) {
+        if (text && text.length > maxLength) {
             return text.slice(0, maxLength) + '...';
         }
         return text;
     };
 
     useEffect(() => {
-        if (lastData.length > 0) { // 确保 lastData 不为空
+        if (lastData && lastData.length > 0) { // 确保 lastData 不为空
 
             const information = lastData.map((item) => {
                 return {
@@ -92,7 +92,7 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
                                     <ul></ul>
                                     <div>{item.score}</div>
                                 </div>
-                                <p style={{ color: '#C8C9CB',fontSize:'12px'}}>{truncateText(item.description, 35)}</p>
+                                <p style={{ color: '#C8C9CB', fontSize: '12px' }}>{truncateText(item.description, 35)}</p>
                             </div>
 
                         </li>
