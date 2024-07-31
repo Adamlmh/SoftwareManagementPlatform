@@ -67,8 +67,8 @@ const showAlert=()=>{
         }
         const tagsString = values.tags; // 从表单获取原始字符串  
         if (tagsString) {
-            const tagsArray = tagsString.split(',').map(tag => tag.trim()); // 按照逗号分隔并去掉空格  
-            formData.append('tags', JSON.stringify(tagsArray)); // 将数组转成 JSON 字符串后存入 FormData  
+            const tagsArray = tagsString.split('，').map(tag => tag.trim()); // 按照逗号分隔并去掉空格  
+            formData.append('tags', tagsArray); // 将数组转成 JSON 字符串后存入 FormData  
         }  
         // 如果需要处理文件上传，需要额外的逻辑来获取文件输入  
         ['winPackage', 'linuxPackage', 'macPackage', 'softwareImage'].forEach(fileInputName => {
