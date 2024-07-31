@@ -1,9 +1,8 @@
 import React from "react";
 import { Card, Col, Image, Drawer } from "antd";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import Upload from "./upload";
+
+import Details from "./detail";
 const StyledCard = styled(Card)`
   width: 285px;
   max-height: 300px;
@@ -83,35 +82,25 @@ const StyledCard = styled(Card)`
 `;
 
 const IndividualSoftware = ({
-  imageUrl,
-  description,
-  tags,
-  name,
+  softwareName,
   version,
-  softwareId,
+  briefDescription,
+  softwareImage,
+  tags,
   software,
+  passedStringStatus,
+  setFlash,
+  flash
 }) => {
-  const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
-  const showDrawer = () => {
-    setOpen(true);
-  };
-  const onClose = () => {
-    setOpen(false);
-  };
-  const handleClick = (softwareId) => {
-    navigate(`/header/verifybill?softwareId=${softwareId}`);
-  };
-
+  console.log(777, software);
+  tags = tags || ["无"];
   return (
     <Col span={6}>
       <StyledCard hoverable>
         <div className="card-content">
-          <Image width={50} height={50} src={imageUrl} />
-          <span className="card-title">{name}</span>
-          <button className="status-button">
-            {software.status ? "已上架" : "已下架"}
-          </button>
+          <Image width={50} height={50} src={softwareImage} />
+          <span className="card-title">{softwareName}</span>
+          <button className="status-button">{passedStringStatus}</button>
         </div>
 
         <p>版本号: {version}</p>
@@ -124,28 +113,17 @@ const IndividualSoftware = ({
           ))}
         </div>
 
-        <p className="description" title={description}>
-          简述: {description}
+        <p className="description" title={briefDescription}>
+          简述: {briefDescription}
         </p>
 
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <button
-            className="details-button"
-            onClick={() => handleClick(softwareId)}
-          >
-            详情
-          </button>
-          <button className="change-button" onClick={showDrawer}>
-            更改
-          </button>
-          <Drawer
-            title="产品信息修改"
-            onClose={onClose}
-            open={open}
-            width={720}
-          >
-            <Upload software={software} />
-          </Drawer>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Details
+            className="change-button"
+            software={software}
+            setFlash={setFlash}
+            flash={flash}
+          />
         </div>
       </StyledCard>
     </Col>

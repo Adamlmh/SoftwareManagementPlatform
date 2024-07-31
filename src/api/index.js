@@ -351,3 +351,24 @@ export function getLicense(userId) {
     params,
   });
 }
+//管理员 分页 回显审核记录
+export function getAuditRecord(params) {
+  params = {
+    page: 1,
+    pageSize: 12,
+    ...params,
+  };
+  return service({
+    url: "http://47.113.224.195:31108/admin/showVerificationHistory",
+    method: "get",
+    params,
+  });
+}
+//新软件/新版本 审核通过/驳回
+export function updateAuditStatus(data) {
+  return service({
+    url: "http://47.113.224.195:31108/admin/verifyApplication",
+    method: "post",
+    data,
+  });
+}
