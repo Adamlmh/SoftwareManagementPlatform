@@ -93,9 +93,9 @@ const showAlert=()=>{
             if (fileInput && fileInput.files[0]) {
                 formData.append(fileInputName, fileInput.files[0]);
             }
-            upload(formData)
+  
         });
-
+        upload(formData)
 
     };
     // 图片预览
@@ -128,7 +128,7 @@ const showAlert=()=>{
             <Button type="primary" onClick={showModal} className={styles.openbox}>
                 上传软件
             </Button>
-            <Modal title="上传我的软件" width={600} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Modal title="上传我的软件" footer={null} width={600} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 {alert && <Alert
                     message="Success Tips"
                     description="上传成功"
