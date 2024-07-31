@@ -41,14 +41,13 @@ const Index = ({ lastData, goToDetails }) => {
         },
     ])
     const truncateText = (text, maxLength) => {
-        if (text.length > maxLength) {
+        if (text && text.length > maxLength) {
             return text.slice(0, maxLength) + '...';
         }
         return text;
     };
-
     useEffect(() => {
-        if (lastData.length > 0) { // 确保 lastData 不为空
+        if (lastData && lastData.length > 0) { // 确保 lastData 不为空
 
             const information = lastData.map((item) => {
                 return {
@@ -72,10 +71,10 @@ const Index = ({ lastData, goToDetails }) => {
         <Carousel autoplay style={contentStyle}>
             {data.map((item, index) => {
                 return (<div className={styles.carouselTitle} onClick={() => clickImg(item)}>
-                    <div className={styles.picname}>  
+                    <div className={styles.picname}>
                         <h1 >{item.titll}</h1>
                         <h2 >{truncateText(item.description, 40)}</h2>
-                        </div>
+                    </div>
                     <img src={item.image} className={styles.carouselImage} />
                     {/* <h3 style={contentStyle} className={styles.carouselImage}></h3> */}
                 </div>
