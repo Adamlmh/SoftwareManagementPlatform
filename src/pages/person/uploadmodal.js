@@ -28,7 +28,26 @@ const ModalAlert = ({status}) => {
         setIsModalOpen(false);
         setImageBox(false)
     };
-    
+    // 节流函数
+    function throttle(func, limit) {
+        let lastFunc;
+        let lastRan;
+
+        return function (...args) {
+            if (!lastRan) {
+                func.apply(this, args);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(() => {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(this, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
+            }
+        };
+    } 
 //   上传成功弹出框
 const showAlert=()=>{
     setAlert(true)
@@ -137,7 +156,7 @@ const showAlert=()=>{
                     initialValues={{
                         remember: true,
                     }}
-                    onFinish={onFinish}
+                    onFinish={throttle(onFinish, 500)}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
