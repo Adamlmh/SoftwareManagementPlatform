@@ -29,7 +29,6 @@ const AllSoftware = () => {
     setAllSoftwareData(response.data.data);
   };
   const onChange = async (pageNumber) => {
-    console.log("Page: ", pageNumber);
     const response = await allSoftwarePage({
       page: pageNumber,
     });

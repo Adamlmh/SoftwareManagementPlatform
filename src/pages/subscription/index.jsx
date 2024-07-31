@@ -26,7 +26,6 @@ const Subscription = () => {
 
   const showDrawer = () => {
     setOpen(true);
-    console.log(shoppingOrder);
   };
 
   const onClose = () => {
@@ -100,8 +99,8 @@ const Subscription = () => {
             />
           ))
         ) : (
-          <div>没有数据可显示</div> // 提供一个用户友好的反馈
-        )}
+            <div>没有数据可显示</div> // 提供一个用户友好的反馈
+          )}
       </Row>
       <div style={{ height: "50px" }}></div>
       <Pagination

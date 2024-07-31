@@ -16,7 +16,6 @@ function Manage() {
     fetchData();
   }, []);
   const onChange = async (pageNumber) => {
-    console.log("Page: ", pageNumber);
     const response = await myProductPage({
       page: pageNumber,
     });

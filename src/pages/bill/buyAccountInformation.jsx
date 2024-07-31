@@ -33,7 +33,6 @@ const BuyAccountInformation = ({ onSelectFingerprint }) => {
             try {
                 const response = await getFingerprint(localStorage.getItem('userIdSf'))
                 setData(response.data)
-                console.log(response.data)
             } catch (error) {
                 console.error('Error sending verification code:', error);
             }
