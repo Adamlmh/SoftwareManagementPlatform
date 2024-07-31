@@ -309,15 +309,18 @@ justify-content: space-evenly;
 /* 第三部分 已购买的软件 */
 .bought_part{
 width: 1200px;
-height: 1200px;
+/* height: 1200px; */
+max-height: 1200px;
+margin-bottom: 30px;
 }
 .Bought_box{
     width: 100%;
-    height: 1010px;
+    /* height: 1010px; */
+    max-height: 1010px;
     margin-top: 40px;
 }
 .Boughtcard{
-    height: 100%;
+    /* height: 100%; */
 }
 .everybought{
     width: 1120px;
@@ -329,7 +332,8 @@ height: 1200px;
 }
 .bought_content{
     width: 100%;
-    height: 950px;
+    /* height: 950px; */
+    max-height: 950px;
     /* background-color: red; */
     overflow: auto;
 

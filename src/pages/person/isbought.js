@@ -2,11 +2,36 @@ import styles from "./person.module.css"
 import { Card, Button, List } from "antd"
 import { getLicense, AvailableSoftware } from "../../api"
 import { useState, useEffect, version } from 'react'
-
-
+import image1 from "../../assets/images/Rectangle 1079.png";
+import image2 from "../../assets/images/605b0dc354d5ccb7d3d63eba17900968.png"
+import image3 from "../../assets/images/827e3278ed3118dabc56ae91afec721e.png"
 const Bought = () => {
-    const [data1, setData1] = useState([])
-    const [data2, setData2] = useState([])
+    const [data1, setData1] = useState([
+        {
+            softwareList:[{
+                softwareName:'元气骑士',
+                expiredTime:'2024-06-20 10:58'
+            }, {
+                    softwareName: '出发吧麦芬',
+                   
+                },
+                {
+                    softwareName: '绝地遣兵',
+                    versionType:1,
+                },
+        ],
+        },
+    ])
+    const [data2, setData2] = useState([{
+        softwareImage: image1, 
+        description:'这款打宝闯关两不误，休闲轻松很惬意的ARPG游戏，你一定不能错过！'
+    }, {
+            softwareImage: image2,
+        description: '治愈系组队冒险放置手游'
+        },{
+            softwareImage: image3,
+        description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人。'
+        }])
     useEffect(() => {
         async function receiveInformation() {
             try {
@@ -61,7 +86,7 @@ const Bought = () => {
                                                     <div className={styles.everybought}>
                                                         <div className={styles.pic} style={{ backgroundImage: `url(${data2[index].softwareImage})` }}></div>
                                                         <div className={styles.description}>
-                                                            <h3 className={styles.softwaretitle}>{item.softwareName}({item.versionType ? '高级版' : '低级版'})</h3>
+                                                            <h3 className={styles.softwaretitle}>{item.softwareName}({item.versionType ? '高级版' : '基础版'})</h3>
                                                             <div className={styles.soft_description}>  {data2[index].description.length > 40
                                                                 ? `${data2[index].description.slice(0, 40)}...`
                                                                 : data2[index].description}</div>
