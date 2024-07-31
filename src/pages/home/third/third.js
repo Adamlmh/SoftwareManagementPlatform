@@ -61,7 +61,6 @@ const HomeThirdPage = () => {
     const goToDetails = (software) => {
         if (software) {
             const softwareId = software.softwareId;
-            console.log(softwareId);
             const encodedSoftwareId = encodeURIComponent(softwareId); // Encode software ID
             const url = `/header/verifybill?softwareId=${encodedSoftwareId}`; // Construct URL
             navigate(url);

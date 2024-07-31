@@ -44,7 +44,6 @@ export default function Register({ alert, setAlert }) {
     const startCountdown = async () => {
         setsendyzem(1)
         const email = emailRef.current.input.value;
-        console.log(email);
         if (!email) {
             setStatus(setEmailStatus, 'warning');
             setAlertTimeout(setAlert, { message: 'Please enter your email.', type: 'error' });
@@ -62,9 +61,7 @@ export default function Register({ alert, setAlert }) {
         }, 60000);
 
         try {
-            console.log(email);
             const response = await sendVerificationCode(email);
-            console.log(response);
             if (response.code == 1) {
                 localStorage.setItem('token', response.data.token)
                 localStorage.setItem('userIdSf', response.data.userId)

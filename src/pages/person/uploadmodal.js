@@ -1,21 +1,20 @@
-import { Button, Modal, Form, Input, Radio,Alert } from 'antd';
+import { Button, Modal, Form, Input, Radio, Alert } from 'antd';
 import { softwareUpload } from "../../api"
 import React, { useState, useRef } from 'react';
 import styles from "./person.module.css"
 const { TextArea } = Input;
-const ModalAlert = ({status}) => {
+const ModalAlert = ({ status }) => {
     const [isModalOpen, setIsModalOpen] = useState(status);
     const [userId, setUserId] = useState(localStorage.getItem('userIdSf'))
     const [image, setImage] = useState('')
-   
+
     // 预览图片盒子状态
     const [imageBox, setImageBox] = useState(false)
-    const [selectedFile, setSelectedFile] = useState(null);  
-    const [alert, setAlert] = useState(false);  
-    const imageRef=useRef(null)
-    const softwareNameRef=useRef(null)
-    const [form] = Form.useForm();  
-    console.log(form);
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [alert, setAlert] = useState(false);
+    const imageRef = useRef(null)
+    const softwareNameRef = useRef(null)
+    const [form] = Form.useForm();
     const showModal = () => {
         form.resetFields();
         setIsModalOpen(true);
@@ -57,12 +56,11 @@ const showAlert=()=>{
 }
     // console.log(userId);
     // 上传软件
-    const upload=async(newFormData)=>{
+    const upload = async (newFormData) => {
         try {
-            const response =await softwareUpload(newFormData)
+            const response = await softwareUpload(newFormData)
             showAlert()
-            softwareNameRef.current.input.value=''
-            console.log(response);
+            softwareNameRef.current.input.value = ''
             form.resetFields(); // 清空表单  
             setImageBox(false)
         } catch (error) {
@@ -72,7 +70,7 @@ const showAlert=()=>{
     }
     // 获取表单信息
     const onFinish = (values) => {
-       
+
         // console.log('Success:', values);
         // 创建 FormData 对象  
         const formData = new FormData();
@@ -80,7 +78,7 @@ const showAlert=()=>{
         // 遍历表单数据并添加到 FormData 中  
         for (const key in values) {
             // 确保只添加非空值  
-            if (values[key] !== undefined && values[key] !== null && values[key] !== ''&&key!=='tags') {
+            if (values[key] !== undefined && values[key] !== null && values[key] !== '' && key !== 'tags') {
                 formData.append(key, values[key]);
             }
         }
@@ -88,7 +86,7 @@ const showAlert=()=>{
         if (tagsString) {
             const tagsArray = tagsString.split('，').map(tag => tag.trim()); // 按照逗号分隔并去掉空格  
             formData.append('tags', tagsArray); // 将数组转成 JSON 字符串后存入 FormData  
-        }  
+        }
         // 如果需要处理文件上传，需要额外的逻辑来获取文件输入  
         ['winPackage', 'linuxPackage', 'macPackage', 'softwareImage'].forEach(fileInputName => {
             const fileInput = document.querySelector(`input[name="${fileInputName}"]`);
@@ -96,12 +94,12 @@ const showAlert=()=>{
                 formData.append(fileInputName, fileInput.files[0]);
             }
             upload(formData)
-        }); 
+        });
 
 
     };
     // 图片预览
-    const imageInput=(e)=>{
+    const imageInput = (e) => {
         setImageBox(true)
         const file = e.target.files[0];
         // console.log(e.target.files[0]);
@@ -118,9 +116,9 @@ const showAlert=()=>{
         }
     }
     // 取消图片预览
-    const cancelPreview=()=>{
+    const cancelPreview = () => {
         setImageBox(false)
-        setSelectedFile(null);  
+        setSelectedFile(null);
     }
     const onFinishFailed = (errorInfo) => {
         // console.log('Failed:', errorInfo);
@@ -139,7 +137,7 @@ const showAlert=()=>{
                 />}
                 <Form
                     name="basic"
-                    form={form} 
+                    form={form}
                     labelCol={{
                         span: 8,
                     }}
@@ -148,10 +146,10 @@ const showAlert=()=>{
                     }}
                     style={{
                         maxWidth: 600,
-                        marginTop:'20px',
-                        display:'flex',
-                        flexDirection:'column',
-                        alignItems:'center',
+                        marginTop: '20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
                     }}
                     initialValues={{
                         remember: true,
@@ -185,16 +183,16 @@ const showAlert=()=>{
                     >
                         <Input className={styles.shangchuan} placeholder='版本号' />
                     </Form.Item>
- 
+
                     <Form.Item
                         label="versionType"
                         name="versionType"
-                        // rules={[
-                        //     {
-                        //         required: true,
-                        //         message: 'Please input your softwareName!',
-                        //     },
-                        // ]}
+                    // rules={[
+                    //     {
+                    //         required: true,
+                    //         message: 'Please input your softwareName!',
+                    //     },
+                    // ]}
                     >
                         <Radio.Group  >
                             <Radio value={0}> 普通版 </Radio>
@@ -212,10 +210,10 @@ const showAlert=()=>{
                     //     },
                     // ]}
                     >
-                        <div style={{width:'200px',display:'flex', justifyContent:'center'}}>
+                        <div style={{ width: '200px', display: 'flex', justifyContent: 'center' }}>
                             <TextArea rows={4} cols={300} placeholder='描述：' />
                         </div>
-                        
+
                     </Form.Item>
                     <Form.Item
                         label="winPackage:"
@@ -259,12 +257,12 @@ const showAlert=()=>{
                     <Form.Item
                         label="tags:"
                         name="tags"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your tags!',
-                        },
-                    ]}
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your tags!',
+                            },
+                        ]}
                     >
                         <Input className={styles.shangchuan} placeholder='标签（用逗号隔开）'></Input>
 
@@ -283,9 +281,9 @@ const showAlert=()=>{
                     //     },
                     // ]}
                     >
-                        <Input type='file' accept='image/*' className={styles.shangchuan} 
-                            value={selectedFile ? selectedFile.name : ''} 
-                        onChange={imageInput} ref={imageRef}></Input>
+                        <Input type='file' accept='image/*' className={styles.shangchuan}
+                            value={selectedFile ? selectedFile.name : ''}
+                            onChange={imageInput} ref={imageRef}></Input>
 
                     </Form.Item>
                     <Form.Item
@@ -311,7 +309,7 @@ const showAlert=()=>{
                         ]}
                     >
                         <Radio.Group  >
-                            <Radio  value={0}> 新软件 </Radio>
+                            <Radio value={0}> 新软件 </Radio>
                             <Radio value={1}> 新版本 </Radio>
                         </Radio.Group>
                     </Form.Item>

@@ -38,7 +38,6 @@ const Bill = () => {
             async function buyAll() {
                 try {
                     const response = await purchaseAuth(localStorage.getItem('userIdSf'), selectedInformation.id, totalPrice, softwareList)
-                    console.log('回复', response)
 
                 } catch (error) {
                     console.error('Error sending verification code:', error);

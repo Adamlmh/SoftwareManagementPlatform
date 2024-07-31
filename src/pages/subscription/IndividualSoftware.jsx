@@ -22,10 +22,8 @@ const IndividualSoftware = ({
   shoppingOrder,
 }) => {
   const [isAddToShoppingOrder, setIsAddToShoppingOrder] = useState(false);
-  console.log(shoppingOrder);
   shoppingOrder = shoppingOrder ? shoppingOrder : [];
   useEffect(() => {
-    console.log(11);
     // 使用 some 方法检查是否有匹配的项
     const isInShoppingOrder = shoppingOrder.some(
       (item) =>
