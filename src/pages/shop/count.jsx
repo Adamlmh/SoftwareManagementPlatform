@@ -15,11 +15,11 @@ const Count = (goToDetails) => {
             image: littleImage1,
             titll: '心梗小镇',
             time: '优惠时间：8.1-8.8',
-            count: '折扣：10%'
+            count: '折扣：80%'
         },
         {
             image: littleImage1,
-            titll: '心动小镇',
+            titll: '心惊小镇',
             time: '优惠时间：8.1-8.8',
             count: '折扣：80%'
         },
@@ -41,7 +41,7 @@ const Count = (goToDetails) => {
                                 <div>
                                     <h2>{item.titll}</h2>
                                     <p>{item.time}</p>
-                                    <p style={{ color:'#530095',fontSize:'16px'}}><div>{item.count}</div></p>
+                                    <p style={{ color: '#530095', fontSize: '16px' }}><div>{item.count}</div></p>
                                 </div>
                             </div>
                         </li>
