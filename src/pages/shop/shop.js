@@ -18,10 +18,8 @@ export default function Index() {
         async function receiveInformation() {
             try {
                 const response = await softwareRanking()
-                console.log(response)
                 setData(response)
                 const sortedResponse = response.data.sort((b, a) => new Date(a.createTime) - new Date(b.createTime));
-                console.log(sortedResponse)
                 setLastData(sortedResponse)
             } catch (error) {
                 console.error('Error sending verification code:', error);
@@ -34,7 +32,6 @@ export default function Index() {
     const goToDetails = (data) => {
         if (data && data.softwareId) {
             const softwareId = data.softwareId;
-            console.log(softwareId);
             const encodedSoftwareId = encodeURIComponent(softwareId); // 编码软件ID
             const url = `/header/verifybill?softwareId=${encodedSoftwareId}`; // 构建URL
             navigate(url);

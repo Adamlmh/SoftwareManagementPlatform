@@ -17,7 +17,6 @@ const MyMessage = () => {
                 const response = await checkLatestSoftware(localStorage.getItem('userIdSf'))
                 if (response.data)
                     setData(response.data)
-                // console.log(response)
             } catch (error) {
                 console.error('Error sending verification code:', error);
             }
@@ -38,7 +37,6 @@ const MyMessage = () => {
     //点击下载后
     const handleDownload = async (target) => {
         try {
-            // console.log(clickSoftWare)
             const response = await downloadSoftware(
                 clickSoftWare.softwareId,
                 localStorage.getItem('userIdSf'),
@@ -52,8 +50,6 @@ const MyMessage = () => {
                 clickSoftWare.version
             )
 
-            console.log('下载后', response);
-            console.log('url', responseUrl)
             let url = responseUrl.data
             if (target === 'windows') {
                 url = url.winUrl;
@@ -64,7 +60,6 @@ const MyMessage = () => {
             if (target === 'mac') {
                 url = url.macUrl;
             }
-            // console.log(url)
             const link = document.createElement("a");
             link.href = url;
             link.download = ""; // 设置 download 属性，可以指定下载时的文件名
