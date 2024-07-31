@@ -9,37 +9,37 @@ const EveryoneDownLoad = (goToDetails) => {
         {
             image: littleImage1,
             titll: '出发吧麦芬',
-            tag1: '标签',
-            tag2: '标签',
-            tag3: '标签',
-            tag4: '标签',
+            tag1: '策略',
+            tag2: '养成',
+            tag3: '战斗',
+            tag4: '萌系',
             description: '治愈系组队冒险放置手游'
 
         }, {
             image: littleImage1,
             titll: '出发吧麦芬',
-            tag1: '标签',
-            tag2: '标签',
-            tag3: '标签',
-            tag4: '标签',
+            tag1: '策略',
+            tag2: '养成',
+            tag3: '战斗',
+            tag4: '萌系',
             description: '治愈系组队冒险放置手游'
 
         }, {
             image: littleImage1,
             titll: '出发吧麦芬',
-            tag1: '标签',
-            tag2: '标签',
-            tag3: '标签',
-            tag4: '标签',
+            tag1: '策略',
+            tag2: '养成',
+            tag3: '战斗',
+            tag4: '萌系',
             description: '治愈系组队冒险放置手游'
 
         }, {
             image: littleImage1,
             titll: '出发吧麦芬',
-            tag1: '标签',
-            tag2: '标签',
-            tag3: '标签',
-            tag4: '标签',
+            tag1: '策略',
+            tag2: '养成',
+            tag3: '战斗',
+            tag4: '萌系',
             description: '治愈系组队冒险放置手游'
 
         }

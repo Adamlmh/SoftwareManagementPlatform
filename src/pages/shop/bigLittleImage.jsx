@@ -92,7 +92,7 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
                                     <ul></ul>
                                     <div>{item.score}</div>
                                 </div>
-                                <p>{truncateText(item.description, 35)}</p>
+                                <p style={{ color: '#C8C9CB',fontSize:'12px'}}>{truncateText(item.description, 35)}</p>
                             </div>
 
                         </li>
