@@ -10,28 +10,28 @@ const Recommend = () => {
             imageleft: littleImage1,
             imageright: littleImage2,
             titll: '元气骑士',
-            tag1: '标签',
-            tag2: '标签',
-            tag3: '标签',
-            tag4: '标签',
+            tag1: '肉鸽',
+            tag2: '像素',
+            tag3: '俯视',
+            tag4: '地牢',
             description: '这款打宝闯关两不误，休闲轻松很惬意的ARPG游戏，你一定不能错过！'
         }, {
             imageleft: littleImage1,
             imageright: littleImage2,
             titll: '元气骑士',
-            tag1: '标签',
-            tag2: '标签',
-            tag3: '标签',
-            tag4: '标签',
+            tag1: '肉鸽',
+            tag2: '像素',
+            tag3: '俯视',
+            tag4: '地牢',
             description: '这款打宝闯关两不误，休闲轻松很惬意的ARPG游戏，你一定不能错过！'
         }, {
             imageleft: littleImage1,
             imageright: littleImage2,
             titll: '元气骑士',
-            tag1: '标签',
-            tag2: '标签',
-            tag3: '标签',
-            tag4: '标签',
+            tag1: '肉鸽',
+            tag2: '像素',
+            tag3: '俯视',
+            tag4: '地牢',
             description: '这款打宝闯关两不误，休闲轻松很惬意的ARPG游戏，你一定不能错过！'
         }
     ])
