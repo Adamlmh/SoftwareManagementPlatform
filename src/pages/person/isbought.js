@@ -1,76 +1,37 @@
 import styles from "./person.module.css"
 import { Card, Button, List } from "antd"
-import { DeleteOutlined } from '@ant-design/icons';
-const data = [
-    {
-        softwareList: [
-            {
-                softwareName: '感觉不如',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            }, {
-                softwareName: '鸣鸣鸣',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            }
-        ],
-        expiredTime: ' 2024-06-16-2025-06-16',
-        licenseUrl: '#'
-    },
-    {
-        softwareList: [
-            {
-                softwareName: '潮潮潮',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            }, {
-                softwareName: '原原神神',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            }
-        ],
-        expiredTime: ' 2024-06-16-2025-06-16',
-        licenseUrl: '#'
-    },
-    {
-        softwareList: [
-            {
-                softwareName: '鸣鸣鸣',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            }, {
-                softwareName: '鸣鸣鸣',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            },
-            {
-                softwareName: '鸣鸣鸣',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            },
-            {
-                softwareName: '潮潮潮',
-                versionType: '版版本本',
-                expiredTime: ' 2024-06-16-2025-06-16'
-
-            }
-        ],
-        expiredTime: ' 2024-06-16-2025-06-16',
-        licenseUrl: '#'
-    },
+import { getLicense, AvailableSoftware } from "../../api"
+import { useState, useEffect, version } from 'react'
 
 
-];
 const Bought = () => {
+    const [data1, setData1] = useState([])
+    const [data2, setData2] = useState([])
+    useEffect(() => {
+        async function receiveInformation() {
+            try {
+                const response2 = await AvailableSoftware(localStorage.getItem('userIdSf'))
+                const response1 = await getLicense(localStorage.getItem('userIdSf'))
+                console.log('收到消息1', response1)
+                setData1(response1.data)
+                console.log('收到消息2', response2.data)
+                setData2(response2.data)
+            } catch (error) {
+                console.error('Error sending verification code:', error);
+            }
+        }
+        receiveInformation()
+    }, [])
 
-    console.log(data)
+    //点击按钮事件
+    const handleClick = (licenseUrl) => {
+        // Create a temporary <a> element and trigger the download
+        console.log('触发了点击', licenseUrl)
+        const link = document.createElement('a');
+        link.href = licenseUrl;
+        link.download = ''; // Set the download attribute to initiate download
+        link.click();
+    };
 
 
     return (
@@ -81,26 +42,26 @@ const Bought = () => {
                     className={styles.Boughtcard}>
                     <ul className={styles.bought_content}>
                         {
-                            data && data.map((item) => {
+                            data1 && data1.map((itemx, index) => {
                                 return (
-                                    <li>
+                                    <li key={index}>
                                         <List
-                                            dataSource={item.softwareList}
-                                            renderItem={(item) => (
+                                            dataSource={itemx.softwareList}
+                                            renderItem={(item, index) => (
+
                                                 <List.Item>
                                                     <div className={styles.everybought}>
-                                                        <div className={styles.pic}></div>
+                                                        <div className={styles.pic} style={{ backgroundImage: `url(${data2[index].softwareImage})` }}></div>
                                                         <div className={styles.description}>
-                                                            <h3 className={styles.softwaretitle}>{item.softwareName}</h3>
-                                                            <div className={styles.soft_description}>这款打宝闯关两不误，休闲轻松很惬意的ARPG游戏，你一定不能错过！</div>
+                                                            <h3 className={styles.softwaretitle}>{item.softwareName}({item.versionType ? '高级版' : '低级版'})</h3>
+                                                            <div className={styles.soft_description}>  {data2[index].description.length > 40
+                                                                ? `${data2[index].description.slice(0, 40)}...`
+                                                                : data2[index].description}</div>
                                                         </div>
-                                                        <div className={styles.update_time}>
-                                                            {item.expiredTime}
-                                                        </div>
+                                                        <div className={styles.update_time}>{itemx.expiredTime}</div>
                                                         {/* 用display：none修改显示按钮 */}
                                                     </div>
-                                                    <Button className={styles.download}>下载授权</Button>
-
+                                                    <Button className={styles.download} onClick={() => handleClick(itemx.licenseUrl)}>下载授权</Button>
                                                 </List.Item>
                                             )}
                                         />

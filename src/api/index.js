@@ -159,6 +159,22 @@ export function showRequiredAuthSoftware(userId) {
     params,
   });
 }
+//展示用户已经购买的软件，即未购买或者已过期的软件
+export function AvailableSoftware(userId) {
+  const params = {
+    userId,
+  };
+  console.log("展示用户未授权的软件，即未购买或者已过期的软件", params);
+  return service({
+    url: "http://47.113.224.195:31108/user/PagedQueryAvailableSoftware",
+    method: "get",
+    params,
+  });
+}
+
+
+
+
 //首页实时通知新版本
 export function checkLatestSoftware(userId) {
   const params = {
@@ -316,5 +332,18 @@ export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
     url: "http://47.113.224.195:31108/auth/purchaseAuth",
     method: "post",
     data,
+  });
+}
+
+
+//回显已购买的授权许可
+export function getLicense(userId) {
+  const params = {
+    userId,
+  };
+  return service({
+    url: "http://47.113.224.195:31108/auth/getLicense",
+    method: "get",
+    params,
   });
 }
