@@ -318,3 +318,17 @@ export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
     data,
   });
 }
+
+// 用户上传软件
+export function softwareUpload(formData) {
+
+  return service({
+    url: "http://47.113.224.195:31108/software/upload",
+    method: "post",
+    data: formData,
+    headers: {
+      // 不要设置 Content-Type，浏览器会自动处理
+      "Content-Type": "multipart/form-data",
+    },
+  });
+}

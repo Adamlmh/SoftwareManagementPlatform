@@ -15,8 +15,53 @@
 .information_part{
     width: 1200px;
     height: 500px;
+    position: relative;
+}
+/* 用户上传软件 */
+
+
+.openbox {
+    position: absolute;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    top: 50px;
+    right: 0;
+    width: 188px;
+    height: 52px;
+    border-radius: 41px;
+    color: #fff;
+    background-color: #816AFF;
 }
 
+.shangchuan {
+    width: 200px;
+}
+
+.preview {
+    width: 120px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+    /* background-color: red; */
+}
+
+.preview img {
+    width: 100%;
+    height: 100%;
+}
+
+.cancel {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    border: 0;
+    background-color: transparent;
+}
 .information_box{
     width: 100%;
     height: 340px;
@@ -352,3 +397,6 @@ height: 1200px;
 .bought_content li{
   border-bottom: 1px solid rgb(80, 77, 77);
 }
+
+
+

@@ -1,4 +1,5 @@
 import styles from "./person.module.css"
+import ModalAlert from "./uploadmodal";
 import { Card, Avatar, List, Input, Button,Modal,Alert } from "antd"
 import { UserOutlined } from '@ant-design/icons';
 import { useState, useEffect,useRef } from "react";
@@ -112,7 +113,7 @@ const [addState,setAddState]=useState(false)
             },
             {
                 key: '个性签名：',
-                text: `${myDescription ? myDescription : '哥哥别钓我'}`
+                text: `${myDescription ? myDescription : '热衷于工业软件开发，每天都被薄纱'}`
             },
         ])
         
@@ -216,6 +217,7 @@ setAddState(true)
     return (
         <div className={styles.information_part}>
             <h3 className={styles.title}>个人信息</h3>
+            <ModalAlert></ModalAlert>
             <div className={styles.information_box}>
                 <Card hoverable style={{ width: '773px' }}
                     className={styles.information_card}
