@@ -56,7 +56,7 @@ const routes = [
         element: <Subscription />,
       },
       {
-        path: "manage",
+        path: "manageChecked",
         element: <Manage />,
       },
     ],

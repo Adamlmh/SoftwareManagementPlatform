@@ -6,18 +6,14 @@ import { NavLink } from "react-router-dom";
 const items = [
   {
     key: "1",
-    label: <NavLink to={"/header/shop"}>商店首页</NavLink>,
+    label: <NavLink to={"/header/manageChecked"}>已审核</NavLink>,
   },
   {
     key: "2",
-    label: <NavLink to={"/header/allsoftware"}>全部软件</NavLink>,
-  },
-  {
-    key: "3",
-    label: <NavLink to={"/header/subscription"}>订阅购买</NavLink>,
+    label: <NavLink to={"/header/allsoftware"}>待审核</NavLink>,
   },
 ];
-const StoreDropDown = () => (
+const ManageDropDown = () => (
   <Dropdown
     menu={{
       items,
@@ -26,10 +22,10 @@ const StoreDropDown = () => (
   >
     <a onClick={(e) => e.preventDefault()}>
       <Space>
-        商店
+        管理
         <DownOutlined />
       </Space>
     </a>
   </Dropdown>
 );
-export default StoreDropDown;
+export default ManageDropDown;

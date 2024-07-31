@@ -4,10 +4,9 @@ import { Outlet } from "react-router-dom";
 import TopHeader from "./topheader";
 import BottomFooter from "./bottomfooter";
 import { useState } from "react";
+
 const TopMenu = () => {
   const [shoppingOrder, setShoppingOrder] = useState([]);
-
-
 
   return (
     <Layout>

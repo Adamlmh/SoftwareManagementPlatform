@@ -318,3 +318,11 @@ export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
     data,
   });
 }
+//管理员修改软件信息
+export function updateSoftwareInfo(data) {
+  return service({
+    url: "http://47.113.224.195:31108/admin/updateSoftwareBasicInfo",
+    method: "post",
+    data,
+  });
+}
