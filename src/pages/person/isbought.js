@@ -12,10 +12,18 @@ const Bought = () => {
             try {
                 const response2 = await AvailableSoftware(localStorage.getItem('userIdSf'))
                 const response1 = await getLicense(localStorage.getItem('userIdSf'))
-                console.log('收到消息1', response1)
-                setData1(response1.data)
-                console.log('收到消息2', response2.data)
-                setData2(response2.data)
+                const now = new Date(); // 当前时间
+                //判断是否超过截止时间
+                const filteredData1 = response1.data.filter(item => {
+                    const expiredTime = new Date(item.expiredTime);
+                    return expiredTime > now;
+                });
+                const filteredData2 = response2.data.filter(item => {
+                    const expiredTime = new Date(item.expiredTime);
+                    return expiredTime > now;
+                });
+                setData1(filteredData1)
+                setData2(filteredData2)
             } catch (error) {
                 console.error('Error sending verification code:', error);
             }
