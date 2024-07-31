@@ -49,6 +49,8 @@ const Bought = () => {
                 });
                 setData1(filteredData1)
                 setData2(filteredData2)
+                console.log(filteredData1)
+                console.log(filteredData2)
             } catch (error) {
                 console.error('Error sending verification code:', error);
             }

@@ -164,7 +164,6 @@ export function AvailableSoftware(userId) {
   const params = {
     userId,
   };
-  console.log("展示用户未授权的软件，即未购买或者已过期的软件", params);
   return service({
     url: "http://47.113.224.195:31108/user/PagedQueryAvailableSoftware",
     method: "get",
