@@ -4,18 +4,23 @@
     background-image: url('../../../assets/images/about-us-firstpage.png');
     background-size: 100% 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     color: #fff;
+}
+.content_box{
+    width: 1170px;
+    display: flex;
+        flex-direction: column;
 }
 .top{
     width: 320px;
     height: 140px;
     font-size: 45px;
-margin-left: 115px;
+/* margin-left: 115px; */
 margin-top: 56px;
 }
 .bottom{
-    margin-left: 115px;
+    /* margin-left: 115px; */
     width: 728px;
     height: 425px;
     margin-top: 43px;

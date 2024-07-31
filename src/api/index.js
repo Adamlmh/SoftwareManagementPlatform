@@ -164,7 +164,6 @@ export function AvailableSoftware(userId) {
   const params = {
     userId,
   };
-  console.log("展示用户未授权的软件，即未购买或者已过期的软件", params);
   return service({
     url: "http://47.113.224.195:31108/user/PagedQueryAvailableSoftware",
     method: "get",
@@ -370,5 +369,18 @@ export function updateAuditStatus(data) {
     url: "http://47.113.224.195:31108/admin/verifyApplication",
     method: "post",
     data,
+  });
+}
+
+// 用户上传软件
+export function softwareUpload(formData) {
+  return service({
+    url: "http://47.113.224.195:31108/software/upload",
+    method: "post",
+    data: formData,
+    headers: {
+      // 不要设置 Content-Type，浏览器会自动处理
+      "Content-Type": "multipart/form-data",
+    },
   });
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from './bill.module.css'
 import { Card } from 'antd';
 import { NavLink } from 'react-router-dom'
-import { Button, Modal } from 'antd';
+import { Modal } from 'antd';
 import { getFingerprint } from "../../api"
 
 

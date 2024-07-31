@@ -10,7 +10,7 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
         {
             image: littleImage1,
             titll: '绝地潜兵',
-            tags: ['标签', '标签', '标签'],
+            tags: ['Moba', '多人', '开放世界'],
             score: '5.0',
             description: '玩家必须齐心协力保护超级地球，在浩大的保护超保护超级地球，在浩大的保护超级地球，在浩大保护超级地球，在浩大保护超级地球，在浩大星际战争中打败人类的敌人'
 
@@ -18,21 +18,21 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
         {
             image: littleImage2,
             titll: '麻布仔大冒险',
-            tags: ['标签', '标签', '标签'],
+            tags: ['冒险', '多人', '开放世界'],
             score: '5.0',
             description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
 
         }, {
             image: littleImage3,
             titll: '地平线 西之绝境',
-            tags: ['标签', '标签', '标签'],
+            tags: ['历险', '战斗', '多人'],
             score: '5.0',
             description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
 
         }, {
             image: littleImage4,
             titll: '原神',
-            tags: ['标签', '标签', '标签'],
+            tags: ['二次元', '开放世界', '角色扮演'],
             score: '5.0',
             description: '玩家必须齐心协力保护超级地球，在浩大的星际战争中打败人类的敌人'
 
@@ -92,7 +92,7 @@ const BigLittleImage = ({ lastData, goToDetails }) => {
                                     <ul></ul>
                                     <div>{item.score}</div>
                                 </div>
-                                <p>{truncateText(item.description, 35)}</p>
+                                <p style={{ color: '#C8C9CB',fontSize:'12px'}}>{truncateText(item.description, 35)}</p>
                             </div>
 
                         </li>
