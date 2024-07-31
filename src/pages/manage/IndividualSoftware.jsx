@@ -3,6 +3,7 @@ import { Card, Col, Image, Drawer } from "antd";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Upload from "./upload";
 const StyledCard = styled(Card)`
   width: 285px;
   max-height: 300px;
@@ -88,6 +89,7 @@ const IndividualSoftware = ({
   name,
   version,
   softwareId,
+  software,
 }) => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -140,9 +142,7 @@ const IndividualSoftware = ({
             open={open}
             width={720}
           >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+            <Upload software={software} />
           </Drawer>
         </div>
       </StyledCard>

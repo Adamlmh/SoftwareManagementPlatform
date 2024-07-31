@@ -247,9 +247,9 @@ position: relative;
 .everymessage{
     width: 100%;
     height: 26px;
-    /* background-color: green; */
     display: flex;
     justify-content: space-between;
+
 }
 .detail{
     width: 70%;
@@ -267,7 +267,7 @@ position: relative;
     background-color: red;
 }
 .detail_right{
-width: 30%;
+width: 20%;
 height: 100%;
 /* background-color: red; */
 display: flex;
@@ -275,18 +275,26 @@ justify-content: space-evenly;
 }
 .messagetime{
     color: #505050;
+
+    flex: 1.5;
 }
 .disknow{
     color: #8846BC;
+        flex: 1;
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
 .isknow{
     color:#CCCCCC;
+        
 }
 .delete{
     border: 0;
     width: 20px;
     height: 20px;
     color:#999999;
+    flex: 1;
 }
 .pagebtn{
     position: absolute;
@@ -393,10 +401,17 @@ height: 1200px;
     top: -5px;
 }
 
-
 .bought_content li{
   border-bottom: 1px solid rgb(80, 77, 77);
 }
 
-
-
+.normalVersion{
+    background-color: #816AFF;
+    font-size: 16px;
+    color: #fff;
+}
+.highVersion{
+    background-color: rgb(255, 215, 0);
+    font-size: 16px;
+    color: #fff;
+}

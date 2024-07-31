@@ -6,7 +6,6 @@ import { myProductPage } from "../../api";
 
 function Manage() {
   const [allSoftwareData, setAllSoftwareData] = useState([]);
-
   const [total, setTotal] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +23,6 @@ function Manage() {
     setTotal(response.data.total);
     setAllSoftwareData(response.data.data);
   };
-  console.log(allSoftwareData);
   return (
     <div
       style={{
@@ -47,7 +45,7 @@ function Manage() {
           margin: "50px 0 35px 0",
         }}
       >
-        我的产品
+        我的产品(已审核)
       </div>
       <Row style={{ width: 1200 }} gutter={[8, 16]}>
         {allSoftwareData.map((software, index) => (
@@ -59,6 +57,7 @@ function Manage() {
               description={software.description}
               imageUrl={software.softwareImage}
               softwareId={software.softwareId}
+              software={software}
             />
           </Col>
         ))}
