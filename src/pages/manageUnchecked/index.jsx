@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Pagination } from "antd";
 import IndividualSoftware from "./IndividualSoftware";
+import { getAuditRecord } from "../../api";
 
-import { myProductPage } from "../../api";
-
-function Manage() {
+function ManageUnchecked() {
   const [allSoftwareData, setAllSoftwareData] = useState([]);
   const [total, setTotal] = useState(0);
+  const [flash, setFlash] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await myProductPage({});
-      setTotal(response.data.total);
-      setAllSoftwareData(response.data.data);
+      const response = await getAuditRecord({});
+
+      setTotal(response.data.length);
+      setAllSoftwareData(response.data);
     };
     fetchData();
-  }, []);
+  }, [flash]);
   const onChange = async (pageNumber) => {
     console.log("Page: ", pageNumber);
-    const response = await myProductPage({
+    const response = await getAuditRecord({
       page: pageNumber,
     });
-    setTotal(response.data.total);
-    setAllSoftwareData(response.data.data);
+    setTotal(response.data.length);
+    setAllSoftwareData(response.data);
   };
   return (
     <div
@@ -45,23 +46,25 @@ function Manage() {
           margin: "50px 0 35px 0",
         }}
       >
-        上架库
+        产品库
       </div>
       <Row style={{ width: 1200 }} gutter={[8, 16]}>
-        {allSoftwareData.map((software, index) => (
-          <Col key={software.softwareId} span={6}>
-            <IndividualSoftware
-              name={software.softwareName}
-              version={software.version}
-              tags={software.tags}
-              description={software.description}
-              imageUrl={software.softwareImage}
-              softwareId={software.softwareId}
-              software={software}
-            />
-          </Col>
-        ))}
+        {allSoftwareData ? (
+          allSoftwareData.map((software, index) => (
+            <Col key={software.softwareInfoTempId} span={6}>
+              <IndividualSoftware
+                {...software}
+                software={software}
+                setFlash={setFlash}
+                flash={flash}
+              />
+            </Col>
+          ))
+        ) : (
+          <></>
+        )}
       </Row>
+      {console.log(999, allSoftwareData)}
       <Pagination
         showQuickJumper
         defaultCurrent={1}
@@ -74,4 +77,4 @@ function Manage() {
   );
 }
 
-export default Manage;
+export default ManageUnchecked;
