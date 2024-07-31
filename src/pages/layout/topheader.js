@@ -4,10 +4,11 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StoreDropDown from "./Dropdown";
 import ManageDropDown from "./manageDropdown";
+import { useAdmin } from "../../utils/context"; // 导入自定义 Hook
 const { Header } = Layout;
 const TopHeader = () => {
   const [loginState, setLoginStage] = useState(0);
-
+  const { isAdmin } = useAdmin();
   useEffect(() => {
     if (localStorage.getItem("token") && localStorage.getItem("userIdSf"))
       setLoginStage(1);
@@ -33,7 +34,10 @@ const TopHeader = () => {
           <NavLink to={"/header/about"}>
             <Menu.Item className="top_menu_item">关于我们</Menu.Item>
           </NavLink>
-          <Menu.Item className="top_menu_item">
+          <Menu.Item
+            className="top_menu_item"
+            style={isAdmin ? { display: "block" } : { display: "none" }}
+          >
             <ManageDropDown />
           </Menu.Item>
         </Menu>

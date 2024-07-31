@@ -1,10 +1,13 @@
 import "./App.css";
 import Router from "./router";
+import { AdminProvider } from "./utils/context"; // 导入 AdminProvider
 function App() {
   return (
-    <div className="App">
-      <Router />
-    </div>
+    <AdminProvider>
+      <div className="App">
+        <Router />
+      </div>
+    </AdminProvider>
   );
 }
 

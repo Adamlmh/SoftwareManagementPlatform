@@ -44,5 +44,6 @@
   "devDependencies": {
     "css-loader": "^7.1.2",
     "style-loader": "^4.0.0"
-  }
+  },
+  "proxy": "http://47.113.224.195:31108"
 }

@@ -3,7 +3,7 @@ import service from "../utils/axios";
 //登录API
 export function loginAPI(data) {
   return service({
-    url: "http://47.113.224.195:31108/login",
+    url: "/login",
     method: "post",
     data,
   });
@@ -17,7 +17,7 @@ export function sendVerificationCode(email) {
   };
   console.log(data);
   return service({
-    url: "http://47.113.224.195:31108/account/sendVerificationCode",
+    url: "/account/sendVerificationCode",
     method: "post",
     data,
   });
@@ -31,7 +31,7 @@ export function register(email, verificationCode, password) {
   };
   // console.log("发送注册", data);
   return service({
-    url: "http://47.113.224.195:31108/account/register",
+    url: "/account/register",
     method: "post",
     data,
   });
@@ -45,7 +45,7 @@ export function accountLogin(account, password, role = 1) {
   };
   // console.log("发送登录", data);
   return service({
-    url: "http://47.113.224.195:31108/account/login",
+    url: "/account/login",
     method: "post",
     data,
   });
@@ -59,7 +59,7 @@ export function updatePassword(email, password) {
   };
   // console.log("发送修改密码", data);
   return service({
-    url: "http://47.113.224.195:31108/account/updatePassword",
+    url: "/account/updatePassword",
     method: "post",
     data,
   });
@@ -71,7 +71,7 @@ export function homePageUserInfo(userId) {
   };
   // console.log("发送获得用户名与头像", params);
   return service({
-    url: "http://47.113.224.195:31108/account/homePageUserInfo",
+    url: "/account/homePageUserInfo",
     method: "get",
     params,
   });
@@ -92,7 +92,7 @@ export function homePageShowSoftware(
   };
   // console.log("发送首页分页展示", params);
   return service({
-    url: "http://47.113.224.195:31108/software/homePageShowSoftware",
+    url: "/software/homePageShowSoftware",
     method: "get",
     params,
   });
@@ -102,7 +102,7 @@ export function homePageShowSoftware(
 export function softwareRanking() {
   console.log("发现软件热门排行");
   return service({
-    url: "http://47.113.224.195:31108/software/softwareRanking",
+    url: "/software/softwareRanking",
     method: "get",
   });
 }
@@ -114,7 +114,7 @@ export function basicSoftwareInfo(softwareId) {
   };
   // console.log("发送件详情页 上半部分基本软件信息", params);
   return service({
-    url: "http://47.113.224.195:31108/software/basicSoftwareInfo",
+    url: "/software/basicSoftwareInfo",
     method: "get",
     params,
   });
@@ -127,7 +127,7 @@ export function detailedSoftwareInfo(softwareId) {
   };
   // console.log("发送首软件详情页 下半部分 普通/专业 软件信息", params);
   return service({
-    url: "http://47.113.224.195:31108/software/detailedSoftwareInfo",
+    url: "/software/detailedSoftwareInfo",
     method: "get",
     params,
   });
@@ -141,7 +141,7 @@ export function historySoftwareVersion(softwareId, versionType) {
   };
   // console.log("软件详情页下半 历史查看", params);
   return service({
-    url: "http://47.113.224.195:31108/software/historySoftwareVersion",
+    url: "/software/historySoftwareVersion",
     method: "get",
     params,
   });
@@ -154,7 +154,7 @@ export function showRequiredAuthSoftware(userId) {
   };
   console.log("展示用户未授权的软件，即未购买或者已过期的软件", params);
   return service({
-    url: "http://47.113.224.195:31108/software/showRequiredAuthSoftware",
+    url: "/software/showRequiredAuthSoftware",
     method: "get",
     params,
   });
@@ -165,7 +165,7 @@ export function AvailableSoftware(userId) {
     userId,
   };
   return service({
-    url: "http://47.113.224.195:31108/user/PagedQueryAvailableSoftware",
+    url: "/user/PagedQueryAvailableSoftware",
     method: "get",
     params,
   });
@@ -178,7 +178,7 @@ export function checkLatestSoftware(userId) {
   };
   // console.log("首页实时通知新版本", params);
   return service({
-    url: "http://47.113.224.195:31108/software/checkLatestSoftware",
+    url: "/software/checkLatestSoftware",
     method: "get",
     params,
   });
@@ -197,7 +197,7 @@ export function allSoftwarePage(params) {
   };
   console.log("全部软件首页", params);
   return service({
-    url: "http://47.113.224.195:31108/software/homePageShowSoftware",
+    url: "/software/homePageShowSoftware",
     method: "get",
     params,
   });
@@ -212,7 +212,7 @@ export function subscribeSoftwarePage(params) {
   };
   console.log("订阅购买展示", params);
   return service({
-    url: `http://47.113.224.195:31108/software/showRequiredAuthSoftware`,
+    url: `/software/showRequiredAuthSoftware`,
     method: "get",
     params,
   });
@@ -226,7 +226,7 @@ export function getCommit(softwareId, userId, versionType, version) {
     version,
   };
   return service({
-    url: "http://47.113.224.195:31108/auth/checkAuth",
+    url: "/auth/checkAuth",
     method: "post",
     data,
   });
@@ -240,7 +240,7 @@ export function downloadSoftware(softwareId, userId, versionType, version) {
     version,
   };
   return service({
-    url: "http://47.113.224.195:31108/software/downloadSoftware",
+    url: "/software/downloadSoftware",
     method: "post",
     data,
   });
@@ -256,7 +256,7 @@ export function myProductPage(params) {
     pageSize: 12,
   };
   return service({
-    url: `http://47.113.224.195:31108/admin/homePageShowAllSoftware`,
+    url: `/admin/homePageShowAllSoftware`,
     method: "get",
     params,
   });
@@ -270,7 +270,7 @@ export function updateUserInfo(username, description, userId, headImage = "") {
   formData.append("headImage", headImage);
 
   return service({
-    url: "http://47.113.224.195:31108/user/updateUserInfo",
+    url: "/user/updateUserInfo",
     method: "post",
     data: formData,
     headers: {
@@ -285,7 +285,7 @@ export function getFingerprint(userId) {
     userId,
   };
   return service({
-    url: "http://47.113.224.195:31108/hardware/getFingerprint",
+    url: "/hardware/getFingerprint",
     method: "get",
     params,
   });
@@ -296,7 +296,7 @@ export function deleteFingerprint(userHardwareId) {
     userHardwareId,
   };
   return service({
-    url: "http://47.113.224.195:31108/hardware/deleteFingerprint",
+    url: "/hardware/deleteFingerprint",
     method: "DELETE",
     params,
   });
@@ -309,7 +309,7 @@ export function insertFingerprint(userId, fingerprint, hardwareName) {
     hardwareName,
   };
   return service({
-    url: "http://47.113.224.195:31108/hardware/insertFingerprint",
+    url: "/hardware/insertFingerprint",
     method: "post",
     data,
   });
@@ -325,7 +325,7 @@ export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
   };
   console.log("购买", data);
   return service({
-    url: "http://47.113.224.195:31108/auth/purchaseAuth",
+    url: "/auth/purchaseAuth",
     method: "post",
     data,
   });
@@ -333,7 +333,7 @@ export function purchaseAuth(userId, fingerprint, totalPrize, softwareList) {
 //管理员修改软件信息
 export function updateSoftwareInfo(data) {
   return service({
-    url: "http://47.113.224.195:31108/admin/updateSoftwareBasicInfo",
+    url: "/admin/updateSoftwareBasicInfo",
     method: "post",
     data,
   });
@@ -345,7 +345,7 @@ export function getLicense(userId) {
     userId,
   };
   return service({
-    url: "http://47.113.224.195:31108/auth/getLicense",
+    url: "/auth/getLicense",
     method: "get",
     params,
   });
@@ -358,7 +358,7 @@ export function getAuditRecord(params) {
     ...params,
   };
   return service({
-    url: "http://47.113.224.195:31108/admin/showVerificationHistory",
+    url: "/admin/showVerificationHistory",
     method: "get",
     params,
   });
@@ -366,7 +366,7 @@ export function getAuditRecord(params) {
 //新软件/新版本 审核通过/驳回
 export function updateAuditStatus(data) {
   return service({
-    url: "http://47.113.224.195:31108/admin/verifyApplication",
+    url: "/admin/verifyApplication",
     method: "post",
     data,
   });
@@ -375,7 +375,7 @@ export function updateAuditStatus(data) {
 // 用户上传软件
 export function softwareUpload(formData) {
   return service({
-    url: "http://47.113.224.195:31108/software/upload",
+    url: "/software/upload",
     method: "post",
     data: formData,
     headers: {

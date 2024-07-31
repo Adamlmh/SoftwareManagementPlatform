@@ -90,7 +90,7 @@ const IndividualSoftware = ({
   software,
   passedStringStatus,
   setFlash,
-  flash
+  flash,
 }) => {
   console.log(777, software);
   tags = tags || ["无"];
