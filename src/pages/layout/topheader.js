@@ -3,6 +3,7 @@ import { Layout, Menu, Input, Button } from "antd";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StoreDropDown from "./Dropdown";
+import ManageDropDown from "./manageDropdown";
 const { Header } = Layout;
 const TopHeader = () => {
   const [loginState, setLoginStage] = useState(0);
@@ -26,16 +27,15 @@ const TopHeader = () => {
           <Menu.Item className="top_menu_item">
             <StoreDropDown />
           </Menu.Item>
-
           <NavLink to={"/header/person"}>
             <Menu.Item className="top_menu_item">我的</Menu.Item>
           </NavLink>
           <NavLink to={"/header/about"}>
             <Menu.Item className="top_menu_item">关于我们</Menu.Item>
           </NavLink>
-          <NavLink to={"/header/manage"}>
-            <Menu.Item className="top_menu_item">管理</Menu.Item>
-          </NavLink>
+          <Menu.Item className="top_menu_item">
+            <ManageDropDown />
+          </Menu.Item>
         </Menu>
       </div>
       <div className="top_search">

@@ -72,10 +72,14 @@ const Index = ({ lastData, goToDetails }) => {
         <Carousel autoplay style={contentStyle}>
             {data.map((item, index) => {
                 return (<div className={styles.carouselTitle} onClick={() => clickImg(item)}>
-                    <div>  <h1 >{item.titll}</h1>
-                        <h2 >{truncateText(item.description, 40)}</h2></div>
-                    <h3 style={contentStyle} className={styles.carouselImage}><img src={item.image} className={styles.carouselImage} /></h3>
-                </div>)
+                    <div className={styles.picname}>  
+                        <h1 >{item.titll}</h1>
+                        <h2 >{truncateText(item.description, 40)}</h2>
+                        </div>
+                    <img src={item.image} className={styles.carouselImage} />
+                    {/* <h3 style={contentStyle} className={styles.carouselImage}></h3> */}
+                </div>
+                )
             })}
         </Carousel>
     );

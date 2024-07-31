@@ -15,8 +15,53 @@
 .information_part{
     width: 1200px;
     height: 500px;
+    position: relative;
+}
+/* 用户上传软件 */
+
+
+.openbox {
+    position: absolute;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    top: 50px;
+    right: 0;
+    width: 188px;
+    height: 52px;
+    border-radius: 41px;
+    color: #fff;
+    background-color: #816AFF;
 }
 
+.shangchuan {
+    width: 200px;
+}
+
+.preview {
+    width: 120px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+    /* background-color: red; */
+}
+
+.preview img {
+    width: 100%;
+    height: 100%;
+}
+
+.cancel {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    border: 0;
+    background-color: transparent;
+}
 .information_box{
     width: 100%;
     height: 340px;
@@ -264,15 +309,18 @@ justify-content: space-evenly;
 /* 第三部分 已购买的软件 */
 .bought_part{
 width: 1200px;
-height: 1200px;
+/* height: 1200px; */
+max-height: 1200px;
+margin-bottom: 30px;
 }
 .Bought_box{
     width: 100%;
-    height: 1010px;
+    /* height: 1010px; */
+    max-height: 1010px;
     margin-top: 40px;
 }
 .Boughtcard{
-    height: 100%;
+    /* height: 100%; */
 }
 .everybought{
     width: 1120px;
@@ -284,7 +332,8 @@ height: 1200px;
 }
 .bought_content{
     width: 100%;
-    height: 950px;
+    /* height: 950px; */
+    max-height: 950px;
     /* background-color: red; */
     overflow: auto;
 
